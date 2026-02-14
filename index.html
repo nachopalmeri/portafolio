@@ -178,18 +178,18 @@
             background: #555; 
         }
         
-        /* Fade-in animations */
+        /* Fade-in animations - faster */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeInUp 0.6s ease forwards;
+            animation: fadeInUp 0.3s ease forwards;
         }
         
-        .fade-in-delay-1 { animation-delay: 0.1s; }
-        .fade-in-delay-2 { animation-delay: 0.2s; }
-        .fade-in-delay-3 { animation-delay: 0.3s; }
-        .fade-in-delay-4 { animation-delay: 0.4s; }
-        .fade-in-delay-5 { animation-delay: 0.5s; }
+        .fade-in-delay-1 { animation-delay: 0.05s; }
+        .fade-in-delay-2 { animation-delay: 0.1s; }
+        .fade-in-delay-3 { animation-delay: 0.15s; }
+        .fade-in-delay-4 { animation-delay: 0.2s; }
+        .fade-in-delay-5 { animation-delay: 0.25s; }
         
         @keyframes fadeInUp {
             to {
@@ -775,13 +775,13 @@
 </div>
 
 <!-- Soft Skills Section -->
-<div class="md:col-span-12 grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-<div class="bento-card rounded-2xl p-6 md:p-8 flex flex-col justify-between h-auto min-h-[200px]">
+<div class="md:col-span-12 mt-4">
+<div class="bento-card rounded-2xl p-6 md:p-8 h-auto">
 <div class="flex items-center gap-2 mb-6">
 <span class="material-symbols-outlined text-white">psychology</span>
 <h3 class="text-sm font-bold text-white uppercase tracking-widest">HABILIDADES BLANDAS</h3>
 </div>
-<div class="grid grid-cols-2 gap-4">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
 <div class="flex items-center gap-3 p-3 bg-[#111] border border-[#222] rounded-lg">
 <span class="material-symbols-outlined text-green-400 text-xl">groups</span>
 <div>
@@ -810,15 +810,6 @@
 <p class="text-[10px] text-[#666]">Organización</p>
 </div>
 </div>
-</div>
-</div>
-
-<div class="bento-card rounded-2xl p-6 md:p-8 flex flex-col justify-between h-auto min-h-[200px]">
-<div class="flex items-center gap-2 mb-6">
-<span class="material-symbols-outlined text-white">psychology</span>
-<h3 class="text-sm font-bold text-white uppercase tracking-widest">MÁS HABILIDADES</h3>
-</div>
-<div class="grid grid-cols-2 gap-4">
 <div class="flex items-center gap-3 p-3 bg-[#111] border border-[#222] rounded-lg">
 <span class="material-symbols-outlined text-orange-400 text-xl">rocket_launch</span>
 <div>
@@ -859,7 +850,6 @@
 <div>
 <p class="text-xs text-white font-semibold">Curiosidad</p>
 <p class="text-[10px] text-[#666]">Exploración constante</p>
-</div>
 </div>
 </div>
 </div>
@@ -987,7 +977,7 @@
         }, { threshold: 0.1 });
         
         fadeElements.forEach((el, index) => {
-            el.style.animationDelay = `${index * 0.1}s`;
+            el.style.animationDelay = `${index * 0.05}s`;
             fadeObserver.observe(el);
         });
     </script>
