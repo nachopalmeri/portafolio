@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ignacio Palmeri | Proyectos Web</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
+  
+  <meta name="description" content="Portafolio de Ignacio Palmeri - Proyectos de desarrollo web, Python, Web3 y más">
+  <meta property="og:title" content="Ignacio Palmeri | Proyectos Web">
+  <meta property="og:description" content="Explora todos mis proyectos de desarrollo web">
+  <meta property="og:type" content="website">
+  
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --bg-soft: #12121a;
+      --surface: #1a1a25;
+      --line: #2a2a3a;
+      --text: #f0f0f5;
+      --muted: #8888a0;
+      --accent: #6366f1;
+      --accent-hover: #818cf8;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      background: 
+        radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+        var(--bg);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--success);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.2); }
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      padding: 40px 0 80px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 28px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--success));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+      box-shadow: var(--shadow);
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--accent), var(--success));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .project-tag {
+      display: inline-block;
+      background: rgba(99, 102, 241, 0.2);
+      color: var(--accent-hover);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .project-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tech-tag {
+      background: var(--bg-soft);
+      color: var(--muted);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      border: 1px solid var(--line);
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: gap 0.3s;
+    }
+
+    .project-link:hover {
+      gap: 12px;
+      color: var(--accent-hover);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 32px 0;
+      text-align: center;
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        Portafolio Activo
+      </div>
+      <h1>Ignacio Palmeri</h1>
+      <p class="subtitle">Estudiante de Gestión de Tecnología de la Información (UADE). Explorando el mundo del desarrollo web, automatización con Python y tecnologías Web3.</p>
+    </header>
+
+    <section class="projects-grid">
+      <!-- Polymarket Bot -->
+      <article class="project-card">
+        <div class="project-icon">🤖</div>
+        <span class="project-tag">Destacado</span>
+        <h3>Bot de Seguimiento Polymarket</h3>
+        <p>Sistema en Python conectado a API de Polymarket para alertas en tiempo real vía Telegram. Manejo seguro de credenciales.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Telegram API</span>
+          <span class="tech-tag">Polymarket</span>
+        </div>
+        <a href="https://polytools-omega.vercel.app/" target="_blank" class="project-link">
+          Ver proyecto <span>→</span>
+        </a>
+      </article>
+
+      <!-- Fútbol Tracker -->
+      <article class="project-card">
+        <div class="project-icon">⚽</div>
+        <span class="project-tag">Proyecto</span>
+        <h3>Fútbol Tracker</h3>
+        <p>Web para trackear partidos de fútbol amateur. Seguimiento de estadísticas, goles y rendimiento.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">HTML/CSS</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">LocalStorage</span>
+        </div>
+        <a href="https://fulbotracker.vercel.app/" target="_blank" class="project-link">
+          Ver proyecto <span>→</span>
+        </a>
+      </article>
+
+      <!-- DApp Blockchain -->
+      <article class="project-card">
+        <div class="project-icon">⛓️</div>
+        <span class="project-tag">Web3</span>
+        <h3>DApp Registro Blockchain</h3>
+        <p>Aplicación descentralizada en Base Network para registros inmutables mediante Smart Contracts.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Solidity</span>
+          <span class="tech-tag">Web3.py</span>
+          <span class="tech-tag">Base</span>
+        </div>
+        <a href="https://prodesol.vercel.app/" target="_blank" class="project-link">
+          Ver proyecto <span>→</span>
+        </a>
+      </article>
+
+      <!-- Comida de Barrio -->
+      <article class="project-card">
+        <div class="project-icon">🍽️</div>
+        <span class="project-tag">E-commerce</span>
+        <h3>Comida de Barrio</h3>
+        <p>Plataforma de delivery con carrito de compras, favoritos, búsqueda de restaurantes y diseño responsivo.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Bootstrap</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">LocalStorage</span>
+        </div>
+        <a href="https://comidadebarrio.vercel.app/" target="_blank" class="project-link">
+          Ver proyecto <span>→</span>
+        </a>
+      </article>
+
+      <!-- Ejercicios DOM -->
+      <article class="project-card">
+        <div class="project-icon">📚</div>
+        <span class="project-tag">Prácticas</span>
+        <h3>Ejercicios DOM</h3>
+        <p>Colección de ejercicios de manipulación del DOM con jQuery y JavaScript vanilla.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">jQuery</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">HTML/CSS</span>
+        </div>
+        <a href="https://dom-two.vercel.app/Ejercicios/ejercicio-jQuery/ejercicio-jQuery/index.html" target="_blank" class="project-link">
+          Ver proyecto <span>→</span>
+        </a>
+      </article>
+
+      <!-- Landing Pages -->
+      <article class="project-card">
+        <div class="project-icon">🎨</div>
+        <span class="project-tag">Diseño</span>
+        <h3>Landing Pages</h3>
+        <p>Desarrollo de landing pages personalizadas para negocios locales. Diseño responsivo y optimizado.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">HTML/CSS</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">Responsive</span>
+        </div>
+        <a href="https://dom-two.vercel.app/" target="_blank" class="project-link">
+          Ver proyecto <span>→</span>
+        </a>
+      </article>
+    </section>
+
+    <footer>
+      <p>© 2026 Ignacio Palmeri | <a href="https://portafolioignaciopalmeri.vercel.app/">Ver portafolio principal</a></p>
+    </footer>
+  </div>
+</body>
+</html>
