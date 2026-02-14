@@ -13,6 +13,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>"/>
 <title>Ignacio Palmeri - Portfolio</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
@@ -439,7 +440,14 @@
 </div>
 </div>
 </header>
-<div id="proyectos" class="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-min">
+
+<!-- Proyectos Section -->
+<section id="proyectos" class="mb-8">
+    <div class="flex items-center gap-3 mb-6">
+        <span class="material-symbols-outlined text-white text-2xl">folder</span>
+        <h2 class="text-2xl font-bold text-white uppercase tracking-wider">Proyectos</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-min">
 <a href="https://polytools-omega.vercel.app/" target="_blank" class="md:col-span-7 bento-card featured rounded-2xl p-6 md:p-8 flex flex-col justify-between group noise-bg scan-lines relative overflow-hidden h-[400px] cursor-pointer">
 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10"></div>
 <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-[#1a1a1a] via-[#090909] to-[#000000]"></div>
@@ -519,31 +527,33 @@
 </div>
 </div>
 </a>
-<a href="https://github.com/nachopalmeri" target="_blank" class="bento-card rounded-2xl p-6 md:p-8 flex flex-col justify-between group h-auto min-h-[250px] relative overflow-hidden cursor-pointer">
+<a href="https://dom-two.vercel.app/" target="_blank" class="bento-card rounded-2xl p-6 md:p-8 flex flex-col justify-between group h-auto min-h-[250px] relative overflow-hidden cursor-pointer">
 <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
 <i class="fa-brands fa-github-alt text-6xl text-white"></i>
 </div>
 <div class="relative z-20 flex justify-between items-start mb-6">
 <div class="flex items-center gap-3">
 <div class="p-2 bg-[#111] border border-[#222] rounded-lg">
-<span class="material-symbols-outlined text-white">terminal</span>
+<span class="material-symbols-outlined text-white">web</span>
 </div>
-<h3 class="text-lg font-bold uppercase tracking-wider text-white">Scripts Diversos</h3>
+<h3 class="text-lg font-bold uppercase tracking-wider text-white">Landing Pages</h3>
 </div>
 <span class="material-symbols-outlined text-[#333] group-hover:text-white transition-colors">arrow_outward</span>
 </div>
 <div class="relative z-20">
 <p class="text-sm text-[#888] leading-relaxed mb-4">
-                            Contribuciones a repositorios y scripts de automatización en Bash/Python para optimización de servidores y workflows de desarrollo.
+                            Desarrollo de landing pages personalizadas para negocios locales. Diseño responsivo, optimizado para conversión y adaptado a dispositivos móviles.
                         </p>
 <div class="flex flex-wrap gap-2">
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Bash</span>
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Automation</span>
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Docker</span>
+<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">HTML/CSS</span>
+<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">JavaScript</span>
+<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Responsive</span>
 </div>
 </div>
 </a>
 </div>
+</section>
+
 <div id="trayectoria" class="md:col-span-8 bento-card rounded-2xl p-6 md:p-8 relative">
 <div class="flex items-center gap-3 mb-8">
 <span class="material-symbols-outlined text-white">history_edu</span>
@@ -856,55 +866,24 @@
 </div>
 </div>
 
-<footer class="mt-20 border-t border-[#1F1F1F] bg-gradient-to-t from-[#0a0a0a] to-transparent">
-            <div class="max-w-7xl mx-auto px-4 md:px-8 py-12">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                    <!-- Brand -->
-                    <div class="text-center md:text-left">
-                        <h3 class="text-2xl font-bold text-white display-font mb-2">Ignacio Palmeri</h3>
-                        <p class="text-sm text-[#666] mb-4">Desarrollador en formación</p>
-                        <div class="flex justify-center md:justify-start gap-3">
-                            <a href="https://github.com/nachopalmeri" target="_blank" class="w-10 h-10 flex items-center justify-center border border-[#333] rounded-full hover:bg-white hover:text-black transition-all" aria-label="GitHub">
-                                <i class="fa-brands fa-github"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/ignacio-palmeri-64035b378/" target="_blank" class="w-10 h-10 flex items-center justify-center border border-[#333] rounded-full hover:bg-[#0077b5] hover:text-white hover:border-[#0077b5] transition-all" aria-label="LinkedIn">
-                                <i class="fa-brands fa-linkedin-in"></i>
-                            </a>
-                            <button onclick="copyEmail()" class="w-10 h-10 flex items-center justify-center border border-[#333] rounded-full hover:bg-white hover:text-black transition-all" aria-label="Email">
-                                <i class="fa-solid fa-envelope"></i>
-                            </button>
-                        </div>
+<footer class="bg-black text-light pt-5 pb-4 border-top border-secondary">
+            <div class="container">
+                <div class="row align-items-center justify-content-between text-center">
+                    <div class="col-12 col-md-4 mb-3 mb-md-0">
+                        <span class="text-white fw-bold">© 2026 IGNACIO PALMERI</span>
+                        <span class="text-secondary ms-2 d-none d-md-inline">|</span>
+                        <span class="text-secondary ms-2 d-none d-md-inline" style="letter-spacing: 2px;">BUILDING THE FUTURE</span>
                     </div>
-                    
-                    <!-- Quick Links -->
-                    <div class="text-center">
-                        <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Enlaces Rápidos</h4>
-                        <div class="flex flex-col gap-2">
-                            <a href="#inicio" class="text-sm text-[#666] hover:text-white transition-colors">Inicio</a>
-                            <a href="#proyectos" class="text-sm text-[#666] hover:text-white transition-colors">Proyectos</a>
-                            <a href="#habilidades" class="text-sm text-[#666] hover:text-white transition-colors">Habilidades</a>
-                            <a href="#trayectoria" class="text-sm text-[#666] hover:text-white transition-colors">Trayectoria</a>
-                        </div>
+                    <div class="col-12 col-md-4 mb-3 mb-md-0">
+                        <a href="#inicio" class="text-secondary text-decoration-none me-3">Inicio</a>
+                        <a href="#proyectos" class="text-secondary text-decoration-none me-3">Proyectos</a>
+                        <a href="#habilidades" class="text-secondary text-decoration-none me-3">Habilidades</a>
+                        <a href="#trayectoria" class="text-secondary text-decoration-none">Trayectoria</a>
                     </div>
-                    
-                    <!-- Contact CTA -->
-                    <div class="text-center md:text-right">
-                        <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">¿Trabajamos juntos?</h4>
-                        <p class="text-sm text-[#666] mb-4">Disponible para roles Trainee/Junior</p>
-                        <a href="mailto:ignaciopalmeri1@gmail.com" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-bold rounded-full hover:bg-gray-200 transition-all">
-                            <span>Contactar</span>
-                            <span class="material-symbols-outlined text-lg">arrow_forward</span>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Bottom Bar -->
-                <div class="pt-8 border-t border-[#222] flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p class="text-xs text-[#444]">© 2026 IGNACIO PALMERI</p>
-                    <p class="text-xs text-[#333] font-mono tracking-widest">BUILDING THE FUTURE</p>
-                    <div class="flex gap-6">
-                        <a href="#" class="text-xs text-[#444] hover:text-white transition-colors">Privacidad</a>
-                        <a href="#" class="text-xs text-[#444] hover:text-white transition-colors">Términos</a>
+                    <div class="col-12 col-md-4">
+                        <a href="https://github.com/nachopalmeri" target="_blank" class="text-secondary text-decoration-none me-3" aria-label="GitHub"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="https://www.linkedin.com/in/ignacio-palmeri-64035b378/" target="_blank" class="text-secondary text-decoration-none me-3" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="mailto:ignaciopalmeri1@gmail.com" class="text-secondary text-decoration-none" aria-label="Email"><i class="fas fa-envelope fa-lg"></i></a>
                     </div>
                 </div>
             </div>
