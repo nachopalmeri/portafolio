@@ -64,15 +64,60 @@
         .bento-card {
             background-color: var(--bg-secondary);
             border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
+        
         .bento-card:hover {
             border-color: #444444;
             background-color: #0F0F0F;
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05);
         }
+        
         [data-theme="light"] .bento-card:hover {
             border-color: #999;
             background-color: #ebebeb;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05);
+        }
+        
+        /* Featured card with animated gradient border */
+        .bento-card.featured {
+            position: relative;
+            border: none;
+        }
+        
+        .bento-card.featured::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background-size: 300% 300%;
+            animation: gradient-shift 8s ease infinite;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Glow effect on featured cards */
+        .bento-card.featured:hover::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, rgba(102,126,234,0.3), rgba(240,147,251,0.3));
+            filter: blur(20px);
+            z-index: -1;
+            opacity: 0.6;
         }
         
         .display-font {
@@ -92,6 +137,31 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
             pointer-events: none;
             z-index: 10;
+        }
+        
+        /* Subtle scan lines effect */
+        .scan-lines::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(255,255,255,0.01) 2px,
+                rgba(255,255,255,0.01) 4px
+            );
+            pointer-events: none;
+            z-index: 11;
+            animation: scanline 10s linear infinite;
+        }
+        
+        @keyframes scanline {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(4px); }
         }
         
         ::-webkit-scrollbar {
@@ -128,12 +198,14 @@
             }
         }
         
-        /* Typewriter effect */
+        /* Enhanced typewriter effect */
         .typewriter {
             overflow: hidden;
             white-space: nowrap;
             border-right: 2px solid #22c55e;
-            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+            animation: typing 2.5s steps(35, end), blink-caret 0.75s step-end infinite;
+            font-family: 'Courier New', monospace;
+            text-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
         }
         
         @keyframes typing {
@@ -143,7 +215,42 @@
         
         @keyframes blink-caret {
             from, to { border-color: transparent }
-            50% { border-color: #22c55e }
+            50% { border-color: #22c55e; box-shadow: 0 0 5px #22c55e; }
+        }
+        
+        /* Text glow effect for headings */
+        .glow-text {
+            text-shadow: 0 0 20px rgba(255,255,255,0.1), 0 0 40px rgba(255,255,255,0.05);
+        }
+        
+        /* Magnetic button effect */
+        .magnetic-btn {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .magnetic-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Shimmer effect for tags */
+        .tech-tag {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-tag::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .tech-tag:hover::after {
+            left: 100%;
         }
         
         /* Progress bar animation */
@@ -273,7 +380,7 @@
 <span class="text-[10px] md:text-xs font-mono font-medium text-text-secondary uppercase tracking-widest">DISPONIBLE PARA TRABAJAR</span>
 </div>
 <div>
-<h1 class="text-5xl md:text-7xl lg:text-8xl font-black display-font tracking-tighter text-white leading-none uppercase">
+<h1 class="text-5xl md:text-7xl lg:text-8xl font-black display-font tracking-tighter text-white leading-none uppercase glow-text">
                         Ignacio<br/>Palmeri
                     </h1>
 </div>
@@ -303,7 +410,7 @@
 </div>
 </header>
 <div class="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-min">
-<a href="https://polytools-omega.vercel.app/" target="_blank" class="md:col-span-7 bento-card rounded-2xl p-6 md:p-8 flex flex-col justify-between group noise-bg relative overflow-hidden h-[400px] cursor-pointer">
+<a href="https://polytools-omega.vercel.app/" target="_blank" class="md:col-span-7 bento-card featured rounded-2xl p-6 md:p-8 flex flex-col justify-between group noise-bg scan-lines relative overflow-hidden h-[400px] cursor-pointer">
 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10"></div>
 <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-[#1a1a1a] via-[#090909] to-[#000000]"></div>
 <div class="relative z-20 flex justify-between items-start">
@@ -323,13 +430,13 @@
                     <h3 class="text-3xl font-bold text-white mb-2">Bot de seguimiento de wallets</h3>
 <p class="text-text-secondary mb-4 max-w-md">Sistema en Python conectado a API de Polymarket para alertas en tiempo real vía Telegram. Manejo seguro de credenciales.</p>
 <div class="flex gap-2">
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400">Python</span>
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400">Telegram API</span>
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400">Polymarket</span>
+<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Python</span>
+<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Telegram API</span>
+<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Polymarket</span>
 </div>
 </div>
 </a>
-<a href="https://fulbotracker.vercel.app/" target="_blank" class="md:col-span-5 bento-card rounded-2xl p-6 md:p-8 flex flex-col justify-between group noise-bg relative overflow-hidden h-[400px] cursor-pointer">
+<a href="https://fulbotracker.vercel.app/" target="_blank" class="md:col-span-5 bento-card featured rounded-2xl p-6 md:p-8 flex flex-col justify-between group noise-bg scan-lines relative overflow-hidden h-[400px] cursor-pointer">
 <div class="absolute top-10 right-[-20px] w-[80%] h-[80%] opacity-20 group-hover:opacity-30 transition-opacity transform rotate-3 z-0 border border-[#333] bg-[#111] rounded-xl overflow-hidden">
 <div class="w-full h-8 border-b border-[#333] bg-[#000] flex items-center px-2 gap-1">
 <div class="w-2 h-2 rounded-full bg-[#333]"></div>
@@ -351,9 +458,9 @@
                 <h3 class="text-2xl font-bold text-white mb-2">Fútbol Tracker</h3>
 <p class="text-text-secondary text-sm mb-4">Web para trackear los partidos de fútbol amateur que jugás durante el año. Seguimiento de estadísticas, goles, asistencias y rendimiento.</p>
 <div class="flex gap-2">
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400">React</span>
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400">Node.js</span>
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400">Database</span>
+<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">HTML/CSS</span>
+<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">JavaScript</span>
+<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">LocalStorage</span>
 </div>
 </div>
 </a>
@@ -376,9 +483,9 @@
                             Aplicación descentralizada en Base Network para registros inmutables mediante Smart Contracts. Sistema de verificación on-chain.
                         </p>
 <div class="flex gap-2">
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400">Solidity</span>
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400">Web3.py</span>
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400">Base</span>
+<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Solidity</span>
+<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Web3.py</span>
+<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Base</span>
 </div>
 </div>
 </a>
@@ -400,9 +507,9 @@
                             Contribuciones a repositorios y scripts de automatización en Bash/Python para optimización de servidores y workflows de desarrollo.
                         </p>
 <div class="flex flex-wrap gap-2">
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400">Bash</span>
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400">Automation</span>
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400">Docker</span>
+<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Bash</span>
+<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Automation</span>
+<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Docker</span>
 </div>
 </div>
 </a>
