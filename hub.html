@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ignacio Palmeri | Proyectos Web</title>
+  <title>Proyectos Web | Ignacio Palmeri</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
   
-  <meta name="description" content="Portafolio de Ignacio Palmeri - Proyectos de desarrollo web, Python, Web3 y más">
-  <meta property="og:title" content="Ignacio Palmeri | Proyectos Web">
-  <meta property="og:description" content="Explora todos mis proyectos de desarrollo web">
+  <meta name="description" content="Proyectos Web de Ignacio Palmeri - Landing Pages y más">
+  <meta property="og:title" content="Proyectos Web | Ignacio Palmeri">
+  <meta property="og:description" content="Explora mis proyectos de desarrollo web">
   <meta property="og:type" content="website">
   
   <style>
@@ -142,6 +142,21 @@
       opacity: 1;
     }
 
+    .project-card.coming-soon {
+      opacity: 0.6;
+    }
+
+    .project-card.coming-soon:hover {
+      transform: none;
+      border-color: var(--line);
+      box-shadow: none;
+      cursor: default;
+    }
+
+    .project-card.coming-soon::before {
+      display: none;
+    }
+
     .project-icon {
       width: 48px;
       height: 48px;
@@ -154,6 +169,10 @@
       margin-bottom: 20px;
     }
 
+    .project-card.coming-soon .project-icon {
+      background: var(--line);
+    }
+
     .project-tag {
       display: inline-block;
       background: rgba(99, 102, 241, 0.2);
@@ -163,6 +182,11 @@
       font-size: 12px;
       font-weight: 500;
       margin-bottom: 12px;
+    }
+
+    .project-card.coming-soon .project-tag {
+      background: rgba(245, 158, 11, 0.2);
+      color: var(--warning);
     }
 
     .project-card h3 {
@@ -210,6 +234,18 @@
       color: var(--accent-hover);
     }
 
+    .coming-soon-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--warning);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
     /* Footer */
     footer {
       border-top: 1px solid var(--line);
@@ -244,65 +280,17 @@
     <header>
       <div class="status-badge">
         <span class="status-dot"></span>
-        Portafolio Activo
+        Proyectos Web
       </div>
-      <h1>Ignacio Palmeri</h1>
-      <p class="subtitle">Estudiante de Gestión de Tecnología de la Información (UADE). Explorando el mundo del desarrollo web, automatización con Python y tecnologías Web3.</p>
+      <h1>Mis Proyectos</h1>
+      <p class="subtitle">Explora mis proyectos de desarrollo web. Algunos están en construcción, otros ya disponibles.</p>
     </header>
 
     <section class="projects-grid">
-      <!-- Polymarket Bot -->
-      <article class="project-card">
-        <div class="project-icon">🤖</div>
-        <span class="project-tag">Destacado</span>
-        <h3>Bot de Seguimiento Polymarket</h3>
-        <p>Sistema en Python conectado a API de Polymarket para alertas en tiempo real vía Telegram. Manejo seguro de credenciales.</p>
-        <div class="tech-tags">
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">Telegram API</span>
-          <span class="tech-tag">Polymarket</span>
-        </div>
-        <a href="https://polytools-omega.vercel.app/" target="_blank" class="project-link">
-          Ver proyecto <span>→</span>
-        </a>
-      </article>
-
-      <!-- Fútbol Tracker -->
-      <article class="project-card">
-        <div class="project-icon">⚽</div>
-        <span class="project-tag">Proyecto</span>
-        <h3>Fútbol Tracker</h3>
-        <p>Web para trackear partidos de fútbol amateur. Seguimiento de estadísticas, goles y rendimiento.</p>
-        <div class="tech-tags">
-          <span class="tech-tag">HTML/CSS</span>
-          <span class="tech-tag">JavaScript</span>
-          <span class="tech-tag">LocalStorage</span>
-        </div>
-        <a href="https://fulbotracker.vercel.app/" target="_blank" class="project-link">
-          Ver proyecto <span>→</span>
-        </a>
-      </article>
-
-      <!-- DApp Blockchain -->
-      <article class="project-card">
-        <div class="project-icon">⛓️</div>
-        <span class="project-tag">Web3</span>
-        <h3>DApp Registro Blockchain</h3>
-        <p>Aplicación descentralizada en Base Network para registros inmutables mediante Smart Contracts.</p>
-        <div class="tech-tags">
-          <span class="tech-tag">Solidity</span>
-          <span class="tech-tag">Web3.py</span>
-          <span class="tech-tag">Base</span>
-        </div>
-        <a href="https://prodesol.vercel.app/" target="_blank" class="project-link">
-          Ver proyecto <span>→</span>
-        </a>
-      </article>
-
       <!-- Comida de Barrio -->
       <article class="project-card">
         <div class="project-icon">🍽️</div>
-        <span class="project-tag">E-commerce</span>
+        <span class="project-tag">Activo</span>
         <h3>Comida de Barrio</h3>
         <p>Plataforma de delivery con carrito de compras, favoritos, búsqueda de restaurantes y diseño responsivo.</p>
         <div class="tech-tags">
@@ -315,26 +303,10 @@
         </a>
       </article>
 
-      <!-- Ejercicios DOM -->
-      <article class="project-card">
-        <div class="project-icon">📚</div>
-        <span class="project-tag">Prácticas</span>
-        <h3>Ejercicios DOM</h3>
-        <p>Colección de ejercicios de manipulación del DOM con jQuery y JavaScript vanilla.</p>
-        <div class="tech-tags">
-          <span class="tech-tag">jQuery</span>
-          <span class="tech-tag">JavaScript</span>
-          <span class="tech-tag">HTML/CSS</span>
-        </div>
-        <a href="https://dom-two.vercel.app/Ejercicios/ejercicio-jQuery/ejercicio-jQuery/index.html" target="_blank" class="project-link">
-          Ver proyecto <span>→</span>
-        </a>
-      </article>
-
       <!-- Landing Pages -->
       <article class="project-card">
         <div class="project-icon">🎨</div>
-        <span class="project-tag">Diseño</span>
+        <span class="project-tag">Activo</span>
         <h3>Landing Pages</h3>
         <p>Desarrollo de landing pages personalizadas para negocios locales. Diseño responsivo y optimizado.</p>
         <div class="tech-tags">
@@ -342,14 +314,75 @@
           <span class="tech-tag">JavaScript</span>
           <span class="tech-tag">Responsive</span>
         </div>
-        <a href="https://dom-two.vercel.app/" target="_blank" class="project-link">
+        <a href="https://fulbotracker.vercel.app/" target="_blank" class="project-link">
           Ver proyecto <span>→</span>
         </a>
+      </article>
+
+      <!-- Próximamente: Bot Polymarket -->
+      <article class="project-card coming-soon">
+        <div class="project-icon">🤖</div>
+        <span class="project-tag">Próximamente</span>
+        <h3>Bot Polymarket</h3>
+        <p>Sistema de alertas en tiempo real para seguimiento de mercados de predicción.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Telegram API</span>
+        </div>
+        <div class="coming-soon-badge">
+          <span>🚧</span> En construcción
+        </div>
+      </article>
+
+      <!-- Próximamente: DApp Blockchain -->
+      <article class="project-card coming-soon">
+        <div class="project-icon">⛓️</div>
+        <span class="project-tag">Próximamente</span>
+        <h3>DApp Blockchain</h3>
+        <p>Aplicación descentralizada para registros en blockchain con smart contracts.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Solidity</span>
+          <span class="tech-tag">Web3</span>
+        </div>
+        <div class="coming-soon-badge">
+          <span>🚧</span> En construcción
+        </div>
+      </article>
+
+      <!-- Próximamente: Fútbol Tracker -->
+      <article class="project-card coming-soon">
+        <div class="project-icon">⚽</div>
+        <span class="project-tag">Próximamente</span>
+        <h3>Fútbol Tracker</h3>
+        <p>Plataforma para seguir partidos de fútbol amateur y estadísticas personales.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Node.js</span>
+        </div>
+        <div class="coming-soon-badge">
+          <span>🚧</span> En construcción
+        </div>
+      </article>
+
+      <!-- Próximamente: Más proyectos -->
+      <article class="project-card coming-soon">
+        <div class="project-icon">✨</div>
+        <span class="project-tag">Próximamente</span>
+        <h3>Más Proyectos</h3>
+        <p>Nuevos proyectos en desarrollo. Stay tuned para próximas actualizaciones.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Web3</span>
+          <span class="tech-tag">IA</span>
+        </div>
+        <div class="coming-soon-badge">
+          <span>🚧</span> En construcción
+        </div>
       </article>
     </section>
 
     <footer>
-      <p>© 2026 Ignacio Palmeri | <a href="https://portafolioignaciopalmeri.vercel.app/">Ver portafolio principal</a></p>
+      <p>© 2026 Ignacio Palmeri | <a href="https://portafolioignaciopalmeri.vercel.app/">Volver al portafolio</a></p>
     </footer>
   </div>
 </body>
