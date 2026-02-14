@@ -368,9 +368,39 @@
     
     <!-- Toast Notification -->
     <div class="toast" id="toast">¡Email copiado al portapapeles!</div>
+    
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-[#1F1F1F]">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="flex items-center justify-between h-14">
+                <a href="#" class="text-white font-bold text-lg display-font hover:text-gray-300 transition-colors">IP</a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#inicio" class="text-sm text-[#888] hover:text-white transition-colors">Inicio</a>
+                    <a href="#proyectos" class="text-sm text-[#888] hover:text-white transition-colors">Proyectos</a>
+                    <a href="#habilidades" class="text-sm text-[#888] hover:text-white transition-colors">Habilidades</a>
+                    <a href="#trayectoria" class="text-sm text-[#888] hover:text-white transition-colors">Trayectoria</a>
+                    <a href="#contacto" class="text-sm text-white bg-[#1F1F1F] px-4 py-2 rounded-full hover:bg-white hover:text-black transition-all">Contacto</a>
+                </div>
+                <!-- Mobile menu button -->
+                <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col gap-3">
+                    <a href="#inicio" class="text-sm text-[#888] hover:text-white transition-colors py-2">Inicio</a>
+                    <a href="#proyectos" class="text-sm text-[#888] hover:text-white transition-colors py-2">Proyectos</a>
+                    <a href="#habilidades" class="text-sm text-[#888] hover:text-white transition-colors py-2">Habilidades</a>
+                    <a href="#trayectoria" class="text-sm text-[#888] hover:text-white transition-colors py-2">Trayectoria</a>
+                    <a href="#contacto" class="text-sm text-white bg-[#1F1F1F] px-4 py-2 rounded-full hover:bg-white hover:text-black transition-all text-center">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-<main class="max-w-7xl mx-auto space-y-6">
-<header class="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-[#1F1F1F] pb-8 mb-10 fade-in">
+<main class="max-w-7xl mx-auto space-y-6 pt-20">
+<header id="inicio" class="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-[#1F1F1F] pb-8 mb-10 fade-in">
 <div class="space-y-4">
 <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-[#1F1F1F] bg-[#090909]">
 <span class="relative flex h-2 w-2">
@@ -409,7 +439,7 @@
 </div>
 </div>
 </header>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-min">
+<div id="proyectos" class="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-min">
 <a href="https://polytools-omega.vercel.app/" target="_blank" class="md:col-span-7 bento-card featured rounded-2xl p-6 md:p-8 flex flex-col justify-between group noise-bg scan-lines relative overflow-hidden h-[400px] cursor-pointer">
 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10"></div>
 <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-[#1a1a1a] via-[#090909] to-[#000000]"></div>
@@ -514,7 +544,7 @@
 </div>
 </a>
 </div>
-<div class="md:col-span-8 bento-card rounded-2xl p-6 md:p-8 relative">
+<div id="trayectoria" class="md:col-span-8 bento-card rounded-2xl p-6 md:p-8 relative">
 <div class="flex items-center gap-3 mb-8">
 <span class="material-symbols-outlined text-white">history_edu</span>
 <h3 class="text-xl font-bold uppercase tracking-wider text-white">Trayectoria</h3>
@@ -601,7 +631,7 @@
 </div>
 </div>
 </div>
-<div class="md:col-span-4 bento-card rounded-2xl p-6 relative flex flex-col h-full">
+<div id="habilidades" class="md:col-span-4 bento-card rounded-2xl p-6 relative flex flex-col h-full">
 <div class="mb-5 pb-4 border-b border-[#222] flex justify-between items-start">
 <div>
 <h3 class="text-sm font-bold text-white uppercase tracking-widest mb-1">Lo que estoy aprendiendo</h3>
@@ -722,10 +752,10 @@
 </div>
 </div>
 </div>
-<div class="md:col-span-4 bento-card rounded-2xl p-6 flex flex-col justify-between">
+<div id="contacto" class="md:col-span-4 bento-card rounded-2xl p-6 flex flex-col justify-between">
 <div class="flex items-center gap-2 mb-4">
 <span class="material-symbols-outlined text-white">person</span>
-<h3 class="text-sm font-bold text-white uppercase tracking-widest">SOBRE MÍ</h3>
+<h3 class="text-sm font-bold text-white uppercase tracking-widest">SOBRE MÍ / CONTACTO</h3>
 </div>
 <div class="flex flex-col h-full justify-between">
 <p class="text-sm text-text-secondary leading-relaxed mb-4">
@@ -860,6 +890,12 @@
                 icon.textContent = 'dark_mode';
                 localStorage.setItem('theme', 'light');
             }
+        }
+        
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
         }
         
         // Load saved theme
