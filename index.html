@@ -661,8 +661,6 @@
             box-shadow: 0 10px 25px -10px rgba(220,38,38,0.4);
             border-color: rgba(220, 38, 38, 0.6);
         }
-            transform: translateY(-2px);
-        }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8 lg:p-12 antialiased selection:bg-white selection:text-black">
@@ -726,10 +724,15 @@
 DISPONIBLE PARA TRABAJAR
 </span>
 </div>
+<div class="flex items-center gap-6">
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-[#222] hover:border-green-500 transition-colors flex-shrink-0">
+<img src="imgs/yo.jfif" alt="Ignacio Palmeri" class="w-full h-full object-cover">
+</div>
 <div>
 <h1 class="text-5xl md:text-7xl lg:text-8xl font-black display-font tracking-tighter bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent leading-none uppercase">
                         Ignacio<br/>Palmeri<span class="cursor-blink"></span>
                     </h1>
+</div>
 </div>
 <div class="space-y-1">
 <h2 class="text-xl md:text-2xl font-medium text-white">Estudiante de Gestión de Tecnología de la Información (UADE)</h2>
@@ -764,27 +767,19 @@ DISPONIBLE PARA TRABAJAR
         <h2 class="text-2xl font-bold text-white uppercase tracking-wider">Proyectos</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-min">
-<a href="https://polytools-omega.vercel.app/" target="_blank" class="md:col-span-7 bento-card featured rounded-2xl p-6 md:p-8 flex flex-col justify-between group relative overflow-hidden h-[400px] cursor-pointer">
-<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10"></div>
-<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-[#1a1a1a] via-[#090909] to-[#000000]"></div>
-<div class="relative z-20 flex justify-between items-start">
+<a href="https://polytools-omega.vercel.app/" target="_blank" class="md:col-span-7 bento-card featured rounded-2xl p-0 flex flex-col justify-between group relative overflow-hidden h-[400px] cursor-pointer">
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80 z-10"></div>
+<img src="imgs/polymarktporyect.PNG" alt="Bot Polymarket" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+<div class="relative z-20 flex justify-between items-start p-6">
 <div class="flex items-center gap-2">
 <span class="terminal-dot red"></span>
 <span class="terminal-dot yellow"></span>
 <span class="terminal-dot green"></span>
 </div>
-<span class="material-symbols-outlined text-[#333] group-hover:text-white transition-colors">arrow_outward</span>
+<span class="material-symbols-outlined text-white/70 group-hover:text-white transition-colors">arrow_outward</span>
                 </div>
-                <div class="relative z-20 my-auto py-8">
-                    <div class="font-mono text-xs text-green-500 mb-2 leading-relaxed">
-                        <span class="text-gray-500">$</span> ./run_polymarket_bot.py<br/>
-                        <span class="text-green-400">✓</span> conectando_api<br/>
-                        <span class="text-green-400">✓</span> telegram_bot: ACTIVE<br/>
-                        <span class="text-green-400">●</span> estado: <span class="animate-pulse">ONLINE</span>
-                    </div>
-                </div>
-                <div class="relative z-20 mt-auto">
-                    <h3 class="text-3xl font-bold text-white mb-2">Bot Polymarket</h3>
+                <div class="relative z-20 mt-auto p-6">
+                    <h3 class="text-3xl font-bold text-white mb-2 drop-shadow-lg">Bot Polymarket</h3>
 <p class="text-text-secondary mb-4 max-w-md">Sistema de alertas en tiempo real para seguimiento de wallets de Polymarket. Automatización con Python y Telegram API.</p>
 <div class="flex gap-2">
 <span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Python</span>
@@ -793,77 +788,66 @@ DISPONIBLE PARA TRABAJAR
 </div>
 </div>
 </a>
-<a href="https://fulbotracker.vercel.app/" target="_blank" class="md:col-span-5 bento-card featured rounded-2xl p-6 md:p-8 flex flex-col justify-between group relative overflow-hidden h-[400px] cursor-pointer">
-<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10"></div>
-<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-[#1a1a1a] via-[#090909] to-[#000000]"></div>
-<div class="relative z-20 flex justify-between items-start">
+<a href="https://fulbotracker.vercel.app/" target="_blank" class="md:col-span-5 bento-card featured rounded-2xl p-0 flex flex-col justify-between group relative overflow-hidden h-[400px] cursor-pointer">
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80 z-10"></div>
+<img src="imgs/futtracker.PNG" alt="Fútbol Tracker" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+<div class="relative z-20 flex justify-between items-start p-6">
 <div class="flex items-center gap-2">
 <span class="terminal-dot red"></span>
 <span class="terminal-dot yellow"></span>
 <span class="terminal-dot green"></span>
 </div>
-<span class="material-symbols-outlined text-[#333] group-hover:text-white transition-colors">arrow_outward</span>
+<span class="material-symbols-outlined text-white/70 group-hover:text-white transition-colors">arrow_outward</span>
 </div>
-<div class="relative z-20 my-auto py-8">
-<div class="font-mono text-xs text-green-500 mb-2 leading-relaxed">
-<span class="text-gray-500">$</span> ./futbol_tracker.py<br/>
-<span class="text-green-400">✓</span> loading_data<br/>
-<span class="text-green-400">✓</span> localstorage: MOUNTED<br/>
-<span class="text-green-400">●</span> estado: <span class="animate-pulse">ACTIVE</span>
-</div>
-</div>
-<div class="relative z-20 mt-auto">
-<h3 class="text-2xl font-bold text-white mb-2">Fútbol Tracker</h3>
-<p class="text-text-secondary text-sm mb-4">Web para trackear partidos de fútbol amateur. Estadísticas, goles, asistencias y rendimiento personal.</p>
+<div class="relative z-20 mt-auto p-6">
+<h3 class="text-2xl font-bold text-white mb-2 drop-shadow-lg">Fútbol Tracker</h3>
+<p class="text-white/80 text-sm mb-4">Web para trackear partidos de fútbol amateur. Estadísticas, goles, asistencias y rendimiento.</p>
 <div class="flex gap-2">
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">HTML/CSS</span>
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">JavaScript</span>
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">LocalStorage</span>
+<span class="px-2 py-1 text-xs font-mono border border-white/20 rounded text-white/80 tech-tag">HTML/CSS</span>
+<span class="px-2 py-1 text-xs font-mono border border-white/20 rounded text-white/80 tech-tag">JavaScript</span>
 </div>
 </div>
 </a>
 <div class="md:col-span-6">
-<a href="https://prodesol.vercel.app/" target="_blank" class="bento-card featured rounded-2xl p-6 md:p-8 flex flex-col justify-between group relative overflow-hidden h-[300px] cursor-pointer">
-<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10"></div>
-<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-[#1a1a1a] via-[#090909] to-[#000000]"></div>
-<div class="relative z-20 flex justify-between items-start">
+<a href="https://prodesol.vercel.app/" target="_blank" class="bento-card featured rounded-2xl p-0 flex flex-col justify-between group relative overflow-hidden h-[300px] cursor-pointer">
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80 z-10"></div>
+<img src="imgs/dom.PNG" alt="DApp Blockchain" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+<div class="relative z-20 flex justify-between items-start p-6">
 <div class="flex items-center gap-2">
 <span class="terminal-dot red"></span>
 <span class="terminal-dot yellow"></span>
 <span class="terminal-dot green"></span>
 </div>
-<span class="material-symbols-outlined text-[#333] group-hover:text-white transition-colors">arrow_outward</span>
+<span class="material-symbols-outlined text-white/70 group-hover:text-white transition-colors">arrow_outward</span>
 </div>
-<div class="relative z-20 mt-auto">
-<h3 class="text-xl font-bold text-white mb-2">DApp Blockchain</h3>
-<p class="text-[#888] text-sm mb-3">Aplicación descentralizada en Base Network. Registros inmutables y verificación on-chain con Smart Contracts.</p>
+<div class="relative z-20 mt-auto p-6">
+<h3 class="text-xl font-bold text-white mb-2 drop-shadow-lg">DApp Blockchain</h3>
+<p class="text-white/80 text-sm mb-3">Aplicación descentralizada en Base Network. Registros inmutables y verificación on-chain.</p>
 <div class="flex gap-2 flex-wrap">
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Solidity</span>
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Web3</span>
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Base</span>
+<span class="px-2 py-1 text-xs font-mono border border-white/20 rounded text-white/80 tech-tag">Solidity</span>
+<span class="px-2 py-1 text-xs font-mono border border-white/20 rounded text-white/80 tech-tag">Web3</span>
 </div>
 </div>
 </a>
 </div>
 <div class="md:col-span-6">
-<a href="https://portafolioignaciopalmeri.vercel.app/hub.html" target="_blank" class="bento-card featured rounded-2xl p-6 md:p-8 flex flex-col justify-between group relative overflow-hidden h-[300px] cursor-pointer">
-<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10"></div>
-<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-[#1a1a1a] via-[#090909] to-[#000000]"></div>
-<div class="relative z-20 flex justify-between items-start">
+<a href="https://portafolioignaciopalmeri.vercel.app/hub.html" target="_blank" class="bento-card featured rounded-2xl p-0 flex flex-col justify-between group relative overflow-hidden h-[300px] cursor-pointer">
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80 z-10"></div>
+<img src="imgs/comidadebarrio.PNG" alt="Proyectos Web" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+<div class="relative z-20 flex justify-between items-start p-6">
 <div class="flex items-center gap-2">
 <span class="terminal-dot red"></span>
 <span class="terminal-dot yellow"></span>
 <span class="terminal-dot green"></span>
 </div>
-<span class="material-symbols-outlined text-[#333] group-hover:text-white transition-colors">arrow_outward</span>
+<span class="material-symbols-outlined text-white/70 group-hover:text-white transition-colors">arrow_outward</span>
 </div>
-<div class="relative z-20 mt-auto">
-<h3 class="text-xl font-bold text-white mb-2">Proyectos Web</h3>
-<p class="text-[#888] text-sm mb-3">Colección de proyectos frontend: Comida de Barrio, landing pages y más.</p>
+<div class="relative z-20 mt-auto p-6">
+<h3 class="text-xl font-bold text-white mb-2 drop-shadow-lg">Proyectos Web</h3>
+<p class="text-white/80 text-sm mb-3">Colección de proyectos frontend: Comida de Barrio, landing pages y más.</p>
 <div class="flex gap-2 flex-wrap">
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">HTML/CSS</span>
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">JavaScript</span>
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Bootstrap</span>
+<span class="px-2 py-1 text-xs font-mono border border-white/20 rounded text-white/80 tech-tag">HTML/CSS</span>
+<span class="px-2 py-1 text-xs font-mono border border-white/20 rounded text-white/80 tech-tag">Bootstrap</span>
 </div>
 </div>
 </a>
@@ -1144,8 +1128,6 @@ DISPONIBLE PARA TRABAJAR
 </div>
 </div>
 </div>
-</div>
-</div>
 
 <!-- Tech Stack Tab - Categories -->
 <div id="tech-stack" class="tab-content hidden font-mono text-sm">
@@ -1174,6 +1156,16 @@ DISPONIBLE PARA TRABAJAR
 <span class="px-3 py-1 bg-[#111] rounded text-white hover:bg-[#151515] hover:text-cyan-400 transition-colors">🔵 Base</span>
 </div>
 </div>
+<div>
+<div class="text-green-400 text-xs mb-2"># IA & ASISTENTES</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-[#111] rounded text-white hover:bg-[#151515] hover:text-blue-400 transition-colors">🤖 LLMs</span>
+<span class="px-3 py-1 bg-[#111] rounded text-white hover:bg-[#151515] hover:text-purple-400 transition-colors">💻 opencode</span>
+<span class="px-3 py-1 bg-[#111] rounded text-white hover:bg-[#151515] hover:text-pink-400 transition-colors">🎨 SwitchAI</span>
+<span class="px-3 py-1 bg-[#111] rounded text-white hover:bg-[#151515] hover:text-blue-400 transition-colors">📎 Continue</span>
+<span class="px-3 py-1 bg-[#111] rounded text-white hover:bg-[#151515] hover:text-green-400 transition-colors">✨ Trae AI</span>
+</div>
+</div>
 </div>
 </div>
 
@@ -1192,7 +1184,7 @@ DISPONIBLE PARA TRABAJAR
 <span class="text-green-400">$</span>
 <span class="text-white">stack</span>
 <span class="text-[#555]">=</span>
-<span class="text-blue-400 font-bold">10+</span>
+<span class="text-blue-400 font-bold">15+</span>
 <span class="text-[#555]"># tecnologías</span>
 </div>
 <div class="flex items-center gap-3">
