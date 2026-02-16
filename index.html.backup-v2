@@ -1028,6 +1028,53 @@
 </div>
 </div>
 
+<!-- SECCIÓN SOBRE MÍ -->
+<section id="sobre-mi" class="py-20 border-t border-[#1F1F1F]">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <!-- Foto y datos -->
+            <div class="text-center md:text-left">
+                <div class="mb-6">
+                    <div class="w-40 h-40 mx-auto md:mx-0 bg-gradient-to-br from-[#667eea] to-[#f093fb] rounded-full flex items-center justify-center text-6xl">
+                        👨‍💻
+                    </div>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 font-display">Sobre Mí</h2>
+                <p class="text-[#A1A1A1] mb-6 leading-relaxed">
+                    Estudiante de Gestión de Tecnología de la Información en UADE. Apasionado por la tecnología, el desarrollo web y las criptomonedas. Siempre aprendiendo algo nuevo.
+                </p>
+                
+                <!-- Certificado visible -->
+                <div class="mb-6">
+                    <a href="https://www.credly.com/badges/761f7f8d-41c7-4e1e-8dda-1e29830e4e85" target="_blank" class="cert-badge">
+                        <i class="fab fa-redhat"></i>
+                        <span>Red Hat Certified</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Timeline -->
+            <div>
+                <h3 class="text-xl font-bold text-white mb-6">Mi Trayectoria</h3>
+                <div class="space-y-6">
+                    <div class="timeline-item">
+                        <h4 class="text-white font-semibold">2024 - Presente</h4>
+                        <p class="text-[#A1A1A1] text-sm">Gestión de Tecnología de la Información - UADE</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="text-white font-semibold">2024</h4>
+                        <p class="text-[#A1A1A1] text-sm">Red Hat Certified - Linux Administration</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="text-white font-semibold">2023 - 2024</h4>
+                        <p class="text-[#A1A1A1] text-sm">Desarrollo Web Autodidacta</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ESTADÍSTICAS ANIMADAS -->
 <section class="py-16 border-t border-[#1F1F1F]">
     <div class="max-w-7xl mx-auto px-4">
@@ -1046,8 +1093,8 @@
                 <p class="text-[#A1A1A1] text-sm mt-2">Tecnologías</p>
             </div>
             <div class="stat-card">
-                <div class="stats-counter" data-target="1">0</div>
-                <p class="text-[#A1A1A1] text-sm mt-2">Certificaciones</p>
+                <div class="stats-counter" data-target="100">0</div>
+                <p class="text-[#A1A1A1] text-sm mt-2">% Autodidacta</p>
             </div>
         </div>
     </div>
@@ -1086,6 +1133,42 @@
     </div>
 </section>
 
+<!-- LO QUE ESTOY APRENDIENDO -->
+<section class="py-16 border-t border-[#1F1F1F]">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-8 text-center font-display">
+            <span class="material-symbols-outlined inline-block mr-2">school</span>
+            Aprendiendo Esta Semana
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="learning-card">
+                <h3 class="text-white font-semibold mb-2">Solidity</h3>
+                <p class="text-[#A1A1A1] text-sm">Smart contracts y desarrollo blockchain en Base Network</p>
+                <div class="mt-4 h-2 bg-[#1F1F1F] rounded-full overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-[#667eea] to-[#f093fb] w-3/5"></div>
+                </div>
+                <span class="text-xs text-[#666] mt-1 block">60% completado</span>
+            </div>
+            <div class="learning-card">
+                <h3 class="text-white font-semibold mb-2">Web3.py</h3>
+                <p class="text-[#A1A1A1] text-sm">Integración de Python con blockchain y contratos inteligentes</p>
+                <div class="mt-4 h-2 bg-[#1F1F1F] rounded-full overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-[#667eea] to-[#f093fb] w-2/5"></div>
+                </div>
+                <span class="text-xs text-[#666] mt-1 block">40% completado</span>
+            </div>
+            <div class="learning-card">
+                <h3 class="text-white font-semibold mb-2">Docker</h3>
+                <p class="text-[#A1A1A1] text-sm">Containerización y deployment de aplicaciones</p>
+                <div class="mt-4 h-2 bg-[#1F1F1F] rounded-full overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-[#667eea] to-[#f093fb] w-1/4"></div>
+                </div>
+                <span class="text-xs text-[#666] mt-1 block">25% completado</span>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- CTA Y CONTACTO -->
 <section class="py-20 border-t border-[#1F1F1F]">
     <div class="max-w-4xl mx-auto px-4 text-center">
@@ -1105,26 +1188,17 @@
             </a>
         </div>
         
-        <!-- Badge de certificación destacado -->
-        <div class="mt-12 mb-8">
-            <a href="https://www.credly.com/badges/761f7f8d-41c7-4e1e-8dda-1e29830e4e85" target="_blank" class="cert-badge inline-flex items-center gap-3 px-6 py-3 text-base">
-                <i class="fab fa-redhat text-xl"></i>
-                <span>Red Hat Certified System Administrator</span>
-            </a>
-        </div>
-        
-        <!-- Formulario de contacto funcional -->
-        <form class="contact-form max-w-lg mx-auto text-left" id="contactForm">
+        <!-- Formulario de contacto simple -->
+        <form class="contact-form max-w-lg mx-auto text-left" onsubmit="event.preventDefault(); showToast('Mensaje enviado! Te contactaré pronto.');">
             <div class="mb-4">
-                <input type="text" id="contactName" placeholder="Tu nombre" required class="mb-3">
-                <input type="email" id="contactEmail" placeholder="Tu email" required class="mb-3">
-                <textarea id="contactMessage" rows="4" placeholder="Tu mensaje..." required></textarea>
+                <input type="text" placeholder="Tu nombre" required class="mb-3">
+                <input type="email" placeholder="Tu email" required class="mb-3">
+                <textarea rows="4" placeholder="Tu mensaje..." required></textarea>
             </div>
             <button type="submit" class="w-full py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all">
                 Enviar Mensaje
             </button>
         </form>
-        <p class="text-[#666] text-xs mt-4">El mensaje se enviará a: ignaciopalmeri1@gmail.com</p>
     </div>
 </section>
 
@@ -1413,22 +1487,6 @@
                 observer.observe(counter);
             });
         };
-        
-        // Contact Form Handler
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('contactName').value;
-            const email = document.getElementById('contactEmail').value;
-            const message = document.getElementById('contactMessage').value;
-            
-            const subject = `Contacto desde Portfolio - ${name}`;
-            const body = `Nombre: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMensaje:%0D%0A${message}`;
-            
-            window.location.href = `mailto:ignaciopalmeri1@gmail.com?subject=${subject}&body=${body}`;
-            
-            showToast('Abriendo tu cliente de correo...');
-        });
         
         animateCounters();
     </script>
