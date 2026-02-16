@@ -179,57 +179,79 @@
             background: #555; 
         }
         
-        /* Simplified fade-in */
+        /* Fade-in animations - faster */
         .fade-in {
             opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(20px);
+            animation: fadeInUp 0.3s ease forwards;
         }
         
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .fade-in-delay-1 { animation-delay: 0.05s; }
+        .fade-in-delay-2 { animation-delay: 0.1s; }
+        .fade-in-delay-3 { animation-delay: 0.15s; }
+        .fade-in-delay-4 { animation-delay: 0.2s; }
+        .fade-in-delay-5 { animation-delay: 0.25s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        /* Enhanced hover effects for project cards */
-        .project-card-hover {
+        /* Enhanced typewriter effect */
+        .typewriter {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid #22c55e;
+            animation: typing 2.5s steps(35, end), blink-caret 0.75s step-end infinite;
+            font-family: 'Courier New', monospace;
+            text-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #22c55e; box-shadow: 0 0 5px #22c55e; }
+        }
+        
+        /* Text glow effect for headings */
+        .glow-text {
+            text-shadow: 0 0 20px rgba(255,255,255,0.1), 0 0 40px rgba(255,255,255,0.05);
+        }
+        
+        /* Magnetic button effect */
+        .magnetic-btn {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .magnetic-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Shimmer effect for tags */
+        .tech-tag {
             position: relative;
             overflow: hidden;
         }
         
-        .project-card-hover::before {
+        .tech-tag::after {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
-            transition: left 0.6s ease;
-            pointer-events: none;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
         }
         
-        .project-card-hover:hover::before {
+        .tech-tag:hover::after {
             left: 100%;
-        }
-        
-        .project-card-hover:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: #444;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 30px rgba(248, 181, 48, 0.1);
-        }
-        
-        /* Smooth transitions for all interactive elements */
-        .tech-tag {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .tech-tag:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            transform: translateY(-2px);
         }
         
         /* Progress bar animation */
@@ -557,14 +579,7 @@
 </div>
 <div class="space-y-1">
 <h2 class="text-xl md:text-2xl font-medium text-white">Estudiante de Gestión de Tecnología de la Información (UADE)</h2>
-                    <div class="my-4">
-                        <a href="https://www.credly.com/badges/761f7f8d-41c7-4e1e-8dda-1e29830e4e85" target="_blank" class="inline-flex items-center gap-2 text-sm text-[#ef4444] hover:text-red-400 transition-colors">
-                            <i class="fab fa-redhat text-lg"></i>
-                            <span class="font-medium">Red Hat Certified System Administrator</span>
-                            <span class="material-symbols-outlined text-sm">open_in_new</span>
-                        </a>
-                    </div>
-                    <p class="text-text-secondary max-w-lg text-sm md:text-base leading-relaxed">
+<p class="text-text-secondary max-w-lg text-sm md:text-base leading-relaxed">
                         Autodidacta en programación y análisis de datos, con enfoque en el sector Fintech y Criptoactivos. Cuento con experiencia sólida en atención al cliente, aportando comunicación efectiva y resolución de problemas bajo presión. Busco rol de Trainee/Junior para aplicar conocimientos en automatización (Python), Web3 y gestión de datos.
                     </p>
 </div>
@@ -595,7 +610,7 @@
         <h2 class="text-2xl font-bold text-white uppercase tracking-wider">Proyectos</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-min">
-<a href="https://polytools-omega.vercel.app/" target="_blank" class="md:col-span-7 bento-card featured rounded-2xl p-6 md:p-8 flex flex-col justify-between group noise-bg scan-lines relative overflow-hidden h-[400px] cursor-pointer project-card-hover">
+<a href="https://polytools-omega.vercel.app/" target="_blank" class="md:col-span-7 bento-card featured rounded-2xl p-6 md:p-8 flex flex-col justify-between group noise-bg scan-lines relative overflow-hidden h-[400px] cursor-pointer">
 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10"></div>
 <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-[#1a1a1a] via-[#090909] to-[#000000]"></div>
 <div class="relative z-20 flex justify-between items-start">
@@ -621,7 +636,7 @@
 </div>
 </div>
 </a>
-<a href="https://fulbotracker.vercel.app/" target="_blank" class="md:col-span-5 bento-card featured rounded-2xl p-6 md:p-8 flex flex-col justify-between group noise-bg scan-lines relative overflow-hidden h-[400px] cursor-pointer project-card-hover">
+<a href="https://fulbotracker.vercel.app/" target="_blank" class="md:col-span-5 bento-card featured rounded-2xl p-6 md:p-8 flex flex-col justify-between group noise-bg scan-lines relative overflow-hidden h-[400px] cursor-pointer">
 <div class="absolute top-10 right-[-20px] w-[80%] h-[80%] opacity-20 group-hover:opacity-30 transition-opacity transform rotate-3 z-0 border border-[#333] bg-[#111] rounded-xl overflow-hidden">
 <div class="w-full h-8 border-b border-[#333] bg-[#000] flex items-center px-2 gap-1">
 <div class="w-2 h-2 rounded-full bg-[#333]"></div>
@@ -695,32 +710,6 @@
 <span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Bootstrap</span>
 <span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">HTML/CSS</span>
 <span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">JavaScript</span>
-</div>
-</div>
-</a>
-
-<a href="#" class="bento-card rounded-2xl p-6 md:p-8 flex flex-col justify-between group h-auto min-h-[250px] relative overflow-hidden cursor-pointer md:col-span-12 project-card-hover">
-<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<i class="fas fa-chart-line text-6xl text-white"></i>
-</div>
-<div class="relative z-20 flex justify-between items-start mb-6">
-<div class="flex items-center gap-3">
-<div class="p-2 bg-[#111] border border-[#222] rounded-lg">
-<span class="material-symbols-outlined text-white">analytics</span>
-</div>
-<h3 class="text-lg font-bold uppercase tracking-wider text-white">Análisis de Datos</h3>
-</div>
-<span class="material-symbols-outlined text-[#333] group-hover:text-white transition-colors">arrow_outward</span>
-</div>
-<div class="relative z-20">
-<p class="text-sm text-[#888] leading-relaxed mb-4">
-                        Proyectos de análisis y visualización de datos con Python, Pandas y Matplotlib. dashboards interactivos y reportes automatizados.
-                    </p>
-<div class="flex flex-wrap gap-2">
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Python</span>
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Pandas</span>
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Matplotlib</span>
-<span class="px-2 py-1 text-xs font-mono border border-[#333] rounded text-gray-400 tech-tag">Excel</span>
 </div>
 </div>
 </a>
@@ -867,10 +856,7 @@
 <div class="bg-purple-500 h-full progress-bar" style="--progress: 65%"></div>
 </div>
 </div>
-<div class="bg-[#090909] border border-[#1F1F1F] rounded p-3 hover:border-[#333] transition-colors group relative overflow-hidden">
-<div class="absolute top-2 right-2">
-<span class="text-[9px] font-mono text-[#666] bg-[#111] px-2 py-0.5 rounded border border-[#333]">EN PROGRESO</span>
-</div>
+<div class="bg-[#090909] border border-[#1F1F1F] rounded p-3 hover:border-[#333] transition-colors group">
 <div class="flex justify-between items-center mb-1">
 <div class="flex items-center gap-2">
 <i class="fa-solid fa-database text-sm text-blue-400"></i>
@@ -881,24 +867,18 @@
 <div class="bg-blue-500 h-full progress-bar" style="--progress: 50%"></div>
 </div>
 </div>
-<div class="bg-[#090909] border border-[#1F1F1F] rounded p-3 hover:border-[#333] transition-colors group relative overflow-hidden">
-<div class="absolute top-2 right-2">
-<span class="text-[9px] font-mono text-[#f59e0b] bg-[#1a1a1a] px-2 py-0.5 rounded border border-[#f59e0b]/30">PRÓXIMAMENTE</span>
-</div>
+<div class="bg-[#090909] border border-[#1F1F1F] rounded p-3 hover:border-[#333] transition-colors group">
 <div class="flex justify-between items-center mb-1">
 <div class="flex items-center gap-2">
 <i class="fa-brands fa-java text-sm text-orange-500"></i>
 <span class="text-sm font-bold text-white">Java</span>
 </div>
 </div>
-<div class="w-full bg-[#111] h-1 rounded-full overflow-hidden opacity-50">
+<div class="w-full bg-[#111] h-1 rounded-full overflow-hidden">
 <div class="bg-orange-600 h-full progress-bar" style="--progress: 45%"></div>
 </div>
 </div>
-<div class="bg-[#090909] border border-[#1F1F1F] rounded p-3 hover:border-[#333] transition-colors group relative overflow-hidden">
-<div class="absolute top-2 right-2">
-<span class="text-[9px] font-mono text-[#666] bg-[#111] px-2 py-0.5 rounded border border-[#333]">EN PROGRESO</span>
-</div>
+<div class="bg-[#090909] border border-[#1F1F1F] rounded p-3 hover:border-[#333] transition-colors group">
 <div class="flex justify-between items-center mb-1">
 <div class="flex items-center gap-2">
 <i class="fa-solid fa-table text-sm text-green-600"></i>
@@ -1048,6 +1028,53 @@
 </div>
 </div>
 
+<!-- SECCIÓN SOBRE MÍ -->
+<section id="sobre-mi" class="py-20 border-t border-[#1F1F1F]">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <!-- Foto y datos -->
+            <div class="text-center md:text-left">
+                <div class="mb-6">
+                    <div class="w-40 h-40 mx-auto md:mx-0 bg-gradient-to-br from-[#667eea] to-[#f093fb] rounded-full flex items-center justify-center text-6xl">
+                        👨‍💻
+                    </div>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 font-display">Sobre Mí</h2>
+                <p class="text-[#A1A1A1] mb-6 leading-relaxed">
+                    Estudiante de Gestión de Tecnología de la Información en UADE. Apasionado por la tecnología, el desarrollo web y las criptomonedas. Siempre aprendiendo algo nuevo.
+                </p>
+                
+                <!-- Certificado visible -->
+                <div class="mb-6">
+                    <a href="https://www.credly.com/badges/761f7f8d-41c7-4e1e-8dda-1e29830e4e85" target="_blank" class="cert-badge">
+                        <i class="fab fa-redhat"></i>
+                        <span>Red Hat Certified</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Timeline -->
+            <div>
+                <h3 class="text-xl font-bold text-white mb-6">Mi Trayectoria</h3>
+                <div class="space-y-6">
+                    <div class="timeline-item">
+                        <h4 class="text-white font-semibold">2024 - Presente</h4>
+                        <p class="text-[#A1A1A1] text-sm">Gestión de Tecnología de la Información - UADE</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="text-white font-semibold">2024</h4>
+                        <p class="text-[#A1A1A1] text-sm">Red Hat Certified - Linux Administration</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="text-white font-semibold">2023 - 2024</h4>
+                        <p class="text-[#A1A1A1] text-sm">Desarrollo Web Autodidacta</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ESTADÍSTICAS ANIMADAS -->
 <section class="py-16 border-t border-[#1F1F1F]">
     <div class="max-w-7xl mx-auto px-4">
@@ -1066,8 +1093,8 @@
                 <p class="text-[#A1A1A1] text-sm mt-2">Tecnologías</p>
             </div>
             <div class="stat-card">
-                <div class="stats-counter" data-target="1">0</div>
-                <p class="text-[#A1A1A1] text-sm mt-2">Certificaciones</p>
+                <div class="stats-counter" data-target="100">0</div>
+                <p class="text-[#A1A1A1] text-sm mt-2">% Autodidacta</p>
             </div>
         </div>
     </div>
@@ -1106,6 +1133,42 @@
     </div>
 </section>
 
+<!-- LO QUE ESTOY APRENDIENDO -->
+<section class="py-16 border-t border-[#1F1F1F]">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-8 text-center font-display">
+            <span class="material-symbols-outlined inline-block mr-2">school</span>
+            Aprendiendo Esta Semana
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="learning-card">
+                <h3 class="text-white font-semibold mb-2">Solidity</h3>
+                <p class="text-[#A1A1A1] text-sm">Smart contracts y desarrollo blockchain en Base Network</p>
+                <div class="mt-4 h-2 bg-[#1F1F1F] rounded-full overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-[#667eea] to-[#f093fb] w-3/5"></div>
+                </div>
+                <span class="text-xs text-[#666] mt-1 block">60% completado</span>
+            </div>
+            <div class="learning-card">
+                <h3 class="text-white font-semibold mb-2">Web3.py</h3>
+                <p class="text-[#A1A1A1] text-sm">Integración de Python con blockchain y contratos inteligentes</p>
+                <div class="mt-4 h-2 bg-[#1F1F1F] rounded-full overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-[#667eea] to-[#f093fb] w-2/5"></div>
+                </div>
+                <span class="text-xs text-[#666] mt-1 block">40% completado</span>
+            </div>
+            <div class="learning-card">
+                <h3 class="text-white font-semibold mb-2">Docker</h3>
+                <p class="text-[#A1A1A1] text-sm">Containerización y deployment de aplicaciones</p>
+                <div class="mt-4 h-2 bg-[#1F1F1F] rounded-full overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-[#667eea] to-[#f093fb] w-1/4"></div>
+                </div>
+                <span class="text-xs text-[#666] mt-1 block">25% completado</span>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- CTA Y CONTACTO -->
 <section class="py-20 border-t border-[#1F1F1F]">
     <div class="max-w-4xl mx-auto px-4 text-center">
@@ -1125,20 +1188,17 @@
             </a>
         </div>
         
-
-        
-        <!-- Formulario de contacto funcional -->
-        <form class="contact-form max-w-lg mx-auto text-left" id="contactForm">
+        <!-- Formulario de contacto simple -->
+        <form class="contact-form max-w-lg mx-auto text-left" onsubmit="event.preventDefault(); showToast('Mensaje enviado! Te contactaré pronto.');">
             <div class="mb-4">
-                <input type="text" id="contactName" placeholder="Tu nombre" required class="mb-3">
-                <input type="email" id="contactEmail" placeholder="Tu email" required class="mb-3">
-                <textarea id="contactMessage" rows="4" placeholder="Tu mensaje..." required></textarea>
+                <input type="text" placeholder="Tu nombre" required class="mb-3">
+                <input type="email" placeholder="Tu email" required class="mb-3">
+                <textarea rows="4" placeholder="Tu mensaje..." required></textarea>
             </div>
             <button type="submit" class="w-full py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all">
                 Enviar Mensaje
             </button>
         </form>
-        <p class="text-[#666] text-xs mt-4">El mensaje se enviará a: ignaciopalmeri1@gmail.com</p>
     </div>
 </section>
 
@@ -1427,22 +1487,6 @@
                 observer.observe(counter);
             });
         };
-        
-        // Contact Form Handler
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('contactName').value;
-            const email = document.getElementById('contactEmail').value;
-            const message = document.getElementById('contactMessage').value;
-            
-            const subject = `Contacto desde Portfolio - ${name}`;
-            const body = `Nombre: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMensaje:%0D%0A${message}`;
-            
-            window.location.href = `mailto:ignaciopalmeri1@gmail.com?subject=${subject}&body=${body}`;
-            
-            showToast('Abriendo tu cliente de correo...');
-        });
         
         animateCounters();
     </script>
