@@ -220,19 +220,22 @@
         }
         
         .terminal-input {
-            background: transparent;
+            background: #f5f5f5;
             border: none;
-            color: #ffffff;
+            color: #000000;
             font-family: monospace;
             font-size: 12px;
             outline: none;
             flex: 1;
-            caret-color: var(--accent-primary);
+            padding: 4px 8px;
+            border-radius: 4px;
+            caret-color: #22c55e;
+            font-weight: 500;
         }
         
         .terminal-input::placeholder {
-            color: var(--text-secondary);
-            opacity: 0.5;
+            color: #666666;
+            opacity: 0.7;
         }
         
         /* Floating particles like Juan Fernandez */
@@ -951,7 +954,7 @@
             </div>
             <div class="terminal-input-line" style="padding:8px 12px;border-top:1px solid var(--border-color);">
                 <span class="terminal-prompt">$</span>
-                <input type="text" class="terminal-input" id="terminal-input" placeholder="Escribe un comando..." onkeypress="handleTerminalInput(event)">
+                <input type="text" class="terminal-input" id="terminal-input" placeholder="Escribe 'help'..." onkeypress="handleTerminalInput(event)">
             </div>
         </div>
     </div>
@@ -1155,7 +1158,7 @@ DISPONIBLE PARA TRABAJAR
 <div class="contributions-grid" id="contributions-grid">
 <!-- Se llena con JavaScript -->
 </div>
-<p class="text-xs text-[#666] mt-4 text-center">Contribuciones en el último año</p>
+<p class="text-xs text-[#555] mt-4 text-center">Visualización de actividad • <a href="https://github.com/nachopalmeri" target="_blank" class="text-green-400 hover:underline">Ver en GitHub</a></p>
 </div>
 </div>
 
@@ -1468,25 +1471,65 @@ body.appendChild(cmdDiv);
 let response = '';
 switch(command) {
 case 'help':
-response = 'Comandos: about, projects, skills, secret, clear';
+response = '╔══════════════════════════════╗\n║     COMANDOS DISPONIBLES      ║\n╠══════════════════════════════╣\n║ about     - Sobre mí          ║\n║ projects - Mis proyectos      ║\n║ skills    - Tecnologías       ║\n║ certs      - Certificaciones  ║\n║ exp        - Experiencia      ║\n║ edu        - Educación        ║\n║ contact  - Contacto          ║\n║ github    - Abrir GitHub      ║\n║ linkedin - Abrir LinkedIn    ║\n║ date       - Fecha actual     ║\n║ whoami   - Usuario           ║\n║ ls           - Listar archivos ║\n║ secret    - Easter egg        ║\n║ clear      - Limpiar terminal ║\n╚══════════════════════════════╝';
 break;
 case 'about':
-response = 'Ignacio Palmeri\nEstudiante UADE (25%)\n🐧 Red Hat Certified';
+response = '┌────────────────────────────────────┐\n│  Ignacio Palmeri                   │\n│  ─────────────────                 │\n│  Estudiante de Gestión IT (UADE)   │\n│  Progreso: 25%                     │\n│                                    │\n│  🐧 Red Hat Certified              │\n│  🤖 Claude Code Graduate           │\n└────────────────────────────────────┘';
 break;
 case 'projects':
-response = '📁 Bot Polymarket\n📁 Fútbol Tracker\n📁 DApp Blockchain\n📁 Proyectos Web';
+response = 'PROYECTOS\n\n▸ Bot Polymarket\n  Python + LLMs + Telegram API\n  Análisis de mercado en tiempo real\n  → polytools-omega.vercel.app\n\n▸ Fútbol Tracker\n  HTML/CSS + JavaScript\n  Seguimiento de estadísticas\n  → fulbotracker.vercel.app\n\n▸ DApp Blockchain\n  Solidity + Base Network\n  Smart Contracts\n  → prodesol.vercel.app\n\n▸ Proyectos Web\n  Landing pages + E-commerce\n  → hub.html';
 break;
 case 'skills':
-response = 'Python | JavaScript | SQL | Linux\nSolidity | LLMs | Git';
+response = 'TECNOLOGÍAS\n\n▸ Lenguajes\n  Python    ████████░░ 80%\n  JavaScript ██████░░░░ 60%\n  SQL         █████░░░░░ 50%\n  Java       ████░░░░░░ 40%\n\n▸ Herramientas\n  Linux | Git | HTML/CSS\n\n▸ Web3\n  Solidity | Base Network\n\n▸ IA\n  LLMs | opencode | Trae AI';
+break;
+case 'certs':
+response = 'CERTIFICACIONES\n\n┌─────────────────────────────────┐\n│ 🐧 Red Hat System Administrator │\n│    Linux • Bash • Admin         │\n│    → credly.com/badges/...      │\n└─────────────────────────────────┘\n\n┌─────────────────────────────────┐\n│ 🤖 Claude Code in Action        │\n│    AI Tools • Desarrollo        │\n│    → verify.skilljar.com/...    │\n└─────────────────────────────────┘';
+break;
+case 'exp':
+response = 'EXPERIENCIA LABORAL\n\n▸ Grido (2023 - Presente)\n  • Atención al cliente\n  • Gestión de caja y turnos\n  • Control de stock (Excel)\n  • Resolución de problemas\n\n▸ Freelance (2021 - 2023)\n  • Editor multimedia\n  • DaVinci Resolve\n  • Content Manager';
+break;
+case 'edu':
+response = 'EDUCACIÓN\n\n▸ UADE (2025 - Presente)\n  Lic. en Gestión de TI\n  Progreso: 25%\n  ████████░░░░░░░░░░░░\n\n▸ Secundaria (2018 - 2024)\n  Orientación Economía';
+break;
+case 'contact':
+response = 'CONTACTO\n\n📧 Email\n   ignaciopalmeri1@gmail.com\n\n📱 WhatsApp\n   +54 11 5509 0832\n\n🔗 GitHub\n   github.com/nachopalmeri\n\n🔗 LinkedIn\n   linkedin.com/in/ignacio-palmeri';
+break;
+case 'github':
+response = 'Abriendo GitHub...\n→ github.com/nachopalmeri';
+setTimeout(() => window.open('https://github.com/nachopalmeri', '_blank'), 500);
+break;
+case 'linkedin':
+response = 'Abriendo LinkedIn...\n→ linkedin.com/in/ignacio-palmeri';
+setTimeout(() => window.open('https://www.linkedin.com/in/ignacio-palmeri-64035b378/', '_blank'), 500);
+break;
+case 'date':
+const now = new Date();
+response = now.toLocaleString('es-AR', { \n  weekday: 'long',\n  year: 'numeric',\n  month: 'long',\n  day: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n});
+break;
+case 'whoami':
+response = 'guest@ignacio-portfolio:~$';
+break;
+case 'ls':
+response = 'about.txt\nprojects/\nskills.json\ncerts/\ncontact.txt\nsecret.txt\neducation/\nexperience/';
 break;
 case 'secret':
-response = '🎉 Encontraste el easter egg!\n💡 Tip: Siempre seguí aprendiendo';
+response = '🎉 ¡Encontraste el easter egg!\n\n💡 "El código es poesía"\n   - WordPress\n\n🏆 Achievement unlocked: Explorer\n\nGracias por explorar mi portfolio!';
 break;
 case 'clear':
-body.innerHTML = '<div class="terminal-output">Terminal limpiado.</div>';
+body.innerHTML = '<div class="terminal-output">Terminal limpiado. Escribe "help" para ver comandos.</div>';
 return;
+case 'sudo':
+response = 'Nice try! 🔒 No tienes permisos de root.';
+break;
+case 'rm -rf':
+response = '¡No! Eso sería peligroso 😅';
+break;
+case 'hello':
+case 'hola':
+response = '¡Hola! 👋 Bienvenido a mi portfolio.\nEscribe "help" para ver los comandos disponibles.';
+break;
 default:
-response = 'Comando no encontrado. Escribe "help"';
+response = 'Comando no encontrado: "' + command + '"\n\nEscribe "help" para ver comandos disponibles.';
 }
 
 const respDiv = document.createElement('div');
