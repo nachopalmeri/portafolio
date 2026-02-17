@@ -68,6 +68,52 @@
             color: var(--text-primary);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Floating particles like Juan Fernandez */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; animation-duration: 20s; }
+        .particle:nth-child(2) { left: 20%; top: 80%; animation-delay: 2s; animation-duration: 18s; }
+        .particle:nth-child(3) { left: 35%; top: 50%; animation-delay: 4s; animation-duration: 22s; }
+        .particle:nth-child(4) { left: 50%; top: 30%; animation-delay: 6s; animation-duration: 19s; }
+        .particle:nth-child(5) { left: 65%; top: 70%; animation-delay: 8s; animation-duration: 21s; }
+        .particle:nth-child(6) { left: 80%; top: 40%; animation-delay: 10s; animation-duration: 17s; }
+        .particle:nth-child(7) { left: 90%; top: 60%; animation-delay: 12s; animation-duration: 23s; }
+        .particle:nth-child(8) { left: 15%; top: 90%; animation-delay: 3s; animation-duration: 16s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.1; }
+            25% { transform: translateY(-30px) translateX(10px); opacity: 0.3; }
+            50% { transform: translateY(-15px) translateX(-10px); opacity: 0.2; }
+            75% { transform: translateY(-40px) translateX(5px); opacity: 0.25; }
+        }
+        
+        /* Glass navbar */
+        .glass-nav {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         /* Smooth page load */
@@ -160,16 +206,38 @@
             transition: transform 0.3s ease;
         }
         
-        /* Featured card with gradient border */
+        /* Featured card - Glass effect like Juan */
         .bento-card.featured {
             position: relative;
-            border: 1px solid transparent;
-            background: linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box,
-                        linear-gradient(135deg, #22c55e, #10b981, #059669) border-box;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
         }
         
         .bento-card.featured:hover {
-            box-shadow: 0 30px 60px -15px rgba(0,0,0,0.6), 0 0 30px rgba(34,197,94,0.1);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Gradient line on hover */
+        .bento-card.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #22c55e, #10b981);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .bento-card.featured:hover::before {
+            transform: scaleX(1);
         }
         
         /* Terminal-style decoration */
@@ -666,6 +734,17 @@
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8 lg:p-12 antialiased selection:bg-white selection:text-black">
+    <!-- Floating Particles -->
+    <div class="particles" aria-hidden="true">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
     <!-- Theme Toggle -->
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar tema">
         <span class="material-symbols-outlined text-sm" id="theme-icon">light_mode</span>
@@ -681,7 +760,7 @@
     <div class="toast" id="toast">¡Email copiado al portapapeles!</div>
     
     <!-- Navigation Bar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-[#1F1F1F]">
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-nav rounded-b-2xl">
         <div class="max-w-7xl mx-auto px-4 md:px-8">
             <div class="flex items-center justify-between h-14">
                 <a href="#" class="text-white font-bold text-lg display-font hover:text-gray-300 transition-colors">IP</a>
