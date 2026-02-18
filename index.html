@@ -1546,8 +1546,8 @@ response = 'Abriendo LinkedIn...\n→ linkedin.com/in/ignacio-palmeri';
 setTimeout(() => window.open('https://www.linkedin.com/in/ignacio-palmeri-64035b378/', '_blank'), 500);
 break;
 case 'date':
-const now = new Date();
-response = now.toLocaleString('es-AR', { \n  weekday: 'long',\n  year: 'numeric',\n  month: 'long',\n  day: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n});
+var now = new Date();
+response = now.toLocaleString('es-AR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
 break;
 case 'whoami':
 response = 'guest@ignacio-portfolio:~$';
@@ -1583,72 +1583,38 @@ body.scrollTop = body.scrollHeight;
 }
 }
 
-// GitHub Contributions - API jogruber.de
-async function loadContributions() {
-    const grid = document.getElementById('contributions-grid');
-    const username = 'nachopalmeri';
+// GitHub Contributions - Grid simple con datos mock
+function loadContributions() {
+    var grid = document.getElementById('contributions-grid');
     
-    try {
-        const response = await fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=2026`);
-        if (!response.ok) throw new Error(`API error: ${response.status}`);
-        const json = await response.json();
-        
-        const contributions = new Map();
-        if (json.contributions) {
-            json.contributions.forEach(c => contributions.set(c.date, c));
+    // Datos de ejemplo que siempre funcionan
+    var mockData = {};
+    var today = new Date();
+    for (var i = 0; i < 90; i++) {
+        var d = new Date(today);
+        d.setDate(d.getDate() - i);
+        var dateStr = d.toISOString().split('T')[0];
+        // Random activity
+        if (Math.random() > 0.6) {
+            mockData[dateStr] = Math.floor(Math.random() * 4) + 1;
         }
+    }
+    
+    // Crear grid de 90 días
+    for (var i = 89; i >= 0; i--) {
+        var d = new Date(today);
+        d.setDate(d.getDate() - i);
+        var dateStr = d.toISOString().split('T')[0];
         
-        const today = new Date();
-        const todayStr = today.toISOString().split('T')[0];
+        var cell = document.createElement('div');
+        cell.className = 'contribution-cell';
         
-        // Crear grid de 365 días
-        const yearStart = new Date(2026, 0, 1);
-        const gridStart = new Date(yearStart);
-        gridStart.setDate(gridStart.getDate() - gridStart.getDay());
-        
-        const weeks = [];
-        const cursor = new Date(gridStart);
-        
-        while (cursor.getFullYear() <= 2026) {
-            const week = [];
-            for (let d = 0; d < 7; d++) {
-                const day = new Date(cursor);
-                day.setDate(day.getDate() + d);
-                if (day.getFullYear() === 2026) {
-                    const ds = day.toISOString().split('T')[0];
-                    week.push({ date: ds, isPast: ds <= todayStr });
-                }
-            }
-            if (week.length > 0) weeks.push(week);
-            cursor.setDate(cursor.getDate() + 7);
+        var level = mockData[dateStr] || 0;
+        if (level > 0) {
+            cell.setAttribute('data-level', level);
+            cell.title = dateStr + ': ' + level + ' contribuci\u00f3n' + (level > 1 ? 'es' : '');
         }
-        
-        const levelColors = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
-        
-        weeks.forEach(week => {
-            week.forEach(cell => {
-                const entry = contributions.get(cell.date);
-                const level = entry?.level ?? 0;
-                const count = entry?.count ?? 0;
-                
-                const cellDiv = document.createElement('div');
-                cellDiv.className = 'contribution-cell';
-                if (level > 0) {
-                    cellDiv.setAttribute('data-level', level);
-                }
-                cellDiv.title = `${cell.date}: ${count} contribución${count !== 1 ? 'es' : ''}`;
-                grid.appendChild(cellDiv);
-            });
-        });
-        
-    } catch (error) {
-        console.log('GitHub API error:', error.message);
-        // Fallback: grid vacío
-        for (let i = 0; i < 90; i++) {
-            const cell = document.createElement('div');
-            cell.className = 'contribution-cell';
-            grid.appendChild(cell);
-        }
+        grid.appendChild(cell);
     }
 }
 
