@@ -385,15 +385,16 @@
             position: relative;
             border: 1px solid rgba(255, 255, 255, 0.08);
             background: rgba(10, 10, 10, 0.6);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
         }
         
         .bento-card.featured:hover {
-            border-color: rgba(255, 255, 255, 0.15);
-            transform: translateY(-4px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border-color: rgba(34, 197, 94, 0.3);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(34, 197, 94, 0.08);
         }
         
         /* Gradient line on hover */
@@ -1018,6 +1019,7 @@
         }
         
     </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 </head>
 <body class="min-h-screen p-4 md:p-8 lg:p-12 antialiased selection:bg-white selection:text-black">
     <!-- Floating Particles -->
@@ -2024,25 +2026,13 @@ this.reset();
             scrollProgress.style.width = progress + '%';
         });
         
-        // ===== CARD TILT EFFECT =====
-        document.querySelectorAll('.bento-card.featured').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const tiltX = (y - centerY) / 20;
-                const tiltY = (centerX - x) / 20;
-                
-                card.style.setProperty('--tilt-x', tiltX + 'deg');
-                card.style.setProperty('--tilt-y', tiltY + 'deg');
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.setProperty('--tilt-x', '0deg');
-                card.style.setProperty('--tilt-y', '0deg');
-            });
+        // ===== VANILLA TILT 3D EFFECT =====
+        VanillaTilt.init(document.querySelectorAll(".bento-card.featured"), {
+            max: 8,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.15,
+            scale: 1.02
         });
         
         // ===== KONAMI CODE EASTER EGG =====
