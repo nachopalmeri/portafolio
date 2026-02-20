@@ -11,9 +11,8 @@
 <meta property="og:description" content="Estudiante de Gestión de Tecnología de la Información (UADE). Buscando rol Trainee/Junior en Python, Web3 o datos. Proyectos con LLMs, automatización y blockchain."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://nachopalmeri.github.io/portafolio"/>
-<meta property="og:image" content="https://portafolioignaciopalmeri.vercel.app/imgs/og-image.png"/>
+<meta property="og:image" content="https://nachopalmeri.github.io/portafolio/imgs/yo.jfif"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://portafolioignaciopalmeri.vercel.app/imgs/og-image.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -386,16 +385,15 @@
             position: relative;
             border: 1px solid rgba(255, 255, 255, 0.08);
             background: rgba(10, 10, 10, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             transition: all 0.3s ease;
-            transform-style: preserve-3d;
-            transform: perspective(1000px);
         }
         
         .bento-card.featured:hover {
-            border-color: rgba(34, 197, 94, 0.3);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(34, 197, 94, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
         
         /* Gradient line on hover */
@@ -909,118 +907,9 @@
             background: linear-gradient(135deg, rgba(220,38,38,0.25), rgba(220,38,38,0.1));
             transform: translateY(-2px);
             box-shadow: 0 10px 25px -10px rgba(220,38,38,0.4);
+            border-color: rgba(220, 38, 38, 0.6);
         }
-        
-        /* ===== CARD TILT EFFECT ===== */
-        .card-tilt {
-            transform-style: preserve-3d;
-            transition: transform 0.3s ease;
-        }
-        
-        .card-tilt:hover {
-            transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) scale(1.02);
-        }
-        
-        /* ===== PEEK IMAGES ===== */
-        .peek-image {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            border-radius: 8px;
-            object-fit: cover;
-            opacity: 0;
-            transform: scale(0.8);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 15;
-            pointer-events: none;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-        
-        .bento-card:hover .peek-image {
-            opacity: 1;
-            transform: scale(1);
-        }
-        
-        .peek-top-left { top: 16px; left: 16px; }
-        .peek-top-right { top: 16px; right: 16px; }
-        .peek-bottom-left { bottom: 80px; left: 16px; }
-        .peek-bottom-right { bottom: 80px; right: 16px; }
-        
-        /* ===== GLOW EFFECT ON HOVER ===== */
-        .glow-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .glow-hover:hover {
-            box-shadow: 0 0 30px rgba(34, 197, 94, 0.2), 0 0 60px rgba(34, 197, 94, 0.1);
-        }
-        
-        /* ===== MATRIX RAIN EASTER EGG ===== */
-        .matrix-rain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 99999;
-            background: rgba(0, 0, 0, 0.95);
-        }
-        
-        .matrix-column {
-            position: absolute;
-            top: -100%;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
-            color: #22c55e;
-            text-shadow: 0 0 10px #22c55e;
-            writing-mode: vertical-lr;
-            animation: matrix-fall linear infinite;
-        }
-        
-        @keyframes matrix-fall {
-            to { transform: translateY(200vh); }
-        }
-        
-        /* ===== CONFETTI EASTER EGG ===== */
-        .confetti {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            pointer-events: none;
-            z-index: 99998;
-            animation: confetti-fall 3s linear forwards;
-        }
-        
-        @keyframes confetti-fall {
-            to {
-                transform: translateY(100vh) rotate(720deg);
-                opacity: 0;
-            }
-        }
-        
-        /* ===== SCROLL PROGRESS BAR ===== */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #22c55e, #4ade80);
-            z-index: 10000;
-            transition: width 0.1s ease;
-        }
-        
-        /* ===== ENHANCED PARTICLES ===== */
-        .particle-interactive {
-            transition: transform 0.3s ease;
-        }
-        
-        .particle-interactive:hover {
-            transform: scale(2);
-        }
-        
     </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 </head>
 <body class="min-h-screen p-4 md:p-8 lg:p-12 antialiased selection:bg-white selection:text-black">
     <!-- Floating Particles -->
@@ -1100,10 +989,6 @@
     </nav>
 
 <main class="max-w-7xl mx-auto space-y-6 pt-20">
-<!-- SCROLL PROGRESS BAR -->
-<div class="scroll-progress" id="scroll-progress"></div>
-
-<!-- HERO SECTION - Original Style -->
 <header id="inicio" class="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-[#1F1F1F] pb-8 mb-10 animate-slide-up">
 <div class="space-y-4">
 <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-[#1F1F1F] bg-[#090909]">
@@ -1121,31 +1006,28 @@ DISPONIBLE PARA TRABAJAR
 </div>
 <div>
 <h1 class="text-5xl md:text-7xl lg:text-8xl font-black display-font tracking-tighter bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent leading-none uppercase">
-Ignacio<br/>Palmeri<span class="cursor-blink"></span>
-</h1>
+                        Ignacio<br/>Palmeri<span class="cursor-blink"></span>
+                    </h1>
 </div>
 </div>
 <div class="space-y-1">
 <h2 class="text-xl md:text-2xl font-medium text-white">Estudiante de Gestión de Tecnología de la Información (UADE)</h2>
 <p class="text-text-secondary max-w-lg text-sm md:text-base leading-relaxed">
-Programación y análisis de datos, con enfoque en el sector Fintech y Criptoactivos. Busco rol de Trainee/Junior para aplicar conocimientos en automatización (Python), Web3 y gestión de datos.
-</p>
+                        Programación y análisis de datos, con enfoque en el sector Fintech y Criptoactivos. Cuento con experiencia sólida en atención al cliente, aportando comunicación efectiva y resolución de problemas bajo presión. Busco rol de Trainee/Junior para aplicar conocimientos en automatización (Python), Web3 y gestión de datos.
+                    </p>
 </div>
 </div>
 <div class="flex flex-col md:items-end gap-4 mt-8 md:mt-0">
 <div class="flex items-center gap-3">
 <a class="h-10 w-10 flex items-center justify-center border border-[#1F1F1F] bg-[#090909] rounded hover:bg-white hover:text-black hover:border-white transition-all duration-300 group social-btn" href="https://github.com/nachopalmeri" target="_blank" aria-label="GitHub">
-<i class="fa-brands fa-github text-lg"></i>
-</a>
-<a class="h-10 w-10 flex items-center justify-center border border-[#1F1F1F] bg-[#090909] rounded hover:bg-[#0077b5] hover:text-white hover:border-[#0077b5] transition-all duration-300 group social-btn" href="https://www.linkedin.com/in/ignacio-palmeri-64035b378/" target="_blank" aria-label="LinkedIn">
-<i class="fa-brands fa-linkedin-in text-lg"></i>
-</a>
-<button class="h-10 w-10 flex items-center justify-center border border-[#1F1F1F] bg-[#090909] rounded hover:bg-white hover:text-black hover:border-white transition-all duration-300 group social-btn" onclick="copyEmail()" aria-label="Copiar email">
-<i class="fa-solid fa-envelope text-lg"></i>
-</button>
-<a class="h-10 px-4 flex items-center justify-center border border-[#1F1F1F] bg-[#090909] rounded hover:bg-green-500/20 hover:border-green-500 transition-all duration-300 text-xs font-mono" href="https://drive.google.com/file/d/174_MYjUcNGc3mgJE2vabqmo9W799_cKC/view" target="_blank" aria-label="CV">
-<span>CV</span>
-</a>
+                <i class="fa-brands fa-github text-lg"></i>
+            </a>
+            <a class="h-10 w-10 flex items-center justify-center border border-[#1F1F1F] bg-[#090909] rounded hover:bg-[#0077b5] hover:text-white hover:border-[#0077b5] transition-all duration-300 group social-btn" href="https://www.linkedin.com/in/ignacio-palmeri-64035b378/" target="_blank" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin-in text-lg"></i>
+            </a>
+            <button class="h-10 w-10 flex items-center justify-center border border-[#1F1F1F] bg-[#090909] rounded hover:bg-white hover:text-black hover:border-white transition-all duration-300 group social-btn" onclick="copyEmail()" aria-label="Copiar email">
+                <i class="fa-solid fa-envelope text-lg"></i>
+            </button>
 </div>
 <div class="text-right hidden md:block">
 <p class="text-xs text-[#333] font-mono">BSAS, ARGENTINA</p>
@@ -1284,59 +1166,6 @@ Programación y análisis de datos, con enfoque en el sector Fintech y Criptoact
 <span class="text-[10px] text-[#444] hover:text-green-400 cursor-pointer transition-colors">→ Ver proyecto</span>
 </div>
 </a>
-</div>
-<div class="md:col-span-6">
-<a href="https://portafolio-v2-gamma.vercel.app/" target="_blank" class="bento-card featured rounded-2xl p-0 flex flex-col justify-between group relative overflow-hidden h-[240px] cursor-pointer glow-hover">
-<div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80 z-10"></div>
-<div class="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-purple-500/10 z-[5]"></div>
-<div class="relative z-20 flex justify-between items-start p-6">
-<div class="flex items-center gap-2">
-<span class="terminal-dot red"></span>
-<span class="terminal-dot yellow"></span>
-<span class="terminal-dot green"></span>
-</div>
-<span class="px-2 py-1 text-[10px] font-mono font-bold border border-yellow-500/50 rounded text-yellow-400 bg-yellow-500/10">EN DESARROLLO</span>
-</div>
-<div class="relative z-20 mt-auto p-6">
-<h3 class="text-lg font-bold text-white mb-2">Portfolio V2</h3>
-<p class="text-white/80 text-sm mb-3">Rediseño con animaciones avanzadas y efectos interactivos.</p>
-<div class="flex gap-2 flex-wrap">
-<span class="px-2 py-1 text-xs font-mono border border-green-500/30 rounded text-green-400 tech-tag">Animaciones</span>
-<span class="px-2 py-1 text-xs font-mono border border-white/20 rounded text-white/80 tech-tag">CSS</span>
-</div>
-<span class="text-[10px] text-[#444] hover:text-green-400 cursor-pointer transition-colors">→ Ver proyecto</span>
-</div>
-</a>
-</div>
-<div class="md:col-span-6">
-<div class="bento-card featured rounded-2xl p-0 flex flex-col justify-between group relative overflow-hidden h-[240px] cursor-pointer opacity-60">
-<div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80 z-10"></div>
-<div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-transparent to-purple-500/20 z-[5]"></div>
-<div class="relative z-20 flex justify-between items-start p-6">
-<div class="flex items-center gap-2">
-<span class="terminal-dot red"></span>
-<span class="terminal-dot yellow"></span>
-<span class="terminal-dot green"></span>
-</div>
-<span class="material-symbols-outlined text-white/30">hourglass_empty</span>
-</div>
-<div class="relative z-20 my-auto py-8">
-<div class="font-mono text-xs text-yellow-500 mb-2 leading-relaxed">
-<span class="text-gray-500">$</span> mysql -u root -p<br/>
-<span class="text-yellow-400">⏳</span> conectando...<br/>
-<span class="text-yellow-400">●</span> estado: <span class="animate-pulse">PRÓXIMAMENTE</span>
-</div>
-</div>
-<div class="relative z-20 mt-auto p-6">
-<h3 class="text-lg font-bold text-white mb-2">Proyecto MySQL</h3>
-<p class="text-white/60 text-sm mb-3">Base de datos relacional con queries avanzados.</p>
-<div class="flex gap-2 flex-wrap">
-<span class="px-2 py-1 text-xs font-mono border border-yellow-500/30 rounded text-yellow-400/60 tech-tag">MySQL</span>
-<span class="px-2 py-1 text-xs font-mono border border-white/10 rounded text-white/40 tech-tag">Database</span>
-</div>
-<span class="text-[10px] text-[#444]">🔒 En desarrollo</span>
-</div>
-</div>
 </div>
 </section>
 
@@ -1878,6 +1707,16 @@ this.reset();
             </a>
         </div>
         
+        <!-- Social Links -->
+        <div class="flex justify-center gap-4 mb-8 animate-slide-up delay-2">
+            <a href="https://github.com/nachopalmeri" target="_blank" class="p-3 bg-[#111] rounded-xl border border-[#222] hover:border-green-500/50 hover:bg-[#151515] transition-all">
+                <i class="fab fa-github text-xl text-white"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/ignacio-palmeri-64035b378/" target="_blank" class="p-3 bg-[#111] rounded-xl border border-[#222] hover:border-blue-500/50 hover:bg-[#151515] transition-all">
+                <i class="fab fa-linkedin text-xl text-white"></i>
+            </a>
+        </div>
+        
         <!-- Formulario de contacto estilo terminal -->
         <div class="max-w-lg mx-auto animate-slide-up delay-3">
             <div class="bg-[#0d0d0d] rounded-xl border border-[#1a1a1a] overflow-hidden">
@@ -1999,157 +1838,5 @@ this.reset();
             const target = parseInt(counter.getAttribute('data-target'));
             counter.textContent = target + (target === 100 ? '%' : '+');
         });
-        
-        // ===== SCROLL PROGRESS BAR =====
-        window.addEventListener('scroll', () => {
-            const scrollProgress = document.getElementById('scroll-progress');
-            const scrollTop = window.pageYOffset;
-            const docHeight = document.body.scrollHeight - window.innerHeight;
-            const progress = (scrollTop / docHeight) * 100;
-            scrollProgress.style.width = progress + '%';
-        });
-        
-        // ===== VANILLA TILT 3D EFFECT =====
-        VanillaTilt.init(document.querySelectorAll(".bento-card.featured"), {
-            max: 8,
-            speed: 400,
-            glare: true,
-            "max-glare": 0.15,
-            scale: 1.02
-        });
-        
-        // ===== KONAMI CODE EASTER EGG =====
-        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
-        let konamiIndex = 0;
-        
-        document.addEventListener('keydown', (e) => {
-            if (e.code === konamiCode[konamiIndex]) {
-                konamiIndex++;
-                if (konamiIndex === konamiCode.length) {
-                    activateMatrixRain();
-                    konamiIndex = 0;
-                }
-            } else {
-                konamiIndex = 0;
-            }
-        });
-        
-        function activateMatrixRain() {
-            const matrix = document.createElement('div');
-            matrix.className = 'matrix-rain';
-            document.body.appendChild(matrix);
-            
-            for (let i = 0; i < 30; i++) {
-                const column = document.createElement('div');
-                column.className = 'matrix-column';
-                column.style.left = Math.random() * 100 + '%';
-                column.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                column.textContent = '01'.repeat(50).split('').sort(() => Math.random() - 0.5).join('');
-                matrix.appendChild(column);
-            }
-            
-            setTimeout(() => matrix.remove(), 5000);
-        }
-        
-        // ===== CONFETTI EASTER EGG =====
-        function createConfetti() {
-            const colors = ['#22c55e', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6'];
-            
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + '%';
-                confetti.style.top = '-10px';
-                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
-                confetti.style.animationDelay = Math.random() * 2 + 's';
-                document.body.appendChild(confetti);
-                
-                setTimeout(() => confetti.remove(), 3000);
-            }
-        }
-        
-        // ===== CLICK ON NAME EASTER EGG =====
-        let nameClickCount = 0;
-        document.querySelectorAll('h1').forEach(el => {
-            if (el.textContent.includes('Ignacio')) {
-                el.style.cursor = 'pointer';
-                el.addEventListener('click', () => {
-                    nameClickCount++;
-                    if (nameClickCount >= 5) {
-                        createConfetti();
-                        alert('🎉 ¡Encontraste el easter egg! Gracias por explorar mi portfolio.');
-                        nameClickCount = 0;
-                    }
-                });
-            }
-        });
-        
-        // ===== PARTICLE INTERACTION =====
-        document.querySelectorAll('.particle-interactive').forEach(particle => {
-            particle.addEventListener('click', () => {
-                particle.style.transform = 'scale(3)';
-                particle.style.opacity = '0';
-                setTimeout(() => {
-                    particle.style.transform = '';
-                    particle.style.opacity = '';
-                }, 500);
-            });
-        });
-        
-        // ===== TERMINAL NEW COMMANDS =====
-        const originalHandleTerminalInput = window.handleTerminalInput;
-        
-        window.handleTerminalInput = function(event) {
-            if (event.key === 'Enter') {
-                const input = document.getElementById('terminal-input');
-                const body = document.getElementById('terminal-body');
-                const command = input.value.trim().toLowerCase();
-                
-                // Add new commands
-                if (command === 'matrix') {
-                    input.value = '';
-                    const respDiv = document.createElement('div');
-                    respDiv.className = 'terminal-output';
-                    respDiv.textContent = 'Activando Matrix Rain...';
-                    body.appendChild(respDiv);
-                    activateMatrixRain();
-                    return;
-                }
-                
-                if (command === 'confetti') {
-                    input.value = '';
-                    const respDiv = document.createElement('div');
-                    respDiv.className = 'terminal-output';
-                    respDiv.textContent = '🎉 Confetti activado!';
-                    body.appendChild(respDiv);
-                    createConfetti();
-                    return;
-                }
-                
-                if (command === 'coffee') {
-                    input.value = '';
-                    const respDiv = document.createElement('div');
-                    respDiv.className = 'terminal-output';
-                    respDiv.textContent = '☕ Coffee time! Tomate un descanso.';
-                    body.appendChild(respDiv);
-                    return;
-                }
-                
-                if (command === 'hack') {
-                    input.value = '';
-                    const respDiv = document.createElement('div');
-                    respDiv.className = 'terminal-output';
-                    respDiv.textContent = '🔐 Hacking... [▓▓▓▓▓▓▓▓▓▓] 100%\n\nJust kidding 😄 Todo es legal aquí.';
-                    body.appendChild(respDiv);
-                    return;
-                }
-            }
-            
-            // Call original function for other commands
-            if (originalHandleTerminalInput) {
-                originalHandleTerminalInput(event);
-            }
-        };
     </script>
 </body></html>
