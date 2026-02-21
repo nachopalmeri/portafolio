@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23000'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='18' font-weight='bold' fill='%2322c55e'>IP</text></svg>"/>
 <title>Ignacio Palmeri - Portfolio</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -1019,10 +1019,99 @@
             transform: scale(2);
         }
         
+        /* ===== ACCESSIBILITY IMPROVEMENTS ===== */
+        
+        /* Skip Link for Keyboard Navigation */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent-primary);
+            color: white;
+            padding: 8px 16px;
+            z-index: 10000;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 0 0 4px 0;
+            transition: top 0.3s ease;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+            outline: none;
+        }
+        
+        /* Focus States for Interactive Elements */
+        .nav-link:focus-visible,
+        .bento-card:focus-visible,
+        .social-btn:focus-visible,
+        .theme-toggle-btn:focus-visible,
+        button:focus-visible,
+        a:focus-visible {
+            outline: 2px solid var(--accent-primary);
+            outline-offset: 2px;
+        }
+        
+        /* Cursor Pointer for Clickable Elements */
+        .bento-card,
+        .bento-card.featured {
+            cursor: pointer;
+        }
+        
+        /* Color Scheme for Dark Mode */
+        [data-theme="dark"] {
+            color-scheme: dark;
+        }
+        
+        /* Subtle Noise Texture Overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.02;
+            z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+        
+        /* Prefers Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            
+            .particle,
+            .particle-interactive {
+                animation: none !important;
+            }
+            
+            .bento-card:hover {
+                transform: none !important;
+            }
+        }
+        
+        /* High Contrast Mode Support */
+        @media (prefers-contrast: high) {
+            :root {
+                --border-color: #FFFFFF;
+                --text-secondary: #FFFFFF;
+            }
+        }
+        
     </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 </head>
 <body class="min-h-screen p-4 md:p-8 lg:p-12 antialiased selection:bg-white selection:text-black">
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
     <!-- Floating Particles -->
     <div class="particles" aria-hidden="true">
         <div class="particle"></div>
@@ -1099,7 +1188,7 @@
         </div>
     </nav>
 
-<main class="max-w-7xl mx-auto space-y-6 pt-20">
+<main id="main-content" class="max-w-7xl mx-auto space-y-6 pt-20">
 <!-- SCROLL PROGRESS BAR -->
 <div class="scroll-progress" id="scroll-progress"></div>
 
@@ -1117,7 +1206,7 @@ DISPONIBLE PARA TRABAJAR
 </div>
 <div class="flex items-center gap-6">
 <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-[#222] hover:border-green-500 transition-colors flex-shrink-0">
-<img src="imgs/yo.jfif" alt="Ignacio Palmeri" class="w-full h-full object-cover">
+<img src="imgs/yo.jfif" alt="Ignacio Palmeri" class="w-full h-full object-cover" width="400" height="400">
 </div>
 <div>
 <h1 class="text-5xl md:text-7xl lg:text-8xl font-black display-font tracking-tighter bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent leading-none uppercase">
@@ -1163,7 +1252,7 @@ Programación y análisis de datos, con enfoque en el sector Fintech y Criptoact
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-min">
 <a href="https://polytools-omega.vercel.app/" target="_blank" class="md:col-span-7 bento-card featured rounded-2xl p-0 flex flex-col justify-between group relative overflow-hidden h-[320px] cursor-pointer">
 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80 z-10"></div>
-<img src="imgs/polymarktporyect.PNG" alt="Bot Polymarket" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+<img src="imgs/polymarktporyect.PNG" alt="Bot Polymarket" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" width="400" height="300">
 <div class="relative z-20 flex justify-between items-start">
 <div class="flex items-center gap-2">
 <span class="terminal-dot red"></span>
@@ -1194,7 +1283,7 @@ Programación y análisis de datos, con enfoque en el sector Fintech y Criptoact
 </a>
 <a href="https://fulbotracker.vercel.app/" target="_blank" class="md:col-span-5 bento-card featured rounded-2xl p-0 flex flex-col justify-between group relative overflow-hidden h-[320px] cursor-pointer">
 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80 z-10"></div>
-<img src="imgs/futtracker.PNG" alt="Fútbol Tracker" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+<img src="imgs/futtracker.PNG" alt="Fútbol Tracker" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" width="400" height="300">
 <div class="relative z-20 flex justify-between items-start">
                 <div class="w-10 h-10 rounded-full border border-[#333] flex items-center justify-center bg-black">
                     <span class="material-symbols-outlined text-white text-lg">sports_soccer</span>
@@ -1215,7 +1304,7 @@ Programación y análisis de datos, con enfoque en el sector Fintech y Criptoact
 <div class="md:col-span-6">
 <a href="https://prodesol.vercel.app/" target="_blank" class="bento-card featured rounded-2xl p-0 flex flex-col justify-between group relative overflow-hidden h-[240px] cursor-pointer">
 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80 z-10"></div>
-<img src="imgs/dom.PNG" alt="DApp Blockchain" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+<img src="imgs/dom.PNG" alt="DApp Blockchain" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" width="400" height="300">
 <div class="relative z-20 flex justify-between items-start p-6">
 <div class="flex items-center gap-2">
 <span class="terminal-dot red"></span>
@@ -1239,7 +1328,7 @@ Programación y análisis de datos, con enfoque en el sector Fintech y Criptoact
 <div class="md:col-span-6">
 <a href="https://portafolioignaciopalmeri.vercel.app/hub.html" target="_blank" class="bento-card featured rounded-2xl p-0 flex flex-col justify-between group relative overflow-hidden h-[240px] cursor-pointer">
 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80 z-10"></div>
-<img src="imgs/comidadebarrio.PNG" alt="Proyectos Web" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+<img src="imgs/comidadebarrio.PNG" alt="Proyectos Web" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" width="400" height="300">
 <div class="relative z-20 flex justify-between items-start p-6">
 <div class="flex items-center gap-2">
 <span class="terminal-dot red"></span>
@@ -1263,7 +1352,7 @@ Programación y análisis de datos, con enfoque en el sector Fintech y Criptoact
 <div class="md:col-span-12">
 <a href="https://franqui-ya-fpq4.vercel.app/" target="_blank" class="bento-card featured rounded-2xl p-0 flex flex-col justify-between group relative overflow-hidden h-[280px] cursor-pointer">
 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80 z-10"></div>
-<img src="imgs/dashboard-franquiciados.PNG" alt="Dashboard Franquiciados" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+<img src="imgs/dashboard-franquiciados.PNG" alt="Dashboard Franquiciados" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" width="400" height="300">
 <div class="relative z-20 flex justify-between items-start p-6">
 <div class="flex items-center gap-2">
 <span class="terminal-dot red"></span>
