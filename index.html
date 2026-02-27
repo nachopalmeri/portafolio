@@ -2931,69 +2931,32 @@ this.reset();
     </style>
 
     <script>
-        function toggleV2Theme() {
-            var isDark = document.body.getAttribute('data-theme') === 'dark';
-            document.body.setAttribute('data-theme', isDark ? '' : 'dark');
-            document.getElementById('theme-icon-v2').textContent = isDark ? '🌙' : '☀️';
-            localStorage.setItem('theme', isDark ? 'light' : 'dark');
-        }
-        
-        // Load V2 theme preference
-        var savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            document.body.setAttribute('data-theme', 'dark');
-            document.getElementById('theme-icon-v2').textContent = '☀️';
-        }
-
         function loadV2Styles() {
-            if (!document.getElementById('v2-styles')) {
-                var link = document.createElement('link');
-                link.id = 'v2-styles';
-                link.rel = 'stylesheet';
-                link.href = 'assets-v2/css/styles.css';
-                document.head.appendChild(link);
-            }
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'assets-v2/css/styles.css';
+            document.head.appendChild(link);
         }
         
         function toggleConcept() {
-            var current = document.body.getAttribute('data-concept') || 'a';
-            var next = current === 'a' ? 'b' : 'a';
-            document.body.setAttribute('data-concept', next);
-            localStorage.setItem('portfolioConcept', next);
+            var body = document.body;
+            var current = body.getAttribute('data-concept');
             
-            // Load V2 CSS when switching to Concept B
-            if (next === 'b') {
+            if (current === 'a') {
+                body.setAttribute('data-concept', 'b');
                 loadV2Styles();
+            } else {
+                body.setAttribute('data-concept', 'a');
             }
             
-            // Update labels
-            document.querySelectorAll('.concept-label').forEach(function(el, i) {
-                el.classList.toggle('active', (i === 0 && next === 'a') || (i === 1 && next === 'b'));
-            });
-            
-            // Scroll to top
             window.scrollTo(0, 0);
         }
         
         // Load saved concept
-        var savedConcept = localStorage.getItem('portfolioConcept') || 'a';
-        document.body.setAttribute('data-concept', savedConcept);
-        
-        // Load V2 styles if saved preference is B
-        if (savedConcept === 'b') {
+        var saved = localStorage.getItem('portfolioConcept');
+        if (saved === 'b') {
+            document.body.setAttribute('data-concept', 'b');
             loadV2Styles();
         }
-        
-        document.querySelectorAll('.concept-label').forEach(function(el, i) {
-            el.classList.toggle('active', (i === 0 && savedConcept === 'a') || (i === 1 && savedConcept === 'b'));
-        });
-        
-        // Add event listener to toggle button when DOM is ready
-        document.addEventListener('DOMContentLoaded', function() {
-            var toggleBtn = document.getElementById('conceptToggle');
-            if (toggleBtn) {
-                toggleBtn.addEventListener('click', toggleConcept);
-            }
-        });
     </script>
 </body></html>
