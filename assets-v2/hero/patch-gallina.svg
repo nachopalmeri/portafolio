@@ -1,0 +1,30 @@
+<svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="70" cy="70" r="68" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="2"/>
+  <!-- Gallina simplificada -->
+  <g transform="translate(35, 30)">
+    <!-- Cresta -->
+    <path d="M35 5 C30 0, 25 0, 28 8 C25 2, 20 5, 25 12 C22 8, 18 10, 22 16 C20 14, 16 16, 20 20 L35 15 Z" fill="#E53935"/>
+    <!-- Cabeza -->
+    <ellipse cx="38" cy="22" rx="16" ry="14" fill="#FFF8E1"/>
+    <!-- Pico -->
+    <path d="M52 22 L60 25 L52 28 Z" fill="#FF9800"/>
+    <!-- Caruncula (bajo pico) -->
+    <ellipse cx="50" cy="28" rx="4" ry="6" fill="#E53935"/>
+    <!-- Ojo -->
+    <circle cx="42" cy="18" r="5" fill="#212121"/>
+    <circle cx="43" cy="17" r="2" fill="white"/>
+    <!-- Cuerpo -->
+    <ellipse cx="35" cy="50" rx="28" ry="30" fill="#FFF8E1"/>
+    <!-- Ala -->
+    <ellipse cx="28" cy="50" rx="12" ry="20" fill="#F5F5DC"/>
+    <!-- Cola -->
+    <path d="M8 40 Q0 30, 5 20 Q8 35, 12 35 Q5 38, 8 40" fill="#D7CCC8"/>
+    <path d="M5 45 Q-5 35, 2 25 Q5 42, 10 42 Q2 44, 5 45" fill="#BCAAA4"/>
+    <!-- Patas -->
+    <rect x="25" y="75" width="4" height="18" fill="#FF9800"/>
+    <rect x="41" y="75" width="4" height="18" fill="#FF9800"/>
+    <!-- Pies -->
+    <path d="M20 93 L27 93 L27 96 L20 93 M25 93 L27 100 M29 93 L27 100" stroke="#FF9800" stroke-width="2" fill="none"/>
+    <path d="M41 93 L50 93 L50 96 L43 93 M45 93 L47 100 M47 93 L47 100" stroke="#FF9800" stroke-width="2" fill="none"/>
+  </g>
+</svg>
