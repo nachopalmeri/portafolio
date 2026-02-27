@@ -27,7 +27,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script type="module" src="https://unpkg.com/@phosphor-icons/webcomponents"></script>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="assets-v2/css/styles.css">
 <script>
         tailwind.config = {
             theme: {
@@ -2919,6 +2918,16 @@ this.reset();
         [data-concept="a"] .theme-toggle {
             display: none !important;
         }
+        
+        /* Force V1 background (keep original black) */
+        [data-concept="a"] {
+            background: #000000 !important;
+        }
+        
+        [data-concept="a"] body,
+        [data-concept="a"] .max-w-7xl {
+            background: #000000 !important;
+        }
     </style>
 
     <script>
@@ -2936,11 +2945,26 @@ this.reset();
             document.getElementById('theme-icon-v2').textContent = '☀️';
         }
 
+        function loadV2Styles() {
+            if (!document.getElementById('v2-styles')) {
+                var link = document.createElement('link');
+                link.id = 'v2-styles';
+                link.rel = 'stylesheet';
+                link.href = 'assets-v2/css/styles.css';
+                document.head.appendChild(link);
+            }
+        }
+        
         function toggleConcept() {
             var current = document.body.getAttribute('data-concept') || 'a';
             var next = current === 'a' ? 'b' : 'a';
             document.body.setAttribute('data-concept', next);
             localStorage.setItem('portfolioConcept', next);
+            
+            // Load V2 CSS when switching to Concept B
+            if (next === 'b') {
+                loadV2Styles();
+            }
             
             // Update labels
             document.querySelectorAll('.concept-label').forEach(function(el, i) {
@@ -2954,6 +2978,11 @@ this.reset();
         // Load saved concept
         var savedConcept = localStorage.getItem('portfolioConcept') || 'a';
         document.body.setAttribute('data-concept', savedConcept);
+        
+        // Load V2 styles if saved preference is B
+        if (savedConcept === 'b') {
+            loadV2Styles();
+        }
         
         document.querySelectorAll('.concept-label').forEach(function(el, i) {
             el.classList.toggle('active', (i === 0 && savedConcept === 'a') || (i === 1 && savedConcept === 'b'));
