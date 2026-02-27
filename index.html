@@ -2961,23 +2961,42 @@ this.reset();
         
         function toggleConcept() {
             var body = document.body;
+            var conceptA = document.querySelector('.concept-a');
+            var conceptB = document.querySelector('.concept-b');
             var current = body.getAttribute('data-concept');
             
             if (current === 'a') {
+                // Cambiar a B
                 body.setAttribute('data-concept', 'b');
+                conceptA.style.display = 'none';
+                conceptB.style.display = 'block';
                 loadV2Styles();
+                localStorage.setItem('portfolioConcept', 'b');
             } else {
+                // Cambiar a A
                 body.setAttribute('data-concept', 'a');
+                conceptA.style.display = 'block';
+                conceptB.style.display = 'none';
+                localStorage.setItem('portfolioConcept', 'a');
             }
             
             window.scrollTo(0, 0);
         }
         
-        // Load saved concept
+        // Load saved concept and initialize display
         var saved = localStorage.getItem('portfolioConcept');
+        var conceptA = document.querySelector('.concept-a');
+        var conceptB = document.querySelector('.concept-b');
+        
         if (saved === 'b') {
             document.body.setAttribute('data-concept', 'b');
+            conceptA.style.display = 'none';
+            conceptB.style.display = 'block';
             loadV2Styles();
+        } else {
+            document.body.setAttribute('data-concept', 'a');
+            conceptA.style.display = 'block';
+            conceptB.style.display = 'none';
         }
     </script>
 </body></html>
