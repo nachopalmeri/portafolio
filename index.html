@@ -1119,7 +1119,7 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            z-index: 1000;
+            z-index: 10000;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -1171,9 +1171,40 @@
             transform: translateX(16px);
         }
         
-        /* Concept B (V2) Styles */
-        [data-concept="b"] .concept-a { display: none; }
-        [data-concept="a"] .concept-b { display: none; }
+        /* Concept Display Logic */
+        .concept-content {
+            display: block;
+            opacity: 1;
+            transition: opacity 0.4s ease;
+        }
+        
+        .concept-a {
+            display: block;
+        }
+        
+        .concept-b {
+            display: none;
+        }
+        
+        [data-concept="a"] .concept-a {
+            display: block;
+            opacity: 1;
+        }
+        
+        [data-concept="a"] .concept-b {
+            display: none;
+            opacity: 0;
+        }
+        
+        [data-concept="b"] .concept-a {
+            display: none;
+            opacity: 0;
+        }
+        
+        [data-concept="b"] .concept-b {
+            display: block;
+            opacity: 1;
+        }
         
         [data-concept="b"] {
             --bg-primary: #FAFAF9;
@@ -1342,6 +1373,569 @@
             background: #22C55E;
         }
         
+        /* ==================== V2 (CONCEPT B) STYLES ==================== */
+        
+        /* V2 Nav */
+        .nav-v2 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(250, 250, 249, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        
+        .nav-v2-location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #57534E;
+        }
+        
+        .nav-v2-city {
+            font-weight: 500;
+        }
+        
+        .nav-v2-arrow {
+            font-size: 10px;
+        }
+        
+        .nav-v2-time {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+        }
+        
+        .nav-v2-links {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .nav-v2-link {
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #57534E;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-v2-link:hover {
+            color: #1C1917;
+        }
+        
+        /* V2 Hero */
+        .hero-v2-wrapper {
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero-v2 {
+            position: relative;
+            min-height: calc(100vh - 82px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+            background: #FAFAF9;
+        }
+        
+        .hero-v2-cursor {
+            position: absolute;
+            top: 120px;
+            right: 25%;
+            width: 200px;
+            height: auto;
+            animation: cursor-drift 4s ease-in-out infinite;
+        }
+        
+        .hero-v2-cursor--python {
+            right: 25%;
+            animation-delay: 0s;
+        }
+        
+        .hero-v2-cursor--it {
+            right: 15%;
+            top: 180px;
+            animation-delay: 2s;
+        }
+        
+        @keyframes cursor-drift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(15px, -10px); }
+        }
+        
+        .hero-v2-patch {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: #FFFFFF;
+            border: 1px solid #E7E5E4;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+        }
+        
+        .hero-v2-patch img {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+        }
+        
+        .hero-v2-patch--left {
+            left: 40px;
+            top: 50%;
+        }
+        
+        .hero-v2-patch--right {
+            right: 40px;
+            top: 50%;
+        }
+        
+        .hero-v2-tooltip {
+            position: absolute;
+            background: #1C1917;
+            color: #FAFAF9;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            pointer-events: none;
+        }
+        
+        .hero-v2-patch:hover .hero-v2-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .hero-v2-content {
+            max-width: 800px;
+        }
+        
+        .hero-v2-title {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            color: #1C1917;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-v2-subtitle {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.25rem;
+            color: #57534E;
+            max-width: 500px;
+        }
+        
+        .hero-v2-cta {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1C1917;
+            color: #FAFAF9;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            font-size: 20px;
+        }
+        
+        .hero-v2-cta:hover {
+            transform: translateX(-50%) scale(1.1);
+        }
+        
+        /* V2 Photo Carousel */
+        .photo-carousel {
+            overflow: hidden;
+            padding: 2rem 0;
+            background: #F5F5F4;
+        }
+        
+        .photo-track {
+            display: flex;
+            gap: 1rem;
+            animation: carousel-scroll 25s linear infinite;
+            width: max-content;
+        }
+        
+        @keyframes carousel-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .photo-item {
+            flex-shrink: 0;
+            width: 180px;
+            height: 250px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* V2 Work Section */
+        .work-v2 {
+            padding: 80px 40px;
+            background: #FAFAF9;
+        }
+        
+        .work-v2-header {
+            margin-bottom: 48px;
+        }
+        
+        .section-v2-title {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1C1917;
+            margin-bottom: 8px;
+        }
+        
+        .section-v2-description {
+            font-size: 1rem;
+            color: #57534E;
+            max-width: 600px;
+        }
+        
+        .work-v2-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        
+        .work-v2-card-wrapper {
+            position: relative;
+        }
+        
+        .card-v2-title {
+            position: absolute;
+            top: -24px;
+            left: 0;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #A8A29E;
+        }
+        
+        .work-v2-card {
+            display: block;
+            text-decoration: none;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #FFFFFF;
+            border: 1px solid #E7E5E4;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .work-v2-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-v2-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-v2-image-color,
+        .card-v2-image-bnw {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+        
+        .card-v2-image-bnw {
+            opacity: 0;
+            filter: grayscale(100%);
+        }
+        
+        .work-v2-card:hover .card-v2-image-color {
+            opacity: 0;
+        }
+        
+        .work-v2-card:hover .card-v2-image-bnw {
+            opacity: 1;
+        }
+        
+        .card-v2-info {
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-v2-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .pill-v2 {
+            padding: 4px 10px;
+            background: #F5F5F4;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 500;
+            color: #57534E;
+        }
+        
+        .card-v2-year {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #A8A29E;
+        }
+        
+        /* V2 Experience */
+        .experience-v2 {
+            padding: 80px 40px;
+            background: #FAFAF9;
+        }
+        
+        .experience-v2-header {
+            margin-bottom: 48px;
+        }
+        
+        .experience-v2-list {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        
+        .experience-v2-item {
+            padding-left: 24px;
+            border-left: 2px solid #E7E5E4;
+        }
+        
+        .experience-v2-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 12px;
+        }
+        
+        .job-v2-title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1C1917;
+        }
+        
+        .job-v2-time {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #A8A29E;
+        }
+        
+        .experience-v2-projects {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .project-v2-name {
+            padding: 4px 12px;
+            background: #F5F5F4;
+            border-radius: 999px;
+            font-size: 12px;
+            color: #57534E;
+        }
+        
+        /* V2 Certifications */
+        .certs-v2 {
+            padding: 80px 40px;
+            background: #F5F5F4;
+        }
+        
+        .certs-v2-header {
+            margin-bottom: 48px;
+        }
+        
+        .certs-v2-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .cert-v2-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            background: #FFFFFF;
+            border: 1px solid #E7E5E4;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .cert-v2-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .cert-v2-icon {
+            font-size: 24px;
+        }
+        
+        .cert-v2-info {
+            flex: 1;
+        }
+        
+        .cert-v2-title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1C1917;
+        }
+        
+        .cert-v2-desc {
+            font-size: 12px;
+            color: #57534E;
+        }
+        
+        /* V2 About */
+        .about-v2 {
+            padding: 80px 40px;
+            background: #FAFAF9;
+        }
+        
+        .about-v2-header {
+            margin-bottom: 32px;
+        }
+        
+        .about-v2-text {
+            max-width: 700px;
+        }
+        
+        .about-v2-text p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #57534E;
+            margin-bottom: 16px;
+        }
+        
+        /* V2 Footer */
+        .footer-v2 {
+            padding: 60px 40px;
+            background: #1C1917;
+        }
+        
+        .footer-v2-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-v2-cta {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #FAFAF9;
+            margin-bottom: 8px;
+        }
+        
+        .footer-v2-contact {
+            font-size: 14px;
+            color: #A8A29E;
+        }
+        
+        .footer-v2-contact a {
+            color: #FAFAF9;
+            text-decoration: none;
+        }
+        
+        .footer-v2-socials {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .social-v2-link {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 20px;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+        
+        .social-v2-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        
+        /* Mobile V2 */
+        @media (max-width: 768px) {
+            .nav-v2 {
+                padding: 16px 24px;
+            }
+            
+            .nav-v2-links {
+                display: none;
+            }
+            
+            .hero-v2 {
+                padding: 24px;
+            }
+            
+            .hero-v2-cursor {
+                display: none;
+            }
+            
+            .hero-v2-patch {
+                display: none;
+            }
+            
+            .work-v2,
+            .experience-v2,
+            .certs-v2,
+            .about-v2 {
+                padding: 48px 24px;
+            }
+            
+            .footer-v2-content {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+        }
+        
     </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 <script type="module" src="https://unpkg.com/@phosphor-icons/webcomponents"></script>
@@ -1426,6 +2020,10 @@
     </nav>
 
 <main id="main-content" class="max-w-7xl mx-auto space-y-6 pt-20">
+
+<!-- ==================== CONCEPT A (V1 - Terminal Style) ==================== -->
+<div class="concept-content concept-a">
+
 <!-- SCROLL PROGRESS BAR -->
 <div class="scroll-progress" id="scroll-progress"></div>
 
@@ -2264,11 +2862,286 @@ this.reset();
         </div>
     </div>
 </footer>
+</div>
+<!-- ==================== END CONCEPT A ==================== -->
+
+
+<!-- ==================== CONCEPT B (V2 - Minimal Style) ==================== -->
+<div class="concept-content concept-b">
+
+<!-- V2 Navigation -->
+<nav class="nav-v2">
+  <div class="nav-v2-location">
+    <span class="nav-v2-city">Buenos Aires</span>
+    <span class="nav-v2-arrow">→</span>
+    <span class="nav-v2-time" id="local-time-v2"></span>
+  </div>
+  <div class="nav-v2-links">
+    <a href="#" class="nav-v2-link">INICIO</a>
+    <a href="#work-v2" class="nav-v2-link">PROYECTOS</a>
+    <a href="#experience-v2" class="nav-v2-link">EXPERIENCIA</a>
+    <a href="#contact-v2" class="nav-v2-link">CONTACTO</a>
+  </div>
+</nav>
+
+<!-- V2 Hero -->
+<div class="hero-v2-wrapper">
+  <section class="hero-v2">
+    <img class="hero-v2-cursor hero-v2-cursor--python" src="assets-v2/hero/hero-python-developer.svg" alt="Python Developer">
+    <img class="hero-v2-cursor hero-v2-cursor--it" src="assets-v2/hero/hero-it-native.svg" alt="IT Native">
+    
+    <div class="hero-v2-patch hero-v2-patch--left">
+      <img src="assets-v2/hero/patch-argentina.svg" alt="Argentina">
+      <span class="hero-v2-tooltip">De Buenos Aires, Argentina</span>
+    </div>
+    <div class="hero-v2-patch hero-v2-patch--right">
+      <img src="assets-v2/hero/patch-gallina.svg" alt="Grido">
+      <span class="hero-v2-tooltip">Trabajando en Grido</span>
+    </div>
+    
+    <div class="hero-v2-content">
+      <h1 class="hero-v2-title">hi, i'm Ignacio</h1>
+      <p class="hero-v2-subtitle">Estudiante de Gestión IT buscando mi primera oportunidad como Trainee/Junior en Python, Web3 y análisis de datos.</p>
+    </div>
+    
+    <a href="#work-v2" class="hero-v2-cta">
+      <span>↓</span>
+    </a>
+  </section>
+</div>
+
+<!-- V2 Photo Carousel -->
+<div class="photo-carousel">
+  <div class="photo-track" id="photo-track-v2">
+    <div class="photo-item"><img src="imgs/polymarktporyect.PNG" alt="Bot Polymarket" loading="lazy" width="200" height="280"></div>
+    <div class="photo-item"><img src="imgs/futtracker.PNG" alt="Fútbol Tracker" loading="lazy" width="200" height="280"></div>
+    <div class="photo-item"><img src="imgs/dom.PNG" alt="DApp Blockchain" loading="lazy" width="200" height="280"></div>
+    <div class="photo-item"><img src="imgs/comidadebarrio.PNG" alt="Proyectos Web" loading="lazy" width="200" height="280"></div>
+    <div class="photo-item"><img src="imgs/dashboard-franquiciados.PNG" alt="Dashboard" loading="lazy" width="200" height="280"></div>
+    <div class="photo-item"><img src="imgs/polymarktporyect.PNG" alt="Bot Polymarket" loading="lazy" width="200" height="280"></div>
+    <div class="photo-item"><img src="imgs/futtracker.PNG" alt="Fútbol Tracker" loading="lazy" width="200" height="280"></div>
+    <div class="photo-item"><img src="imgs/dom.PNG" alt="DApp Blockchain" loading="lazy" width="200" height="280"></div>
+    <div class="photo-item"><img src="imgs/comidadebarrio.PNG" alt="Proyectos Web" loading="lazy" width="200" height="280"></div>
+    <div class="photo-item"><img src="imgs/dashboard-franquiciados.PNG" alt="Dashboard" loading="lazy" width="200" height="280"></div>
+  </div>
+</div>
+
+<!-- V2 Work Section -->
+<section class="work-v2" id="work-v2">
+  <div class="work-v2-header">
+    <h2 class="section-v2-title">Algunos proyectos</h2>
+    <p class="section-v2-description">Proyectos personales y académicos que demuestran mis habilidades en desarrollo, automatización y Web3.</p>
+  </div>
+
+  <div class="work-v2-cards">
+    <div class="work-v2-card-wrapper">
+      <span class="card-v2-title">Bot Polymarket</span>
+      <a href="https://polytools-omega.vercel.app/" class="work-v2-card" target="_blank" rel="noopener">
+        <div class="card-v2-image">
+          <img class="card-v2-image-color" src="imgs/polymarktporyect.PNG" alt="Bot Polymarket" loading="lazy" width="400" height="280">
+          <img class="card-v2-image-bnw" src="imgs/polymarktporyect.PNG" alt="" loading="lazy" width="400" height="280">
+        </div>
+        <div class="card-v2-info">
+          <div class="card-v2-pills">
+            <span class="pill-v2">Python</span>
+            <span class="pill-v2">Telegram API</span>
+            <span class="pill-v2">LLMs</span>
+          </div>
+          <span class="card-v2-year">2025</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="work-v2-card-wrapper">
+      <span class="card-v2-title">Fútbol Tracker</span>
+      <a href="https://fulbotracker.vercel.app/" class="work-v2-card" target="_blank" rel="noopener">
+        <div class="card-v2-image">
+          <img class="card-v2-image-color" src="imgs/futtracker.PNG" alt="Fútbol Tracker" loading="lazy" width="400" height="280">
+          <img class="card-v2-image-bnw" src="imgs/futtracker.PNG" alt="" loading="lazy" width="400" height="280">
+        </div>
+        <div class="card-v2-info">
+          <div class="card-v2-pills">
+            <span class="pill-v2">HTML/CSS</span>
+            <span class="pill-v2">JavaScript</span>
+          </div>
+          <span class="card-v2-year">2024</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="work-v2-card-wrapper">
+      <span class="card-v2-title">DApp Blockchain</span>
+      <a href="https://prodesol.vercel.app/" class="work-v2-card" target="_blank" rel="noopener">
+        <div class="card-v2-image">
+          <img class="card-v2-image-color" src="imgs/dom.PNG" alt="DApp Blockchain" loading="lazy" width="400" height="280">
+          <img class="card-v2-image-bnw" src="imgs/dom.PNG" alt="" loading="lazy" width="400" height="280">
+        </div>
+        <div class="card-v2-info">
+          <div class="card-v2-pills">
+            <span class="pill-v2">Solidity</span>
+            <span class="pill-v2">Web3</span>
+            <span class="pill-v2">Base</span>
+          </div>
+          <span class="card-v2-year">2024</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="work-v2-card-wrapper">
+      <span class="card-v2-title">Proyectos Web</span>
+      <a href="https://portafolioignaciopalmeri.vercel.app/hub.html" class="work-v2-card" target="_blank" rel="noopener">
+        <div class="card-v2-image">
+          <img class="card-v2-image-color" src="imgs/comidadebarrio.PNG" alt="Proyectos Web" loading="lazy" width="400" height="280">
+          <img class="card-v2-image-bnw" src="imgs/comidadebarrio.PNG" alt="" loading="lazy" width="400" height="280">
+        </div>
+        <div class="card-v2-info">
+          <div class="card-v2-pills">
+            <span class="pill-v2">HTML/CSS</span>
+            <span class="pill-v2">Bootstrap</span>
+          </div>
+          <span class="card-v2-year">2024</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="work-v2-card-wrapper">
+      <span class="card-v2-title">Dashboard Franquiciados</span>
+      <a href="https://franqui-ya-fpq4.vercel.app/" class="work-v2-card" target="_blank" rel="noopener">
+        <div class="card-v2-image">
+          <img class="card-v2-image-color" src="imgs/dashboard-franquiciados.PNG" alt="Dashboard" loading="lazy" width="400" height="280">
+          <img class="card-v2-image-bnw" src="imgs/dashboard-franquiciados.PNG" alt="" loading="lazy" width="400" height="280">
+        </div>
+        <div class="card-v2-info">
+          <div class="card-v2-pills">
+            <span class="pill-v2">Python</span>
+            <span class="pill-v2">API</span>
+            <span class="pill-v2">Dashboard</span>
+          </div>
+          <span class="card-v2-year">2025</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="work-v2-card-wrapper">
+      <span class="card-v2-title">Portfolio V1</span>
+      <a href="https://portafolioignaciopalmeri.vercel.app/" class="work-v2-card" target="_blank" rel="noopener">
+        <div class="card-v2-image">
+          <img class="card-v2-image-color" src="imgs/portfolio-v1.png" alt="Portfolio V1" loading="lazy" width="400" height="280">
+          <img class="card-v2-image-bnw" src="imgs/portfolio-v1.png" alt="" loading="lazy" width="400" height="280">
+        </div>
+        <div class="card-v2-info">
+          <div class="card-v2-pills">
+            <span class="pill-v2">HTML/CSS</span>
+            <span class="pill-v2">JavaScript</span>
+            <span class="pill-v2">Tailwind</span>
+          </div>
+          <span class="card-v2-year">2025</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- V2 Experience Section -->
+<section class="experience-v2" id="experience-v2">
+  <div class="experience-v2-header">
+    <h2 class="section-v2-title">Experiencia</h2>
+  </div>
+
+  <div class="experience-v2-list">
+    <div class="experience-v2-item">
+      <div class="experience-v2-item-header">
+        <h3 class="job-v2-title">Grido | Atención y Gestión</h3>
+        <p class="job-v2-time">2023 — Presente</p>
+      </div>
+      <div class="experience-v2-projects">
+        <p class="project-v2-name">Atención al cliente</p>
+        <p class="project-v2-name">Gestión de caja</p>
+        <p class="project-v2-name">Control de stock</p>
+      </div>
+    </div>
+
+    <div class="experience-v2-item">
+      <div class="experience-v2-item-header">
+        <h3 class="job-v2-title">Editor Multimedia & Content Manager</h3>
+        <p class="job-v2-time">2021 — 2023</p>
+      </div>
+      <div class="experience-v2-projects">
+        <p class="project-v2-name">Edición en DaVinci Resolve</p>
+        <p class="project-v2-name">YouTube</p>
+        <p class="project-v2-name">TikTok</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- V2 Certifications -->
+<section class="certs-v2" id="certs-v2">
+  <div class="certs-v2-header">
+    <h2 class="section-v2-title">Certificaciones</h2>
+  </div>
+
+  <div class="certs-v2-list">
+    <a href="https://www.credly.com/badges/761f7f8d-41c7-4e1e-8dda-1e29830e4e85" class="cert-v2-item" target="_blank" rel="noopener">
+      <div class="cert-v2-icon">🐧</div>
+      <div class="cert-v2-info">
+        <h3 class="cert-v2-title">Red Hat System Administrator</h3>
+        <p class="cert-v2-desc">Linux • Bash • Administración</p>
+      </div>
+    </a>
+
+    <a href="http://verify.skilljar.com/c/tco79gkq8a9k" class="cert-v2-item" target="_blank" rel="noopener">
+      <div class="cert-v2-icon">🤖</div>
+      <div class="cert-v2-info">
+        <h3 class="cert-v2-title">Claude Code in Action</h3>
+        <p class="cert-v2-desc">AI Tools • Desarrollo con IA</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- V2 About Section -->
+<section class="about-v2" id="about-v2">
+  <div class="about-v2-header">
+    <h2 class="section-v2-title">Sobre mí</h2>
+  </div>
+  <div class="about-v2-text">
+    <p>¡Hola! Soy Ignacio, estudiante de Gestión de Tecnología de la Información en UADE (25% completado). Me apasiona la programación y el análisis de datos, con un enfoque especial en el sector Fintech y Criptoactivos.</p>
+    <p>Actualmente busco mi primera oportunidad como Trainee/Junior para aplicar mis conocimientos en automatización con Python, desarrollo Web3 y gestión de datos.</p>
+  </div>
+</section>
+
+<!-- V2 Footer/Contact -->
+<footer class="footer-v2" id="contact-v2">
+  <div class="footer-v2-content">
+    <div class="footer-v2-left">
+      <p class="footer-v2-cta">¿Trabajamos juntos?</p>
+      <p class="footer-v2-contact">Ignacio Palmeri • <a href="mailto:ignaciopalmeri1@gmail.com">ignaciopalmeri1@gmail.com</a></p>
+    </div>
+    <div class="footer-v2-socials">
+      <a href="https://wa.me/541155090832" class="social-v2-link" aria-label="WhatsApp" target="_blank" rel="noopener">
+        <span>💬</span>
+      </a>
+      <a href="https://github.com/nachopalmeri" class="social-v2-link" aria-label="GitHub" target="_blank" rel="noopener">
+        <span>🐙</span>
+      </a>
+      <a href="https://www.linkedin.com/in/ignacio-palmeri-64035b378/" class="social-v2-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+        <span>💼</span>
+      </a>
+      <a href="https://drive.google.com/file/d/174_MYjUcNGc3mgJE2vabqmo9W799_cKC/view" class="social-v2-link" aria-label="CV" target="_blank" rel="noopener">
+        <span>📄</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+</div>
+<!-- ==================== END CONCEPT B ==================== -->
+
 </main>
 
 
-    
-    <!-- Concept Toggle Button -->
+<!-- Concept Toggle Button -->
     <button class="concept-toggle" id="conceptToggle" onclick="toggleConcept()" aria-label="Cambiar concepto">
         <span class="concept-toggle-label">A</span>
         <span class="concept-toggle-switch"></span>
@@ -2427,35 +3300,106 @@ this.reset();
             const currentConcept = body.getAttribute('data-concept') || 'a';
             const newConcept = currentConcept === 'a' ? 'b' : 'a';
             
-            body.setAttribute('data-concept', newConcept);
+            // Fade out current concept
+            const currentContent = document.querySelector('.concept-' + currentConcept);
+            const newContent = document.querySelector('.concept-' + newConcept);
             
-            // Save preference
-            localStorage.setItem('portfolioConcept', newConcept);
+            if (currentContent) {
+                currentContent.style.opacity = '0';
+            }
             
-            // Update toggle UI
-            document.querySelectorAll('.concept-toggle-label').forEach((label, index) => {
-                if (index === 0) {
-                    label.classList.toggle('active', newConcept === 'a');
-                } else {
-                    label.classList.toggle('active', newConcept === 'b');
-                }
-            });
-            
-            // Reinitialize VanillaTilt for new concept
             setTimeout(() => {
-                VanillaTilt.init(document.querySelectorAll(".bento-card.featured"), {
-                    max: 8,
-                    speed: 400,
-                    glare: true,
-                    "max-glare": 0.15,
-                    scale: 1.02
+                // Hide current, show new
+                body.setAttribute('data-concept', newConcept);
+                
+                // Save preference
+                localStorage.setItem('portfolioConcept', newConcept);
+                
+                // Update toggle UI
+                document.querySelectorAll('.concept-toggle-label').forEach((label, index) => {
+                    if (index === 0) {
+                        label.classList.toggle('active', newConcept === 'a');
+                    } else {
+                        label.classList.toggle('active', newConcept === 'b');
+                    }
                 });
-            }, 100);
+                
+                // Fade in new concept
+                setTimeout(() => {
+                    if (newContent) {
+                        newContent.style.opacity = '1';
+                    }
+                    
+                    // Scroll to top on concept change
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    
+                    // Reinitialize VanillaTilt for new concept
+                    if (typeof VanillaTilt !== 'undefined') {
+                        VanillaTilt.init(document.querySelectorAll(".bento-card.featured, .work-v2-card"), {
+                            max: 8,
+                            speed: 400,
+                            glare: true,
+                            "max-glare": 0.15,
+                            scale: 1.02
+                        });
+                    }
+                    
+                    // Initialize V2 carousel if switching to B
+                    if (newConcept === 'b') {
+                        initV2Carousel();
+                    }
+                }, 100);
+            }, 400);
         }
+        
+        // V2 Carousel init
+        function initV2Carousel() {
+            const track = document.getElementById('photo-track-v2');
+            if (track && !track.dataset.initialized) {
+                track.dataset.initialized = 'true';
+                let position = 0;
+                
+                function animate() {
+                    position -= 0.5;
+                    const halfWidth = track.scrollWidth / 2;
+                    if (Math.abs(position) >= halfWidth) {
+                        position = 0;
+                    }
+                    track.style.transform = `translateX(${position}px)`;
+                    requestAnimationFrame(animate);
+                }
+                animate();
+            }
+        }
+        
+        // V2 Local Time
+        function updateV2LocalTime() {
+            const timeEl = document.getElementById('local-time-v2');
+            if (timeEl) {
+                const now = new Date();
+                timeEl.textContent = now.toLocaleTimeString('es-AR', {
+                    timeZone: 'America/Argentina/Buenos_Aires',
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    hour12: true
+                });
+            }
+        }
+        updateV2LocalTime();
+        setInterval(updateV2LocalTime, 1000);
         
         // Load saved concept preference
         const savedConcept = localStorage.getItem('portfolioConcept') || 'a';
         document.body.setAttribute('data-concept', savedConcept);
+        
+        // Set initial opacity for current concept
+        document.querySelectorAll('.concept-content').forEach(el => {
+            el.style.opacity = '0';
+        });
+        const currentConceptEl = document.querySelector('.concept-' + savedConcept);
+        if (currentConceptEl) {
+            currentConceptEl.style.opacity = '1';
+        }
         
         // Update toggle UI on load
         document.querySelectorAll('.concept-toggle-label').forEach((label, index) => {
@@ -2465,6 +3409,11 @@ this.reset();
                 label.classList.toggle('active', savedConcept === 'b');
             }
         });
+        
+        // Initialize V2 if loaded
+        if (savedConcept === 'b') {
+            setTimeout(initV2Carousel, 500);
+        }
 
 // ===== CLICK ON NAME EASTER EGG =====
         let nameClickCount = 0;
