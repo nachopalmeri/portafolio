@@ -2827,7 +2827,7 @@ this.reset();
     </script>
 
     <!-- Concept Toggle Button -->
-    <button class="concept-toggle" onclick="toggleConcept()" aria-label="Cambiar concepto">
+    <button id="conceptToggle" class="concept-toggle" aria-label="Cambiar concepto">
         <span class="concept-label">A</span>
         <span class="concept-switch"></span>
         <span class="concept-label">B</span>
@@ -2987,5 +2987,8 @@ this.reset();
         document.querySelectorAll('.concept-label').forEach(function(el, i) {
             el.classList.toggle('active', (i === 0 && savedConcept === 'a') || (i === 1 && savedConcept === 'b'));
         });
+        
+        // Add event listener to toggle button
+        document.getElementById('conceptToggle').addEventListener('click', toggleConcept);
     </script>
 </body></html>
