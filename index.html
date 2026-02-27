@@ -2902,6 +2902,28 @@ this.reset();
         [data-concept="b"] .concept-a { display: none !important; }
         [data-concept="b"] .concept-b { display: block !important; }
         
+        /* Hide ALL V1 content when in Concept B - aggressive */
+        [data-concept="b"] body > *:not(.concept-b):not(.concept-toggle):not(.skip-link) {
+            display: none !important;
+            visibility: hidden !important;
+            height: 0 !important;
+            overflow: hidden !important;
+        }
+        
+        /* Hide ALL V2 content when in Concept A - aggressive */
+        [data-concept="a"] body > *:not(.concept-a):not(.concept-toggle):not(.skip-link) {
+            display: none !important;
+            visibility: hidden !important;
+            height: 0 !important;
+            overflow: hidden !important;
+        }
+        
+        /* Always show toggle button */
+        .concept-toggle {
+            display: flex !important;
+            visibility: visible !important;
+        }
+        
         /* Hide V1 elements when in Concept B */
         [data-concept="b"] .visitor-counter,
         [data-concept="b"] .toast,
