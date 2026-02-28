@@ -1235,7 +1235,7 @@ Programación y análisis de datos, con enfoque en el sector Fintech y Criptoact
 </p>
 
 <!-- Concept Toggle - debajo de la descripción -->
-<div class="concept-toggle" onclick="toggleConcept()" style="margin-top: 1rem; background: transparent; border-color: #333;">
+<div class="concept-toggle" onclick="togglePortfolio()" style="margin-top: 1rem; background: transparent; border-color: #333;">
     <span class="toggle-label" style="color: #22c55e;">V1</span>
     <span class="toggle-switch" style="width: 36px; height: 20px;"></span>
     <span class="toggle-label">V2</span>
@@ -2036,7 +2036,7 @@ this.reset();
 
 
 <!-- CONCEPT B: V2 Portfolio -->
-<div id="concept-b" class="concept-b">
+<div id="concept-b" class="concept-b" style="display:none">
   <!-- V2 Theme Toggle -->
   <button class="theme-toggle" onclick="toggleV2Theme()" aria-label="Cambiar tema">
     <span id="theme-icon-v2">🌙</span>
@@ -2966,87 +2966,40 @@ this.reset();
     </style>
 
     <script>
-        function loadV2Styles() {
-            if (!document.getElementById('v2-styles')) {
-                var link = document.createElement('link');
-                link.id = 'v2-styles';
-                link.rel = 'stylesheet';
-                link.href = 'assets-v2/css/styles.css';
-                document.head.appendChild(link);
-            }
-        }
-        
-        function unloadV2Styles() {
-            var link = document.getElementById('v2-styles');
-            if (link) {
-                link.remove();
-            }
-        }
-        
-        function hideV1Elements() {
-            var elements = document.querySelectorAll('.visitor-counter, .toast, .theme-toggle-btn, .terminal-easter-egg, .particles, .back-to-top, .scroll-progress');
-            elements.forEach(function(el) {
-                el.style.display = 'none';
-            });
-        }
-        
-        function showV1Elements() {
-            var elements = document.querySelectorAll('.visitor-counter, .toast, .theme-toggle-btn, .terminal-easter-egg, .particles, .back-to-top, .scroll-progress');
-            elements.forEach(function(el) {
-                el.style.display = '';
-            });
-        }
-        
-        // Variable global para trackear el estado
-        var isV2 = false;
-        
-        function toggleConcept() {
-            isV2 = !isV2;
+        // SIMPLE TOGGLE - VA POR VARIABLE GLOBAL
+        var mostrarV2 = false;
+
+        function togglePortfolio() {
+            var v1 = document.getElementById('concept-a');
+            var v2 = document.getElementById('concept-b');
             
-            var conceptA = document.getElementById('concept-a');
-            var conceptB = document.getElementById('concept-b');
-            var toggle = document.querySelector('.concept-toggle');
+            mostrarV2 = !mostrarV2;
             
-            if (isV2) {
-                // Cambiar a V2
-                conceptA.style.display = 'none';
-                conceptB.style.display = 'block';
-                toggle.classList.add('active');
-                hideV1Elements();
-                loadV2Styles();
+            if (mostrarV2) {
+                v1.style.display = 'none';
+                v2.style.display = 'block';
+                // CARGAR CSS DE V2
+                if (!document.getElementById('css-v2')) {
+                    var link = document.createElement('link');
+                    link.id = 'css-v2';
+                    link.rel = 'stylesheet';
+                    link.href = 'assets-v2/css/styles.css';
+                    document.head.appendChild(link);
+                }
             } else {
-                // Cambiar a V1
-                conceptA.style.display = 'block';
-                conceptB.style.display = 'none';
-                toggle.classList.remove('active');
-                showV1Elements();
-                unloadV2Styles();
+                v1.style.display = 'block';
+                v2.style.display = 'none';
+                // REMOVER CSS DE V2
+                var css = document.getElementById('css-v2');
+                if (css) css.remove();
             }
-            
-            localStorage.setItem('portfolioConcept', isV2 ? 'b' : 'a');
-            window.scrollTo(0, 0);
         }
         
-        // Inicializar al cargar
-        (function initConcept() {
-            var saved = localStorage.getItem('portfolioConcept');
-            var conceptA = document.getElementById('concept-a');
-            var conceptB = document.getElementById('concept-b');
-            var toggle = document.querySelector('.concept-toggle');
-            
-            if (saved === 'b') {
-                isV2 = true;
-                conceptA.style.display = 'none';
-                conceptB.style.display = 'block';
-                toggle.classList.add('active');
-                hideV1Elements();
-                loadV2Styles();
-            } else {
-                isV2 = false;
-                conceptA.style.display = 'block';
-                conceptB.style.display = 'none';
-                toggle.classList.remove('active');
-            }
-        })();
+        // Al cargar, inicializar
+        window.onload = function() {
+            // Por defecto mostrar V1
+            document.getElementById('concept-a').style.display = 'block';
+            document.getElementById('concept-b').style.display = 'none';
+        };
     </script>
 </body></html>
