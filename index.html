@@ -2823,11 +2823,12 @@ this.reset();
     </script>
 
     <!-- Concept Toggle Button -->
-    <button id="conceptToggle" class="concept-toggle" onclick="toggleConcept()" aria-label="Cambiar concepto">
-        <span class="concept-label">A</span>
-        <span class="concept-switch"></span>
-        <span class="concept-label">B</span>
-    </button>
+    <div class="concept-toggle" onclick="toggleConcept()">
+        <span class="toggle-label">V1</span>
+        <span class="toggle-switch"></span>
+        <span class="toggle-label">V2</span>
+        <span class="toggle-slogan">Dos enfoques. Un estilo.</span>
+    </div>
 
     <style>
         /* Concept Toggle */
@@ -2838,55 +2839,72 @@ this.reset();
             z-index: 10000;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
+            padding: 10px 16px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #22c55e;
+            border-radius: 30px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .concept-toggle:hover {
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+        }
+        
+        .toggle-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+        
+        .toggle-switch {
+            width: 44px;
+            height: 24px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            position: relative;
+            transition: background 0.3s ease;
+        }
+        
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 18px;
+            height: 18px;
+            background: #22c55e;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+        }
+        
+        .concept-toggle.active .toggle-switch::after {
+            transform: translateX(20px);
+        }
+        
+        .toggle-slogan {
+            font-size: 11px;
+            color: #22c55e;
+            font-style: italic;
+            margin-left: 8px;
+            white-space: nowrap;
+        }
+        
+        @media (max-width: 600px) {
+            .toggle-slogan {
+                display: none;
+            }
+        }
             padding: 6px 12px;
             background: #0a0a0a;
             border: 1px solid #1a1a1a;
             border-radius: 24px;
             cursor: pointer;
-        }
-        
-        .concept-label {
-            font-size: 12px;
-            font-weight: 600;
-            color: #666;
-            transition: color 0.3s;
-        }
-        
-        .concept-label.active {
-            color: #fff;
-        }
-        
-        .concept-switch {
-            width: 36px;
-            height: 20px;
-            background: #1a1a1a;
-            border-radius: 10px;
-            position: relative;
-        }
-        
-        .concept-switch::after {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            width: 16px;
-            height: 16px;
-            background: #22c55e;
-            border-radius: 50%;
-            transition: transform 0.3s;
-        }
-        
-        [data-concept="b"] .concept-switch::after {
-            transform: translateX(16px);
-        }
-        
-        [data-concept="b"] .concept-label:first-child {
-            color: #666;
-        }
-        
-        [data-concept="b"] .concept-label:last-child {
-            color: #fff;
         }
         
         /* Concept Display */
@@ -2982,11 +3000,13 @@ this.reset();
         function toggleConcept() {
             var conceptA = document.getElementById('concept-a');
             var conceptB = document.getElementById('concept-b');
+            var toggle = document.querySelector('.concept-toggle');
             
             if (conceptA.style.display !== 'none') {
                 // Cambiar a B
                 conceptA.style.display = 'none';
                 conceptB.style.display = 'block';
+                toggle.classList.add('active');
                 hideV1Elements();
                 loadV2Styles();
                 localStorage.setItem('portfolioConcept', 'b');
@@ -2994,6 +3014,7 @@ this.reset();
                 // Cambiar a A
                 conceptA.style.display = 'block';
                 conceptB.style.display = 'none';
+                toggle.classList.remove('active');
                 showV1Elements();
                 unloadV2Styles();
                 localStorage.setItem('portfolioConcept', 'a');
@@ -3006,10 +3027,12 @@ this.reset();
         var saved = localStorage.getItem('portfolioConcept');
         var conceptA = document.getElementById('concept-a');
         var conceptB = document.getElementById('concept-b');
+        var toggle = document.querySelector('.concept-toggle');
         
         if (saved === 'b') {
             conceptA.style.display = 'none';
             conceptB.style.display = 'block';
+            toggle.classList.add('active');
             hideV1Elements();
             loadV2Styles();
         } else {
