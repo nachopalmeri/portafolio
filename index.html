@@ -1126,7 +1126,7 @@
 <button id="toggle-btn" onclick="togglePortfolio()" style="position:fixed;top:20px;right:20px;z-index:9999;padding:10px 20px;background:#000;border:2px solid #22c55e;border-radius:20px;color:#22c55e;cursor:pointer;font-weight:bold;">Cambiar a V2</button>
 
 <!-- V1 WRAPPER -->
-<div id="v1">
+<div id="v1" style="background: #000000;">
 
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     
@@ -2045,6 +2045,8 @@ this.reset();
 
 <!-- V2 WRAPPER - Shadow DOM Host -->
 <div id="v2-host" style="display:none;"></div>
+
+<div id="v2-content" style="display:none;">
   <!-- V2 Theme Toggle -->
   <button class="theme-toggle" onclick="toggleV2Theme()" aria-label="Cambiar tema">
     <span id="theme-icon-v2">🌙</span>
@@ -2602,6 +2604,7 @@ this.reset();
     });
   </script>
 </div>
+</div>
 <!-- END CONCEPT B -->
 </div>
 <!-- END V2 WRAPPER -->
@@ -2977,14 +2980,14 @@ this.reset();
 
     <script>
         // SHADOW DOM SETUP - Para aislar V2
-        var v2Content = document.getElementById('v2').innerHTML;
+        var v2Content = document.getElementById('v2-content').innerHTML;
         var v2Host = document.getElementById('v2-host');
         var shadow = v2Host.attachShadow({mode: 'open'});
         
-        // Crear elemento de estilo para V2
+        // Crear elemento de estilo para V2 con fondo correcto
         var style = document.createElement('style');
         style.textContent = `
-            body { background: #FAFAF9; margin: 0; padding: 0; }
+            body { background: #FAFAF9 !important; margin: 0; padding: 0; }
             * { box-sizing: border-box; }
         `;
         
@@ -3005,7 +3008,7 @@ this.reset();
         shadow.appendChild(container);
         
         // Ocultar el original
-        document.getElementById('v2').style.display = 'none';
+        document.getElementById('v2-content').style.display = 'none';
         
         // TOGGLE
         var enV2 = false;
