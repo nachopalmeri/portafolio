@@ -1123,7 +1123,7 @@
 <body class="min-h-screen p-4 md:p-8 lg:p-12 antialiased selection-bg-white selection-text-black">
 
 <!-- Toggle Button - FIJO -->
-<button id="toggle-btn" onclick="togglePortfolio()" style="position:fixed;top:20px;right:20px;z-index:9999;padding:10px 20px;background:#000;border:2px solid #22c55e;border-radius:20px;color:#22c55e;cursor:pointer;font-weight:bold;font-size:18px;">🌙</button>
+<button id="toggle-btn" onclick="togglePortfolio()" style="position:fixed;top:20px;right:20px;z-index:99999;padding:12px 16px;background:#111;border:2px solid #22c55e;border-radius:50%;color:#22c55e;cursor:pointer;font-size:20px;box-shadow:0 0 15px rgba(34,197,94,0.3);transition:all 0.3s;">🌙</button>
 
 <!-- V1 WRAPPER -->
 <div id="v1" style="background: #000000;">
@@ -1151,10 +1151,7 @@
     <!-- Toast Notification -->
     <div class="toast" id="toast">¡Email copiado al portapapeles!</div>
     
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Cambiar tema">
-        <span id="theme-icon">🌙</span>
-    </button>
+    <!-- Theme Toggle Button - ELIMINADO, ahora usamos el toggle unificado -->
     
     <!-- Terminal Easter Egg -->
     <div class="terminal-easter-egg">
@@ -2047,10 +2044,7 @@ this.reset();
 <div id="v2-host" style="display:none;"></div>
 
 <div id="v2-content" style="display:none;">
-  <!-- V2 Theme Toggle -->
-  <button class="theme-toggle" onclick="toggleV2Theme()" aria-label="Cambiar tema">
-    <span id="theme-icon-v2">🌙</span>
-  </button>
+  <!-- V2 Theme Toggle - ELIMINADO, ahora usamos el toggle unificado -->
 
   <!-- V2 Navigation -->
   <nav class="nav">
@@ -3023,12 +3017,20 @@ this.reset();
                 v1.style.display = 'none';
                 v2.style.display = 'block';
                 btn.innerText = '☀️';
+                btn.style.background = '#fff';
+                btn.style.borderColor = '#22c55e';
+                btn.style.color = '#22c55e';
+                btn.style.boxShadow = '0 0 15px rgba(34,197,94,0.5)';
                 enModoClaro = true;
             } else {
                 // Cambiar a V1 + Modo Oscuro
                 v1.style.display = 'block';
                 v2.style.display = 'none';
                 btn.innerText = '🌙';
+                btn.style.background = '#111';
+                btn.style.borderColor = '#22c55e';
+                btn.style.color = '#22c55e';
+                btn.style.boxShadow = '0 0 15px rgba(34,197,94,0.3)';
                 enModoClaro = false;
             }
         }
