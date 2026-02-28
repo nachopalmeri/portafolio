@@ -2997,49 +2997,52 @@ this.reset();
             });
         }
         
+        // Variable global para trackear el estado
+        var isV2 = false;
+        
         function toggleConcept() {
+            isV2 = !isV2;
+            
             var conceptA = document.getElementById('concept-a');
             var conceptB = document.getElementById('concept-b');
             var toggle = document.querySelector('.concept-toggle');
             
-            // Usar localStorage para verificar el estado actual
-            var current = localStorage.getItem('portfolioConcept') || 'a';
-            
-            if (current === 'a') {
-                // Cambiar a B
+            if (isV2) {
+                // Cambiar a V2
                 conceptA.style.display = 'none';
                 conceptB.style.display = 'block';
                 toggle.classList.add('active');
                 hideV1Elements();
                 loadV2Styles();
-                localStorage.setItem('portfolioConcept', 'b');
             } else {
-                // Cambiar a A
+                // Cambiar a V1
                 conceptA.style.display = 'block';
                 conceptB.style.display = 'none';
                 toggle.classList.remove('active');
                 showV1Elements();
                 unloadV2Styles();
-                localStorage.setItem('portfolioConcept', 'a');
             }
             
+            localStorage.setItem('portfolioConcept', isV2 ? 'b' : 'a');
             window.scrollTo(0, 0);
         }
         
-        // Load saved concept and initialize display
+        // Inicializar al cargar
         (function initConcept() {
-            var saved = localStorage.getItem('portfolioConcept') || 'a';
+            var saved = localStorage.getItem('portfolioConcept');
             var conceptA = document.getElementById('concept-a');
             var conceptB = document.getElementById('concept-b');
             var toggle = document.querySelector('.concept-toggle');
             
             if (saved === 'b') {
+                isV2 = true;
                 conceptA.style.display = 'none';
                 conceptB.style.display = 'block';
                 toggle.classList.add('active');
                 hideV1Elements();
                 loadV2Styles();
             } else {
+                isV2 = false;
                 conceptA.style.display = 'block';
                 conceptB.style.display = 'none';
                 toggle.classList.remove('active');
