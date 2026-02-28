@@ -27,6 +27,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script type="module" src="https://unpkg.com/@phosphor-icons/webcomponents"></script>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets-v2/css/styles.css">
 <script>
         tailwind.config = {
             theme: {
@@ -1119,7 +1120,14 @@
     </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 </head>
-<body class="min-h-screen p-4 md:p-8 lg:p-12 antialiased selection:bg-white selection:text-black" data-concept="a">
+<body class="min-h-screen p-4 md:p-8 lg:p-12 antialiased selection-bg-white selection-text-black">
+
+<!-- Toggle Button - FIJO -->
+<button id="toggle-btn" onclick="togglePortfolio()" style="position:fixed;top:20px;right:20px;z-index:9999;padding:10px 20px;background:#000;border:2px solid #22c55e;border-radius:20px;color:#22c55e;cursor:pointer;font-weight:bold;">Cambiar a V2</button>
+
+<!-- V1 WRAPPER -->
+<div id="v1">
+
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     
     <!-- Floating Particles -->
@@ -2033,10 +2041,10 @@ this.reset();
 </footer>
 </div>
 <!-- END CONCEPT A -->
+</div>
 
-
-<!-- CONCEPT B: V2 Portfolio -->
-<div id="concept-b" class="concept-b" style="display:none">
+<!-- V2 WRAPPER -->
+<div id="v2" style="display:none">
   <!-- V2 Theme Toggle -->
   <button class="theme-toggle" onclick="toggleV2Theme()" aria-label="Cambiar tema">
     <span id="theme-icon-v2">🌙</span>
@@ -2595,6 +2603,8 @@ this.reset();
   </script>
 </div>
 <!-- END CONCEPT B -->
+</div>
+<!-- END V2 WRAPPER -->
 
 </main>
 
@@ -2966,40 +2976,25 @@ this.reset();
     </style>
 
     <script>
-        // SIMPLE TOGGLE - VA POR VARIABLE GLOBAL
-        var mostrarV2 = false;
+        // SIMPLE TOGGLE
+        var enV2 = false;
 
         function togglePortfolio() {
-            var v1 = document.getElementById('concept-a');
-            var v2 = document.getElementById('concept-b');
+            var v1 = document.getElementById('v1');
+            var v2 = document.getElementById('v2');
+            var btn = document.getElementById('toggle-btn');
             
-            mostrarV2 = !mostrarV2;
-            
-            if (mostrarV2) {
+            if (!enV2) {
                 v1.style.display = 'none';
                 v2.style.display = 'block';
-                // CARGAR CSS DE V2
-                if (!document.getElementById('css-v2')) {
-                    var link = document.createElement('link');
-                    link.id = 'css-v2';
-                    link.rel = 'stylesheet';
-                    link.href = 'assets-v2/css/styles.css';
-                    document.head.appendChild(link);
-                }
+                btn.innerText = 'Cambiar a V1';
+                enV2 = true;
             } else {
                 v1.style.display = 'block';
                 v2.style.display = 'none';
-                // REMOVER CSS DE V2
-                var css = document.getElementById('css-v2');
-                if (css) css.remove();
+                btn.innerText = 'Cambiar a V2';
+                enV2 = false;
             }
         }
-        
-        // Al cargar, inicializar
-        window.onload = function() {
-            // Por defecto mostrar V1
-            document.getElementById('concept-a').style.display = 'block';
-            document.getElementById('concept-b').style.display = 'none';
-        };
     </script>
 </body></html>
