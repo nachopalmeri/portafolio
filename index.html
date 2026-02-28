@@ -1199,7 +1199,7 @@
     </nav>
 
 <!-- CONCEPT A: V1 Portfolio -->
-<div class="concept-a">
+<div id="concept-a" class="concept-a">
 
 <main id="main-content" class="max-w-7xl mx-auto space-y-6 pt-20">
 
@@ -2032,7 +2032,7 @@ this.reset();
 
 
 <!-- CONCEPT B: V2 Portfolio -->
-<div class="concept-b">
+<div id="concept-b" class="concept-b">
   <!-- V2 Theme Toggle -->
   <button class="theme-toggle" onclick="toggleV2Theme()" aria-label="Cambiar tema">
     <span id="theme-icon-v2">🌙</span>
@@ -2953,30 +2953,37 @@ this.reset();
 
     <script>
         function loadV2Styles() {
-            var link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = 'assets-v2/css/styles.css';
-            document.head.appendChild(link);
+            if (!document.getElementById('v2-styles')) {
+                var link = document.createElement('link');
+                link.id = 'v2-styles';
+                link.rel = 'stylesheet';
+                link.href = 'assets-v2/css/styles.css';
+                document.head.appendChild(link);
+            }
+        }
+        
+        function unloadV2Styles() {
+            var link = document.getElementById('v2-styles');
+            if (link) {
+                link.remove();
+            }
         }
         
         function toggleConcept() {
-            var body = document.body;
-            var conceptA = document.querySelector('.concept-a');
-            var conceptB = document.querySelector('.concept-b');
-            var current = body.getAttribute('data-concept');
+            var conceptA = document.getElementById('concept-a');
+            var conceptB = document.getElementById('concept-b');
             
-            if (current === 'a') {
+            if (conceptA.style.display !== 'none') {
                 // Cambiar a B
-                body.setAttribute('data-concept', 'b');
                 conceptA.style.display = 'none';
                 conceptB.style.display = 'block';
                 loadV2Styles();
                 localStorage.setItem('portfolioConcept', 'b');
             } else {
                 // Cambiar a A
-                body.setAttribute('data-concept', 'a');
                 conceptA.style.display = 'block';
                 conceptB.style.display = 'none';
+                unloadV2Styles();
                 localStorage.setItem('portfolioConcept', 'a');
             }
             
@@ -2985,18 +2992,17 @@ this.reset();
         
         // Load saved concept and initialize display
         var saved = localStorage.getItem('portfolioConcept');
-        var conceptA = document.querySelector('.concept-a');
-        var conceptB = document.querySelector('.concept-b');
+        var conceptA = document.getElementById('concept-a');
+        var conceptB = document.getElementById('concept-b');
         
         if (saved === 'b') {
-            document.body.setAttribute('data-concept', 'b');
             conceptA.style.display = 'none';
             conceptB.style.display = 'block';
             loadV2Styles();
         } else {
-            document.body.setAttribute('data-concept', 'a');
             conceptA.style.display = 'block';
             conceptB.style.display = 'none';
+            localStorage.setItem('portfolioConcept', 'a');
         }
     </script>
 </body></html>
