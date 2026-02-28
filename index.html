@@ -1126,7 +1126,7 @@
 <button id="toggle-btn" onclick="togglePortfolio()" style="position:fixed;top:20px;right:20px;z-index:99999;padding:12px 16px;background:#111;border:2px solid #22c55e;border-radius:50%;color:#22c55e;cursor:pointer;font-size:20px;box-shadow:0 0 15px rgba(34,197,94,0.3);transition:all 0.3s;">🌙</button>
 
 <!-- V1 WRAPPER -->
-<div id="v1" style="background: #000000 !important; min-height: 100vh; width: 100%;">
+<div id="v1">
 
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     
@@ -2973,7 +2973,7 @@ this.reset();
     </style>
 
     <script>
-        // SHADOW DOM SETUP - Para aislar V2
+        // SHADOW DOM SETUP - Para aislar V2 pero permitir animaciones
         var v2Content = document.getElementById('v2-content').innerHTML;
         var v2Host = document.getElementById('v2-host');
         var shadow = v2Host.attachShadow({mode: 'open'});
@@ -3001,6 +3001,165 @@ this.reset();
         container.innerHTML = v2Content;
         shadow.appendChild(container);
         
+        // Ejecutar los scripts de V2 después de cargar el contenido
+        setTimeout(function() {
+            // Photo carousel animation
+            var photoTrack = shadow.getElementById('photo-track');
+            if (photoTrack) {
+                var position = 0;
+                var currentSpeed = 0.6;
+                var targetSpeed = 0.6;
+                
+                function animateCarousel() {
+                    currentSpeed += (targetSpeed - currentSpeed) * 0.05;
+                    position -= currentSpeed;
+                    
+                    var halfWidth = photoTrack.scrollWidth / 2;
+                    if (Math.abs(position) >= halfWidth) {
+                        position = 0;
+                    }
+                    
+                    photoTrack.style.transform = 'translateX(' + position + 'px)';
+                    requestAnimationFrame(animateCarousel);
+                }
+                
+                var photoCarousel = shadow.querySelector('.photo-carousel');
+                if (photoCarousel) {
+                    photoCarousel.addEventListener('mouseenter', function() { targetSpeed = 0.2; });
+                    photoCarousel.addEventListener('mouseleave', function() { targetSpeed = 0.6; });
+                }
+                
+                animateCarousel();
+            }
+            
+            // VanillaTilt para las cards
+            if (typeof VanillaTilt !== 'undefined') {
+                var cards = shadow.querySelectorAll('.work-card');
+                VanillaTilt.init(cards, {
+                    max: 8,
+                    speed: 400,
+                    glare: true,
+                    'max-glare': 0.15,
+                    scale: 1.02
+                });
+            }
+            
+            // Idle cursor drift
+            var cursors = shadow.querySelectorAll('.hero-v2-cursor');
+            cursors.forEach(function(tag) {
+                var x = 0, y = 0;
+                var targetX = 0, targetY = 0;
+                var range = 18;
+                
+                function pickTarget() {
+                    targetX = (Math.random() - 0.5) * range * 2;
+                    targetY = (Math.random() - 0.5) * range * 2;
+                    setTimeout(pickTarget, 800 + Math.random() * 1500);
+                }
+                
+                function animate() {
+                    x += (targetX - x) * 0.04;
+                    y += (targetY - y) * 0.04;
+                    tag.style.transform = 'translate(' + x.toFixed(2) + 'px, ' + y.toFixed(2) + 'px)';
+                    requestAnimationFrame(animate);
+                }
+                
+                setTimeout(function() { pickTarget(); animate(); }, Math.random() * 1000);
+            });
+            
+            // Patch tooltips
+            var patches = shadow.querySelectorAll('.hero-v2-patch');
+            var isTouch = window.matchMedia('(pointer: coarse)').matches;
+            
+            patches.forEach(function(patch) {
+                var tooltip = patch.querySelector('.hero-v2-tooltip');
+                var isRight = patch.classList.contains('hero-v2-patch--right');
+                
+                if (isTouch) {
+                    var fadeTimer;
+                    function deactivate() {
+                        clearTimeout(fadeTimer);
+                        tooltip.classList.remove('is-visible');
+                        patch.classList.remove('is-active');
+                        patch.style.zIndex = '1';
+                    }
+                    
+                    patch.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        clearTimeout(fadeTimer);
+                        var left, top;
+                        if (isRight) {
+                            left = e.clientX - tooltip.offsetWidth - 8;
+                            top = e.clientY - tooltip.offsetHeight - 8;
+                        } else {
+                            left = e.clientX + 16;
+                            top = e.clientY - tooltip.offsetHeight - 8;
+                        }
+                        tooltip.style.left = left + 'px';
+                        tooltip.style.top = top + 'px';
+                        tooltip.classList.add('is-visible');
+                        patch.classList.add('is-active');
+                        patch.style.zIndex = '9999';
+                        fadeTimer = setTimeout(deactivate, 2400);
+                    });
+                    
+                    document.addEventListener('click', function() {
+                        if (patch.classList.contains('is-active')) deactivate();
+                    });
+                } else {
+                    patch.addEventListener('mouseenter', function() { tooltip.classList.add('is-visible'); });
+                    patch.addEventListener('mouseleave', function() { tooltip.classList.remove('is-visible'); });
+                    patch.addEventListener('mousemove', function(e) {
+                        if (isRight) {
+                            tooltip.style.left = (e.clientX - tooltip.offsetWidth - 8) + 'px';
+                            tooltip.style.top = (e.clientY - tooltip.offsetHeight - 8) + 'px';
+                        } else {
+                            tooltip.style.left = (e.clientX + 16) + 'px';
+                            tooltip.style.top = (e.clientY - tooltip.offsetHeight - 8) + 'px';
+                        }
+                    });
+                }
+            });
+            
+            // Parallax effect
+            var parallaxElements = shadow.querySelectorAll('[data-parallax]');
+            parallaxElements.forEach(function(el) {
+                var wrapper = el.closest('.work-card-wrapper');
+                var speed = parseFloat(el.dataset.parallax) || 0.1;
+                var invert = el.dataset.parallaxInvert === 'true' ? -1 : 1;
+                
+                wrapper.addEventListener('mousemove', function(e) {
+                    var rect = wrapper.getBoundingClientRect();
+                    var centerX = rect.left + rect.width / 2;
+                    var centerY = rect.top + rect.height / 2;
+                    var moveX = (e.clientX - centerX) * speed * invert;
+                    var moveY = (e.clientY - centerY) * speed * invert;
+                    el.style.transform = 'scale(1) translate(' + moveX + 'px, ' + moveY + 'px)';
+                });
+                
+                wrapper.addEventListener('mouseleave', function() {
+                    el.style.transform = 'scale(0.9) translate(0, 0)';
+                });
+            });
+            
+            // Local time
+            function updateLocalTime() {
+                var timeEl = shadow.getElementById('local-time');
+                if (timeEl) {
+                    var now = new Date();
+                    timeEl.textContent = now.toLocaleTimeString('es-AR', {
+                        timeZone: 'America/Argentina/Buenos_Aires',
+                        hour: 'numeric',
+                        minute: '2-digit',
+                        hour12: true
+                    });
+                }
+            }
+            updateLocalTime();
+            setInterval(updateLocalTime, 1000);
+            
+        }, 500); // Esperar 500ms para que el contenido se cargue
+        
         // Ocultar el original
         document.getElementById('v2-content').style.display = 'none';
         
@@ -3020,7 +3179,6 @@ this.reset();
                 btn.style.background = '#fff';
                 btn.style.borderColor = '#22c55e';
                 btn.style.color = '#22c55e';
-                btn.style.boxShadow = '0 0 15px rgba(34,197,94,0.5)';
                 enModoClaro = true;
             } else {
                 // Cambiar a V1 + Modo Oscuro
