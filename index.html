@@ -1123,7 +1123,7 @@
 <body class="min-h-screen p-4 md:p-8 lg:p-12 antialiased selection-bg-white selection-text-black">
 
 <!-- Toggle Button - FIJO -->
-<button id="toggle-btn" onclick="togglePortfolio()" style="position:fixed;top:20px;right:20px;z-index:9999;padding:10px 20px;background:#000;border:2px solid #22c55e;border-radius:20px;color:#22c55e;cursor:pointer;font-weight:bold;">Cambiar a V2</button>
+<button id="toggle-btn" onclick="togglePortfolio()" style="position:fixed;top:20px;right:20px;z-index:9999;padding:10px 20px;background:#000;border:2px solid #22c55e;border-radius:20px;color:#22c55e;cursor:pointer;font-weight:bold;font-size:18px;">🌙</button>
 
 <!-- V1 WRAPPER -->
 <div id="v1" style="background: #000000;">
@@ -3010,24 +3010,26 @@ this.reset();
         // Ocultar el original
         document.getElementById('v2-content').style.display = 'none';
         
-        // TOGGLE
-        var enV2 = false;
+        // TOGGLE - Un solo boton para todo
+        var enModoClaro = false;
         
         function togglePortfolio() {
             var v1 = document.getElementById('v1');
             var v2 = document.getElementById('v2-host');
             var btn = document.getElementById('toggle-btn');
             
-            if (!enV2) {
+            if (!enModoClaro) {
+                // Cambiar a V2 + Modo Claro
                 v1.style.display = 'none';
                 v2.style.display = 'block';
-                btn.innerText = 'Cambiar a V1';
-                enV2 = true;
+                btn.innerText = '☀️';
+                enModoClaro = true;
             } else {
+                // Cambiar a V1 + Modo Oscuro
                 v1.style.display = 'block';
                 v2.style.display = 'none';
-                btn.innerText = 'Cambiar a V2';
-                enV2 = false;
+                btn.innerText = '🌙';
+                enModoClaro = false;
             }
         }
     </script>
