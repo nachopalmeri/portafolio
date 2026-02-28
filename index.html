@@ -1234,6 +1234,14 @@ Ignacio<br/>Palmeri<span class="cursor-blink"></span>
 Programación y análisis de datos, con enfoque en el sector Fintech y Criptoactivos. Busco rol de Trainee/Junior para aplicar conocimientos en automatización (Python), Web3 y gestión de datos.
 </p>
 
+<!-- Concept Toggle - debajo de la descripción -->
+<div class="concept-toggle" onclick="toggleConcept()" style="margin-top: 1rem; background: transparent; border-color: #333;">
+    <span class="toggle-label" style="color: #22c55e;">V1</span>
+    <span class="toggle-switch" style="width: 36px; height: 20px;"></span>
+    <span class="toggle-label">V2</span>
+    <span class="toggle-slogan" style="margin-left: 8px; font-size: 10px;">Dos enfoques. Un estilo.</span>
+</div>
+
 </div>
 </div>
 <div class="flex flex-col md:items-end gap-4 mt-8 md:mt-0">
@@ -2822,14 +2830,6 @@ this.reset();
         };
     </script>
 
-    <!-- Concept Toggle Button -->
-    <div class="concept-toggle" onclick="toggleConcept()">
-        <span class="toggle-label">V1</span>
-        <span class="toggle-switch"></span>
-        <span class="toggle-label">V2</span>
-        <span class="toggle-slogan">Dos enfoques. Un estilo.</span>
-    </div>
-
     <style>
         /* Concept Toggle */
         .concept-toggle {
@@ -3002,7 +3002,10 @@ this.reset();
             var conceptB = document.getElementById('concept-b');
             var toggle = document.querySelector('.concept-toggle');
             
-            if (conceptA.style.display !== 'none') {
+            // Usar localStorage para verificar el estado actual
+            var current = localStorage.getItem('portfolioConcept') || 'a';
+            
+            if (current === 'a') {
                 // Cambiar a B
                 conceptA.style.display = 'none';
                 conceptB.style.display = 'block';
@@ -3024,21 +3027,23 @@ this.reset();
         }
         
         // Load saved concept and initialize display
-        var saved = localStorage.getItem('portfolioConcept');
-        var conceptA = document.getElementById('concept-a');
-        var conceptB = document.getElementById('concept-b');
-        var toggle = document.querySelector('.concept-toggle');
-        
-        if (saved === 'b') {
-            conceptA.style.display = 'none';
-            conceptB.style.display = 'block';
-            toggle.classList.add('active');
-            hideV1Elements();
-            loadV2Styles();
-        } else {
-            conceptA.style.display = 'block';
-            conceptB.style.display = 'none';
-            localStorage.setItem('portfolioConcept', 'a');
-        }
+        (function initConcept() {
+            var saved = localStorage.getItem('portfolioConcept') || 'a';
+            var conceptA = document.getElementById('concept-a');
+            var conceptB = document.getElementById('concept-b');
+            var toggle = document.querySelector('.concept-toggle');
+            
+            if (saved === 'b') {
+                conceptA.style.display = 'none';
+                conceptB.style.display = 'block';
+                toggle.classList.add('active');
+                hideV1Elements();
+                loadV2Styles();
+            } else {
+                conceptA.style.display = 'block';
+                conceptB.style.display = 'none';
+                toggle.classList.remove('active');
+            }
+        })();
     </script>
 </body></html>
