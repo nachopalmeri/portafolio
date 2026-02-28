@@ -28,6 +28,11 @@
 <script type="module" src="https://unpkg.com/@phosphor-icons/webcomponents"></script>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="assets-v2/css/styles.css">
+<style>
+/* Asegurar que V2 use sus propios estilos */
+#v2 { background: #FAFAF9 !important; }
+#v2 * { all: unset; }
+</style>
 <script>
         tailwind.config = {
             theme: {
@@ -1126,7 +1131,7 @@
 <button id="toggle-btn" onclick="togglePortfolio()" style="position:fixed;top:20px;right:20px;z-index:9999;padding:10px 20px;background:#000;border:2px solid #22c55e;border-radius:20px;color:#22c55e;cursor:pointer;font-weight:bold;">Cambiar a V2</button>
 
 <!-- V1 WRAPPER -->
-<div id="v1">
+<div id="v1" style="background: #000000;">
 
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     
@@ -2044,7 +2049,7 @@ this.reset();
 </div>
 
 <!-- V2 WRAPPER -->
-<div id="v2" style="display:none; background: #FAFAF9; min-height: 100vh;">
+<div id="v2" style="display:none; background: #FAFAF9; min-height: 100vh; all: initial;">
   <!-- V2 Theme Toggle -->
   <button class="theme-toggle" onclick="toggleV2Theme()" aria-label="Cambiar tema">
     <span id="theme-icon-v2">🌙</span>
@@ -2985,13 +2990,19 @@ this.reset();
             var btn = document.getElementById('toggle-btn');
             
             if (!enV2) {
+                // MOSTRAR V2
                 v1.style.display = 'none';
                 v2.style.display = 'block';
+                // Resetear estilos de V2
+                v2.style.all = 'initial';
+                v2.style.background = '#FAFAF9';
                 btn.innerText = 'Cambiar a V1';
                 enV2 = true;
             } else {
+                // MOSTRAR V1
                 v1.style.display = 'block';
                 v2.style.display = 'none';
+                v1.style.background = '#000000';
                 btn.innerText = 'Cambiar a V2';
                 enV2 = false;
             }
