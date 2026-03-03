@@ -2,6 +2,17 @@
 <html lang="es"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- CSS to hide/show V1 and V2 immediately -->
+<script>
+(function() {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('v') === 'v2') {
+        document.write('<style>#v1{display:none!important}#v2-host{display:block!important}</style>');
+    } else {
+        document.write('<style>#v2-host{display:none!important}#v1{display:block!important}</style>');
+    }
+})();
+</script>
 <meta name="description" content="Portfolio de Ignacio Palmeri - Estudiante de Gestión IT (UADE) buscando primera oportunidad como Trainee/Junior. Especializado en Python, automatización, Web3 y análisis de datos. Proyectos: Polymarket Bot, Fútbol Tracker, DApp Blockchain."/>
 <meta name="keywords" content="Ignacio Palmeri, Portfolio, Python, Linux, Web3, Blockchain, Automation, Developer, Trainee, Junior, Programmer, UADE, Fintech, Criptoactivos, Telegram Bot, Solidity, Base Network"/>
 <meta name="author" content="Ignacio Palmeri"/>
@@ -3098,17 +3109,12 @@ this.reset();
         // Ocultar el original
         document.getElementById('v2-content').style.display = 'none';
         
-        // TOGGLE - Usar URL parameter para evitar conflictos de CSS
-        // ?v=v2 = V2 (light), sin param = V1 (dark)
-        
-        // Detectar versión actual desde URL
+        // TOGGLE - Actualizar botón según versión actual
         var urlParams = new URLSearchParams(window.location.search);
         var verV2 = urlParams.get('v') === 'v2';
         
-        // Inicializar según URL
+        // Actualizar estilo del botón según la versión actual
         if (verV2) {
-            document.getElementById('v1').style.display = 'none';
-            document.getElementById('v2-host').style.display = 'block';
             var btn = document.getElementById('toggle-btn');
             btn.innerText = '☀️';
             btn.style.background = '#fff';
@@ -3117,12 +3123,10 @@ this.reset();
         }
         
         function togglePortfolio() {
-            // Simple: navegar a la otra versión
+            // Navegar a la otra versión
             if (verV2) {
-                // Ir a V1
                 window.location.href = window.location.pathname;
             } else {
-                // Ir a V2
                 window.location.href = window.location.pathname + '?v=v2';
             }
         }
