@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Portfolio V2 - Ignacio Palmeri. Estudiante de Gestión IT buscando primera oportunidad como Trainee/Junior."/>
+    <meta name="theme-color" content="#FAFAF9"/>
+    <meta name="robots" content="index, follow"/>
+    <meta property="og:title" content="Ignacio Palmeri - Portfolio V2"/>
+    <meta property="og:description" content="Estudiante de Gestión IT buscando primera oportunidad como Trainee/Junior."/>
+    <meta property="og:type" content="website"/>
+    <title>Ignacio Palmeri - Portfolio V2</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FAFAF9'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='18' font-weight='bold' fill='%238B5CF6'>IP</text></svg>"/>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    
+    <!-- V2 Styles -->
+    <link rel="stylesheet" href="assets-v2/css/styles.css"/>
+    
+    <!-- Phosphor Icons -->
+    <script type="module" src="https://unpkg.com/@phosphor-icons/webcomponents"></script>
+    
+    <style>
+        /* Toggle V2 button */
+        .v2-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-family: Inter, sans-serif;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+        
+        .v2-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            border-color: #22c55e;
+            color: #22c55e;
+        }
+    </style>
+</head>
+<body style="background: #FAFAF9; margin: 0; padding: 0; font-family: Inter, sans-serif;">
+    
+    <!-- V1 Link -->
+    <a href="v1.html" class="v2-toggle">
+        <span>← Versión Clásica</span>
+    </a>
+    
+<div id="v2-content" >
+  <!-- V2 Theme Toggle - ELIMINADO, ahora usamos el toggle unificado -->
+
+  <!-- V2 Navigation -->
+  <nav class="nav">
+    <div class="nav-location">
+      <span class="nav-location-city">Buenos Aires</span>
+      <ph-arrow-right class="nav-location-arrow" size="12" weight="bold"></ph-arrow-right>
+      <span class="nav-location-time" id="local-time"></span>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <ph-list size="24" color="currentColor" weight="bold"></ph-list>
+    </button>
+    <div class="nav-buttons">
+      <a href="#" class="nav-link">INICIO</a>
+      <a href="#work" class="nav-link">PROYECTOS</a>
+      <a href="#experience" class="nav-link">EXPERIENCIA</a>
+      <a href="#contact" class="nav-link">CONTACTO</a>
+    </div>
+    <div class="nav-overlay"></div>
+  </nav>
+
+  <!-- V2 Hero -->
+  <div class="hero-v2-wrapper">
+    <section class="hero-v2">
+      <img class="hero-v2-cursor hero-v2-cursor--python" src="assets-v2/hero/hero-python-developer.svg" alt="Python Developer">
+      <img class="hero-v2-cursor hero-v2-cursor--it" src="assets-v2/hero/hero-it-native.svg" alt="IT Native">
+      
+      <div class="hero-v2-patch hero-v2-patch--left">
+        <img src="assets-v2/hero/patch-argentina.svg" alt="Argentina">
+        <span class="hero-v2-tooltip">De Buenos Aires, Argentina</span>
+      </div>
+      <div class="hero-v2-patch hero-v2-patch--right">
+        <img src="assets-v2/hero/patch-gallina.svg" alt="Grido">
+        <span class="hero-v2-tooltip">Trabajando en Grido</span>
+      </div>
+      
+      <div class="hero-v2-content">
+        <h1 class="hero-v2-title">hi, i'm Ignacio</h1>
+        <p class="hero-v2-subtitle">Estudiante de Gestión IT buscando mi primera oportunidad como Trainee/Junior en Python, Web3 y análisis de datos.</p>
+      </div>
+      
+      <a href="#work" class="hero-v2-cta">
+        <ph-caret-double-down size="24" weight="bold"></ph-caret-double-down>
+      </a>
+    </section>
+  </div>
+
+  <!-- V2 Photo Carousel -->
+  <div class="photo-carousel">
+    <div class="photo-track" id="photo-track">
+      <div class="photo-item"><img src="imgs/polymarktporyect.PNG" alt="Bot Polymarket" loading="lazy" width="200" height="280"></div>
+      <div class="photo-item"><img src="imgs/futtracker.PNG" alt="Fútbol Tracker" loading="lazy" width="200" height="280"></div>
+      <div class="photo-item"><img src="imgs/dom.PNG" alt="DApp Blockchain" loading="lazy" width="200" height="280"></div>
+      <div class="photo-item"><img src="imgs/comidadebarrio.PNG" alt="Proyectos Web" loading="lazy" width="200" height="280"></div>
+      <div class="photo-item"><img src="imgs/dashboard-franquiciados.PNG" alt="Dashboard" loading="lazy" width="200" height="280"></div>
+      <div class="photo-item"><img src="imgs/polymarktporyect.PNG" alt="Bot Polymarket" loading="lazy" width="200" height="280"></div>
+      <div class="photo-item"><img src="imgs/futtracker.PNG" alt="Fútbol Tracker" loading="lazy" width="200" height="280"></div>
+      <div class="photo-item"><img src="imgs/dom.PNG" alt="DApp Blockchain" loading="lazy" width="200" height="280"></div>
+      <div class="photo-item"><img src="imgs/comidadebarrio.PNG" alt="Proyectos Web" loading="lazy" width="200" height="280"></div>
+      <div class="photo-item"><img src="imgs/dashboard-franquiciados.PNG" alt="Dashboard" loading="lazy" width="200" height="280"></div>
+    </div>
+  </div>
+
+  <!-- V2 Work Section -->
+  <section class="work" id="work">
+    <div class="work-header">
+      <h2 class="section-title">Algunos proyectos</h2>
+      <p class="section-description">Proyectos personales y académicos que demuestran mis habilidades en desarrollo, automatización y Web3.</p>
+    </div>
+
+    <div class="work-cards">
+      <div class="work-card-wrapper">
+        <span class="card-title">Bot Polymarket</span>
+        <a href="https://polytools-omega.vercel.app/" class="work-card" target="_blank" rel="noopener">
+          <div class="card-image">
+            <img class="card-image-color" src="imgs/polymarktporyect.PNG" alt="Bot Polymarket" loading="lazy" width="400" height="280">
+            <img class="card-image-bnw" src="imgs/polymarktporyect.PNG" alt="" loading="lazy" width="400" height="280">
+          </div>
+          <div class="card-peek card-peek--left">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="48" height="48" rx="8" fill="#1a1a2e"/>
+              <path d="M24 8C15.16 8 8 15.16 8 24s7.16 16 16 16 16-7.16 16-16S32.84 8 24 8zm-1.5 27.5c-5.52 0-10-4.48-10-10s4.48-10 10-10c2.76 0 5.26 1.12 7.07 2.93l-2.83 2.83c-1.1-1.1-2.6-1.76-4.24-1.76-3.31 0-6 2.69-6 6s2.69 6 6 6c2.76 0 5.1-1.87 5.8-4.4H22.5v-3h8.5c.33.96.5 1.96.5 3 0 5.52-4.48 10-8.5 10z" fill="#FFD43B"/>
+              <path d="M24 14v4c3.31 0 6 2.69 6 6h4c0-5.52-4.48-10-10-10z" fill="#306998"/>
+            </svg>
+          </div>
+          <div class="card-peek card-peek--right" data-parallax="0.1" data-parallax-invert="false">
+            <img src="imgs/polymarktporyect.PNG" alt="" style="width: 100px; height: 70px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+          </div>
+          <div class="card-info">
+            <div class="card-pills">
+              <span class="pill">Python</span>
+              <span class="pill">Telegram API</span>
+              <span class="pill">LLMs</span>
+            </div>
+            <span class="card-year">2025</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="work-card-wrapper">
+        <span class="card-title">Fútbol Tracker</span>
+        <a href="https://fulbotracker.vercel.app/" class="work-card" target="_blank" rel="noopener">
+          <div class="card-image">
+            <img class="card-image-color" src="imgs/futtracker.PNG" alt="Fútbol Tracker" loading="lazy" width="400" height="280">
+            <img class="card-image-bnw" src="imgs/futtracker.PNG" alt="" loading="lazy" width="400" height="280">
+          </div>
+          <div class="card-peek card-peek--left">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="20" fill="#22C55E"/>
+              <circle cx="24" cy="24" r="16" fill="#16A34A"/>
+              <path d="M24 4v8M24 36v8M4 24h8M36 24h8M10 10l6 6M32 32l6 6M38 10l-6 6M16 32l-6 6" stroke="white" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="card-peek card-peek--right" data-parallax="0.1" data-parallax-invert="false">
+            <img src="imgs/futtracker.PNG" alt="" style="width: 100px; height: 70px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+          </div>
+          <div class="card-info">
+            <div class="card-pills">
+              <span class="pill">HTML/CSS</span>
+              <span class="pill">JavaScript</span>
+            </div>
+            <span class="card-year">2024</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="work-card-wrapper">
+        <span class="card-title">DApp Blockchain</span>
+        <a href="https://prodesol.vercel.app/" class="work-card" target="_blank" rel="noopener">
+          <div class="card-image">
+            <img class="card-image-color" src="imgs/dom.PNG" alt="DApp Blockchain" loading="lazy" width="400" height="280">
+            <img class="card-image-bnw" src="imgs/dom.PNG" alt="" loading="lazy" width="400" height="280">
+          </div>
+          <div class="card-peek card-peek--left">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="48" height="48" rx="8" fill="#1a1a2e"/>
+              <path d="M24 4L4 14v20l20 10 20-10V14L24 4z" stroke="#8B5CF6" stroke-width="2" fill="none"/>
+              <path d="M4 14l20 10 20-10M24 24v20" stroke="#A78BFA" stroke-width="2"/>
+              <circle cx="24" cy="24" r="6" fill="#8B5CF6"/>
+            </svg>
+          </div>
+          <div class="card-peek card-peek--right" data-parallax="0.1" data-parallax-invert="false">
+            <img src="imgs/dom.PNG" alt="" style="width: 100px; height: 70px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+          </div>
+          <div class="card-info">
+            <div class="card-pills">
+              <span class="pill">Solidity</span>
+              <span class="pill">Web3</span>
+              <span class="pill">Base</span>
+            </div>
+            <span class="card-year">2024</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="work-card-wrapper">
+        <span class="card-title">Proyectos Web</span>
+        <a href="https://portafolioignaciopalmeri.vercel.app/hub.html" class="work-card" target="_blank" rel="noopener">
+          <div class="card-image">
+            <img class="card-image-color" src="imgs/comidadebarrio.PNG" alt="Proyectos Web" loading="lazy" width="400" height="280">
+            <img class="card-image-bnw" src="imgs/comidadebarrio.PNG" alt="" loading="lazy" width="400" height="280">
+          </div>
+          <div class="card-peek card-peek--left">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="48" height="48" rx="8" fill="#1e293b"/>
+              <rect x="8" y="12" width="32" height="24" rx="2" stroke="#38BDF8" stroke-width="2" fill="none"/>
+              <path d="M8 20h32M16 28h8" stroke="#38BDF8" stroke-width="2"/>
+              <circle cx="12" cy="16" r="2" fill="#F87171"/>
+              <circle cx="18" cy="16" r="2" fill="#FBBF24"/>
+              <circle cx="24" cy="16" r="2" fill="#34D399"/>
+            </svg>
+          </div>
+          <div class="card-peek card-peek--right" data-parallax="0.1" data-parallax-invert="false">
+            <img src="imgs/comidadebarrio.PNG" alt="" style="width: 100px; height: 70px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+          </div>
+          <div class="card-info">
+            <div class="card-pills">
+              <span class="pill">HTML/CSS</span>
+              <span class="pill">Bootstrap</span>
+            </div>
+            <span class="card-year">2024</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="work-card-wrapper">
+        <span class="card-title">Dashboard Franquiciados</span>
+        <a href="https://franqui-ya-fpq4.vercel.app/" class="work-card" target="_blank" rel="noopener">
+          <div class="card-image">
+            <img class="card-image-color" src="imgs/dashboard-franquiciados.PNG" alt="Dashboard" loading="lazy" width="400" height="280">
+            <img class="card-image-bnw" src="imgs/dashboard-franquiciados.PNG" alt="" loading="lazy" width="400" height="280">
+          </div>
+          <div class="card-peek card-peek--left">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="48" height="48" rx="8" fill="#0f172a"/>
+              <rect x="8" y="28" width="8" height="12" rx="2" fill="#22C55E"/>
+              <rect x="20" y="20" width="8" height="20" rx="2" fill="#3B82F6"/>
+              <rect x="32" y="12" width="8" height="28" rx="2" fill="#8B5CF6"/>
+              <path d="M10 22l8-6 8 4 8-10" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="card-peek card-peek--right" data-parallax="0.1" data-parallax-invert="false">
+            <img src="imgs/dashboard-franquiciados.PNG" alt="" style="width: 100px; height: 70px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+          </div>
+          <div class="card-info">
+            <div class="card-pills">
+              <span class="pill">Python</span>
+              <span class="pill">API</span>
+              <span class="pill">Dashboard</span>
+            </div>
+            <span class="card-year">2025</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="work-card-wrapper">
+        <span class="card-title">Portfolio V1</span>
+        <a href="https://portafolioignaciopalmeri.vercel.app/" class="work-card" target="_blank" rel="noopener">
+          <div class="card-image">
+            <img class="card-image-color" src="imgs/portfolio-v1.png" alt="Portfolio V1" loading="lazy" width="400" height="280">
+            <img class="card-image-bnw" src="imgs/portfolio-v1.png" alt="" loading="lazy" width="400" height="280">
+          </div>
+          <div class="card-peek card-peek--left">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="48" height="48" rx="8" fill="#0f172a"/>
+              <text x="24" y="30" text-anchor="middle" font-family="monospace" font-size="14" fill="#22C55E">&lt;/&gt;</text>
+            </svg>
+          </div>
+          <div class="card-peek card-peek--right" data-parallax="0.1" data-parallax-invert="false">
+            <img src="imgs/portfolio-v1.png" alt="" style="width: 100px; height: 70px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+          </div>
+          <div class="card-info">
+            <div class="card-pills">
+              <span class="pill">HTML/CSS</span>
+              <span class="pill">JavaScript</span>
+              <span class="pill">Tailwind</span>
+            </div>
+            <span class="card-year">2025</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- V2 Experience Section -->
+  <section class="experience" id="experience">
+    <div class="experience-header">
+      <h2 class="section-title">Experiencia</h2>
+      <ph-folder-simple-dashed class="experience-icon" size="24" color="currentColor" weight="light"></ph-folder-simple-dashed>
+    </div>
+
+    <div class="experience-list">
+      <div class="experience-item">
+        <div class="experience-item-header">
+          <h3 class="job-title">Grido | Atención y Gestión</h3>
+          <p class="job-time">2023 — Presente</p>
+        </div>
+        <div class="experience-projects">
+          <p class="project-name">Atención al cliente</p>
+          <p class="project-name">Gestión de caja</p>
+          <p class="project-name">Control de stock</p>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-item-header">
+          <h3 class="job-title">Editor Multimedia & Content Manager</h3>
+          <p class="job-time">2021 — 2023</p>
+        </div>
+        <div class="experience-projects">
+          <p class="project-name">Edición en DaVinci Resolve</p>
+          <p class="project-name">YouTube</p>
+          <p class="project-name">TikTok</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- V2 Certifications -->
+  <section class="certifications" id="certs">
+    <div class="certifications-header">
+      <h2 class="section-title">Certificaciones</h2>
+    </div>
+
+    <div class="certifications-list">
+      <a href="https://www.credly.com/badges/761f7f8d-41c7-4e1e-8dda-1e29830e4e85" class="cert-item" target="_blank" rel="noopener">
+        <div class="cert-icon">🐧</div>
+        <div class="cert-info">
+          <h3 class="cert-title">Red Hat System Administrator</h3>
+          <p class="cert-desc">Linux • Bash • Administración</p>
+        </div>
+        <ph-arrow-square-out size="20" color="currentColor" weight="regular"></ph-arrow-square-out>
+      </a>
+
+      <a href="http://verify.skilljar.com/c/tco79gkq8a9k" class="cert-item" target="_blank" rel="noopener">
+        <div class="cert-icon">🤖</div>
+        <div class="cert-info">
+          <h3 class="cert-title">Claude Code in Action</h3>
+          <p class="cert-desc">AI Tools • Desarrollo con IA</p>
+        </div>
+        <ph-arrow-square-out size="20" color="currentColor" weight="regular"></ph-arrow-square-out>
+      </a>
+    </div>
+  </section>
+
+  <!-- V2 About Section -->
+  <section class="about" id="about">
+    <div class="about-header">
+      <h2 class="section-title">Sobre mí</h2>
+    </div>
+    <div class="about-text">
+      <p>¡Hola! Soy Ignacio, estudiante de Gestión de Tecnología de la Información en UADE (25% completado). Me apasiona la programación y el análisis de datos, con un enfoque especial en el sector Fintech y Criptoactivos.</p>
+      <p>Actualmente busco mi primera oportunidad como Trainee/Junior para aplicar mis conocimientos en automatización con Python, desarrollo Web3 y gestión de datos.</p>
+    </div>
+    <div class="about-images">
+      <img src="imgs/yo.jfif" alt="Ignacio Palmeri" class="about-photo">
+    </div>
+  </section>
+
+  <!-- V2 Footer -->
+  <footer class="footer" id="contact">
+    <div class="footer-content">
+      <div class="footer-left">
+        <p class="footer-cta">¿Trabajamos juntos?</p>
+        <p class="footer-contact">Ignacio Palmeri • <a href="mailto:ignaciopalmeri1@gmail.com">ignaciopalmeri1@gmail.com</a></p>
+      </div>
+      <div class="footer-socials">
+        <a href="https://wa.me/541155090832" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener">
+          <ph-whatsapp-logo size="28" color="currentColor" weight="regular"></ph-whatsapp-logo>
+        </a>
+        <a href="https://github.com/nachopalmeri" class="social-link" aria-label="GitHub" target="_blank" rel="noopener">
+          <ph-github-logo size="28" color="currentColor" weight="regular"></ph-github-logo>
+        </a>
+        <a href="https://www.linkedin.com/in/ignacio-palmeri-64035b378/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <ph-linkedin-logo size="28" color="currentColor" weight="regular"></ph-linkedin-logo>
+        </a>
+        <a href="https://drive.google.com/file/d/174_MYjUcNGc3mgJE2vabqmo9W799_cKC/view" class="social-link" aria-label="CV" target="_blank" rel="noopener">
+          <ph-file-pdf size="28" color="currentColor" weight="regular"></ph-file-pdf>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- V2 Scripts -->
+  <script>
+    // V2 Local Time
+    function updateLocalTime() {
+      var timeEl = document.getElementById('local-time');
+      if (timeEl) {
+        var now = new Date();
+        timeEl.textContent = now.toLocaleTimeString('es-AR', {
+          timeZone: 'America/Argentina/Buenos_Aires',
+          hour: 'numeric',
+          minute: '2-digit',
+          hour12: true
+        });
+      }
+    }
+    updateLocalTime();
+    setInterval(updateLocalTime, 1000);
+
+    // V2 Nav scroll
+    var nav = document.querySelector('.nav');
+    var lastScrollY = window.scrollY;
+    window.addEventListener('scroll', function() {
+      var currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        nav.classList.add('is-hidden');
+      } else {
+        nav.classList.remove('is-hidden');
+      }
+      lastScrollY = currentScrollY;
+    });
+
+    // V2 Mobile Menu
+    var hamburger = document.querySelector('.nav-hamburger');
+    var navButtons = document.querySelector('.nav-buttons');
+    var navOverlay = document.querySelector('.nav-overlay');
+    
+    function toggleMenu() {
+      var isOpen = navButtons.classList.toggle('is-open');
+      navOverlay.classList.toggle('is-open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      hamburger.innerHTML = isOpen
+        ? '<ph-x size="24" color="currentColor" weight="bold"></ph-x>'
+        : '<ph-list size="24" color="currentColor" weight="bold"></ph-list>';
+    }
+    
+    hamburger.addEventListener('click', toggleMenu);
+    navOverlay.addEventListener('click', toggleMenu);
+    navButtons.querySelectorAll('.nav-link').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (navButtons.classList.contains('is-open')) toggleMenu();
+      });
+    });
+
+    // V2 VanillaTilt
+    if (typeof VanillaTilt !== 'undefined') {
+      VanillaTilt.init(document.querySelectorAll('.work-card'), {
+        max: 8,
+        speed: 400,
+        glare: true,
+        'max-glare': 0.15,
+        scale: 1.02
+      });
+    }
+
+    // V2 Photo Carousel
+    var photoTrack = document.getElementById('photo-track');
+    var photoCarousel = document.querySelector('.photo-carousel');
+    
+    if (photoTrack && photoCarousel) {
+      var position = 0;
+      var currentSpeed = 0.6;
+      var targetSpeed = 0.6;
+      
+      function animateCarousel() {
+        currentSpeed += (targetSpeed - currentSpeed) * 0.05;
+        position -= currentSpeed;
+        
+        var halfWidth = photoTrack.scrollWidth / 2;
+        if (Math.abs(position) >= halfWidth) {
+          position = 0;
+        }
+        
+        photoTrack.style.transform = 'translateX(' + position + 'px)';
+        requestAnimationFrame(animateCarousel);
+      }
+      
+      photoCarousel.addEventListener('mouseenter', function() {
+        targetSpeed = 0.2;
+      });
+      
+      photoCarousel.addEventListener('mouseleave', function() {
+        targetSpeed = 0.6;
+      });
+      
+      animateCarousel();
+    }
+
+    // V2 Cursor Drift
+    document.querySelectorAll('.hero-v2-cursor').forEach(function(tag) {
+      var x = 0, y = 0;
+      var targetX = 0, targetY = 0;
+      var range = 18;
+
+      function pickTarget() {
+        targetX = (Math.random() - 0.5) * range * 2;
+        targetY = (Math.random() - 0.5) * range * 2;
+        setTimeout(pickTarget, 800 + Math.random() * 1500);
+      }
+
+      function animate() {
+        x += (targetX - x) * 0.04;
+        y += (targetY - y) * 0.04;
+        tag.style.transform = 'translate(' + x.toFixed(2) + 'px, ' + y.toFixed(2) + 'px)';
+        requestAnimationFrame(animate);
+      }
+
+      setTimeout(function() { pickTarget(); animate(); }, Math.random() * 1000);
+    });
+
+    // V2 Patch Tooltips
+    var isTouch = window.matchMedia('(pointer: coarse)').matches || ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+    
+    document.querySelectorAll('.hero-v2-patch').forEach(function(patch) {
+      var tooltip = patch.querySelector('.hero-v2-tooltip');
+      var isRight = patch.classList.contains('hero-v2-patch--right');
+
+      function clampToViewport(left, top) {
+        var tw = tooltip.offsetWidth;
+        var th = tooltip.offsetHeight;
+        var pad = 8;
+        left = Math.max(pad, Math.min(left, window.innerWidth - tw - pad));
+        top = Math.max(pad, Math.min(top, window.innerHeight - th - pad));
+        return { left: left, top: top };
+      }
+
+      if (isTouch) {
+        var fadeTimer;
+        function deactivate() {
+          clearTimeout(fadeTimer);
+          tooltip.classList.remove('is-visible');
+          patch.classList.remove('is-active');
+          patch.style.zIndex = '1';
+        }
+
+        patch.addEventListener('click', function(e) {
+          e.stopPropagation();
+          clearTimeout(fadeTimer);
+          document.querySelectorAll('.hero-v2-patch.is-active').forEach(function(p) {
+            if (p !== patch) {
+              p.querySelector('.hero-v2-tooltip').classList.remove('is-visible');
+              p.classList.remove('is-active');
+              p.style.zIndex = '1';
+            }
+          });
+          var left, top;
+          if (isRight) {
+            left = e.clientX - tooltip.offsetWidth - 8;
+            top = e.clientY - tooltip.offsetHeight - 8;
+          } else {
+            left = e.clientX + 16;
+            top = e.clientY - tooltip.offsetHeight - 8;
+          }
+          var clamped = clampToViewport(left, top);
+          tooltip.style.left = clamped.left + 'px';
+          tooltip.style.top = clamped.top + 'px';
+          tooltip.classList.add('is-visible');
+          patch.classList.add('is-active');
+          patch.style.zIndex = '9999';
+          fadeTimer = setTimeout(deactivate, 2400);
+        });
+
+        document.addEventListener('click', function() {
+          if (patch.classList.contains('is-active')) deactivate();
+        });
+      } else {
+        patch.addEventListener('mouseenter', function() { tooltip.classList.add('is-visible'); });
+        patch.addEventListener('mouseleave', function() { tooltip.classList.remove('is-visible'); });
+        patch.addEventListener('mousemove', function(e) {
+          if (isRight) {
+            tooltip.style.left = (e.clientX - tooltip.offsetWidth - 8) + 'px';
+            tooltip.style.top = (e.clientY - tooltip.offsetHeight - 8) + 'px';
+          } else {
+            tooltip.style.left = (e.clientX + 16) + 'px';
+            tooltip.style.top = (e.clientY - tooltip.offsetHeight - 8) + 'px';
+          }
+        });
+      }
+    });
+
+    // V2 Parallax
+    var parallaxElements = document.querySelectorAll('[data-parallax]');
+    parallaxElements.forEach(function(el) {
+      var wrapper = el.closest('.work-card-wrapper');
+      var speed = parseFloat(el.dataset.parallax) || 0.1;
+      var invert = el.dataset.parallaxInvert === 'true' ? -1 : 1;
+
+      wrapper.addEventListener('mousemove', function(e) {
+        var rect = wrapper.getBoundingClientRect();
+        var centerX = rect.left + rect.width / 2;
+        var centerY = rect.top + rect.height / 2;
+        var moveX = (e.clientX - centerX) * speed * invert;
+        var moveY = (e.clientY - centerY) * speed * invert;
+        el.style.transform = 'scale(1) translate(' + moveX + 'px, ' + moveY + 'px)';
+      });
+
+      wrapper.addEventListener('mouseleave', function() {
+        el.style.transform = 'scale(0.9) translate(0, 0)';
+      });
+    });
+  </script>
+</div>
+</div>
+<!-- END CONCEPT B -->
+</div>
+<!-- END V2 WRAPPER -->
+
+</main>
+
+
+    
+    <!-- Google tag (gtag.js) - deferred for performance -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-JV606KQ5W0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JV606KQ5W0');
+    </script>
+    
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" onclick="scrollToTop()" aria-label="Volver arriba">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </button>
+    
+    <style>
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease, border-color 0.2s ease;
+            z-index: 99;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+    </style>
+    
+    <script>
+        // Back to Top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Show/hide back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 500) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        // Static counters - no animation for performance
+        document.querySelectorAll('.stats-counter').forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            counter.textContent = target + (target === 100 ? '%' : '+');
+        });
+        
+        // ===== SCROLL PROGRESS BAR =====
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scroll-progress');
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = progress + '%';
+        });
+        
+        // ===== VANILLA TILT 3D EFFECT =====
+        VanillaTilt.init(document.querySelectorAll(".bento-card.featured"), {
+            max: 8,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.15,
+            scale: 1.02
+        });
+        
+        // ===== KONAMI CODE EASTER EGG =====
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+        let konamiIndex = 0;
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.code === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    activateMatrixRain();
+                    konamiIndex = 0;
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+        
+        function activateMatrixRain() {
+            const matrix = document.createElement('div');
+            matrix.className = 'matrix-rain';
+            document.body.appendChild(matrix);
+            
+            for (let i = 0; i < 30; i++) {
+                const column = document.createElement('div');
+                column.className = 'matrix-column';
+                column.style.left = Math.random() * 100 + '%';
+                column.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                column.textContent = '01'.repeat(50).split('').sort(() => Math.random() - 0.5).join('');
+                matrix.appendChild(column);
+            }
+            
+            setTimeout(() => matrix.remove(), 5000);
+        }
+        
+        // ===== CONFETTI EASTER EGG =====
+        function createConfetti() {
+            const colors = ['#22c55e', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-10px';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 3000);
+            }
+        }
+        
+        // ===== CLICK ON NAME EASTER EGG =====
+        let nameClickCount = 0;
+        document.querySelectorAll('h1').forEach(el => {
+            if (el.textContent.includes('Ignacio')) {
+                el.style.cursor = 'pointer';
+                el.addEventListener('click', () => {
+                    nameClickCount++;
+                    if (nameClickCount >= 5) {
+                        createConfetti();
+                        alert('🎉 ¡Encontraste el easter egg! Gracias por explorar mi portfolio.');
+                        nameClickCount = 0;
+                    }
+                });
+            }
+        });
+        
+        // ===== PARTICLE INTERACTION =====
+        document.querySelectorAll('.particle-interactive').forEach(particle => {
+            particle.addEventListener('click', () => {
+                particle.style.transform = 'scale(3)';
+                particle.style.opacity = '0';
+                setTimeout(() => {
+                    particle.style.transform = '';
+                    particle.style.opacity = '';
+                }, 500);
+            });
+        });
+        
+        // ===== TERMINAL NEW COMMANDS =====
+        const originalHandleTerminalInput = window.handleTerminalInput;
+        
+        window.handleTerminalInput = function(event) {
+            if (event.key === 'Enter') {
+                const input = document.getElementById('terminal-input');
+                const body = document.getElementById('terminal-body');
+                const command = input.value.trim().toLowerCase();
+                
+                // Add new commands
+                if (command === 'matrix') {
+                    input.value = '';
+                    const respDiv = document.createElement('div');
+                    respDiv.className = 'terminal-output';
+                    respDiv.textContent = 'Activando Matrix Rain...';
+                    body.appendChild(respDiv);
+                    activateMatrixRain();
+                    return;
+                }
+                
+                if (command === 'confetti') {
+                    input.value = '';
+                    const respDiv = document.createElement('div');
+                    respDiv.className = 'terminal-output';
+                    respDiv.textContent = '🎉 Confetti activado!';
+                    body.appendChild(respDiv);
+                    createConfetti();
+                    return;
+                }
+                
+                if (command === 'coffee') {
+                    input.value = '';
+                    const respDiv = document.createElement('div');
+                    respDiv.className = 'terminal-output';
+                    respDiv.textContent = '☕ Coffee time! Tomate un descanso.';
+                    body.appendChild(respDiv);
+                    return;
+                }
+                
+                if (command === 'hack') {
+                    input.value = '';
+                    const respDiv = document.createElement('div');
+                    respDiv.className = 'terminal-output';
+                    respDiv.textContent = '🔐 Hacking... [▓▓▓▓▓▓▓▓▓▓] 100%\n\nJust kidding 😄 Todo es legal aquí.';
+                    body.appendChild(respDiv);
+                    return;
+                }
+            }
+            
+            // Call original function for other commands
+            if (originalHandleTerminalInput) {
+                originalHandleTerminalInput(event);
+            }
+        };
+    </script>
+
+    <style>
+        /* Concept Toggle */
+        .concept-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 16px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #22c55e;
+            border-radius: 30px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .concept-toggle:hover {
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+        }
+        
+        .toggle-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+        
+        .toggle-switch {
+            width: 44px;
+            height: 24px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            position: relative;
+            transition: background 0.3s ease;
+        }
+        
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 18px;
+            height: 18px;
+            background: #22c55e;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+        }
+        
+        .concept-toggle.active .toggle-switch::after {
+            transform: translateX(20px);
+        }
+        
+        .toggle-slogan {
+            font-size: 11px;
+            color: #22c55e;
+            font-style: italic;
+            margin-left: 8px;
+            white-space: nowrap;
+        }
+        
+        @media (max-width: 600px) {
+            .toggle-slogan {
+                display: none;
+            }
+        }
+            padding: 6px 12px;
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            border-radius: 24px;
+            cursor: pointer;
+        }
+        
+        /* Concept Display */
+        .concept-a { display: block; }
+        .concept-b { display: none; }
+        
+        [data-concept="a"] .concept-a { display: block !important; }
+        [data-concept="a"] .concept-b { display: none !important; }
+        [data-concept="b"] .concept-a { display: none !important; }
+        [data-concept="b"] .concept-b { display: block !important; }
+        
+        /* Hide ALL V1 content when in Concept B - aggressive */
+        [data-concept="b"] body > *:not(.concept-b):not(.concept-toggle):not(.skip-link) {
+            display: none !important;
+            visibility: hidden !important;
+            height: 0 !important;
+            overflow: hidden !important;
+        }
+        
+        /* Hide ALL V2 content when in Concept A - aggressive */
+        [data-concept="a"] body > *:not(.concept-a):not(.concept-toggle):not(.skip-link) {
+            display: none !important;
+            visibility: hidden !important;
+            height: 0 !important;
+            overflow: hidden !important;
+        }
+        
+        /* Always show toggle button */
+        .concept-toggle {
+            display: flex !important;
+            visibility: visible !important;
+        }
+        
+        /* Hide V1 elements when in Concept B */
+        [data-concept="b"] .visitor-counter,
+        [data-concept="b"] .toast,
+        [data-concept="b"] .theme-toggle-btn,
+        [data-concept="b"] .terminal-easter-egg,
+        [data-concept="b"] .back-to-top,
+        [data-concept="b"] nav.fixed,
+        [data-concept="a"] .concept-b .theme-toggle {
+            display: none !important;
+        }
+        
+        /* Hide V2 theme toggle in Concept A */
+        [data-concept="a"] .theme-toggle {
+            display: none !important;
+        }
+        
+        /* Force V1 background (keep original black) */
+        [data-concept="a"] {
+            background: #000000 !important;
+        }
+        
+        [data-concept="a"] body,
+        [data-concept="a"] .max-w-7xl {
+            background: #000000 !important;
+        }
+    </style>
+
+    <script>
+        // SHADOW DOM SETUP - Para aislar V2 pero permitir animaciones
+        var v2Content = document.getElementById('v2-content').innerHTML;
+        var v2Host = document.getElementById('v2-host');
+        var shadow = v2Host.attachShadow({mode: 'open'});
+        
+        // Crear elemento de estilo para V2 con fondo correcto
+        var style = document.createElement('style');
+        style.textContent = `
+            body { background: #FAFAF9 !important; margin: 0; padding: 0; }
+            * { box-sizing: border-box; }
+        `;
+        
+        // Obtener los estilos de V2 del archivo CSS externo
+        fetch('assets-v2/css/styles.css')
+            .then(response => response.text())
+            .then(css => {
+                var v2style = document.createElement('style');
+                v2style.textContent = css;
+                shadow.appendChild(v2style);
+            });
+        
+        shadow.appendChild(style);
+        
+        // Agregar el contenido de V2 al shadow DOM
+        var container = document.createElement('div');
+        container.innerHTML = v2Content;
+        shadow.appendChild(container);
+        
+        // Ejecutar los scripts de V2 después de cargar el contenido
+        setTimeout(function() {
+            // Photo carousel animation
+            var photoTrack = shadow.getElementById('photo-track');
+            if (photoTrack) {
+                var position = 0;
+                var currentSpeed = 0.6;
+                var targetSpeed = 0.6;
+                
+                function animateCarousel() {
+                    currentSpeed += (targetSpeed - currentSpeed) * 0.05;
+                    position -= currentSpeed;
+                    
+                    var halfWidth = photoTrack.scrollWidth / 2;
+                    if (Math.abs(position) >= halfWidth) {
+                        position = 0;
+                    }
+                    
+                    photoTrack.style.transform = 'translateX(' + position + 'px)';
+                    requestAnimationFrame(animateCarousel);
+                }
+                
+                var photoCarousel = shadow.querySelector('.photo-carousel');
+                if (photoCarousel) {
+                    photoCarousel.addEventListener('mouseenter', function() { targetSpeed = 0.2; });
+                    photoCarousel.addEventListener('mouseleave', function() { targetSpeed = 0.6; });
+                }
+                
+                animateCarousel();
+            }
+            
+            // VanillaTilt para las cards
+            if (typeof VanillaTilt !== 'undefined') {
+                var cards = shadow.querySelectorAll('.work-card');
+                VanillaTilt.init(cards, {
+                    max: 8,
+                    speed: 400,
+                    glare: true,
+                    'max-glare': 0.15,
+                    scale: 1.02
+                });
+            }
+            
+            // Idle cursor drift
+            var cursors = shadow.querySelectorAll('.hero-v2-cursor');
+            cursors.forEach(function(tag) {
+                var x = 0, y = 0;
+                var targetX = 0, targetY = 0;
+                var range = 18;
+                
+                function pickTarget() {
+                    targetX = (Math.random() - 0.5) * range * 2;
+                    targetY = (Math.random() - 0.5) * range * 2;
+                    setTimeout(pickTarget, 800 + Math.random() * 1500);
+                }
+                
+                function animate() {
+                    x += (targetX - x) * 0.04;
+                    y += (targetY - y) * 0.04;
+                    tag.style.transform = 'translate(' + x.toFixed(2) + 'px, ' + y.toFixed(2) + 'px)';
+                    requestAnimationFrame(animate);
+                }
+                
+                setTimeout(function() { pickTarget(); animate(); }, Math.random() * 1000);
+            });
+            
+            // Patch tooltips
+            var patches = shadow.querySelectorAll('.hero-v2-patch');
+            var isTouch = window.matchMedia('(pointer: coarse)').matches;
+            
+            patches.forEach(function(patch) {
+                var tooltip = patch.querySelector('.hero-v2-tooltip');
+                var isRight = patch.classList.contains('hero-v2-patch--right');
+                
+                if (isTouch) {
+                    var fadeTimer;
+                    function deactivate() {
+                        clearTimeout(fadeTimer);
+                        tooltip.classList.remove('is-visible');
+                        patch.classList.remove('is-active');
+                        patch.style.zIndex = '1';
+                    }
+                    
+                    patch.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        clearTimeout(fadeTimer);
+                        var left, top;
+                        if (isRight) {
+                            left = e.clientX - tooltip.offsetWidth - 8;
+                            top = e.clientY - tooltip.offsetHeight - 8;
+                        } else {
+                            left = e.clientX + 16;
+                            top = e.clientY - tooltip.offsetHeight - 8;
+                        }
+                        tooltip.style.left = left + 'px';
+                        tooltip.style.top = top + 'px';
+                        tooltip.classList.add('is-visible');
+                        patch.classList.add('is-active');
+                        patch.style.zIndex = '9999';
+                        fadeTimer = setTimeout(deactivate, 2400);
+                    });
+                    
+                    document.addEventListener('click', function() {
+                        if (patch.classList.contains('is-active')) deactivate();
+                    });
+                } else {
+                    patch.addEventListener('mouseenter', function() { tooltip.classList.add('is-visible'); });
+                    patch.addEventListener('mouseleave', function() { tooltip.classList.remove('is-visible'); });
+                    patch.addEventListener('mousemove', function(e) {
+                        if (isRight) {
+                            tooltip.style.left = (e.clientX - tooltip.offsetWidth - 8) + 'px';
+                            tooltip.style.top = (e.clientY - tooltip.offsetHeight - 8) + 'px';
+                        } else {
+                            tooltip.style.left = (e.clientX + 16) + 'px';
+                            tooltip.style.top = (e.clientY - tooltip.offsetHeight - 8) + 'px';
+                        }
+                    });
+                }
+            });
+            
+            // Parallax effect
+            var parallaxElements = shadow.querySelectorAll('[data-parallax]');
+            parallaxElements.forEach(function(el) {
+                var wrapper = el.closest('.work-card-wrapper');
+                var speed = parseFloat(el.dataset.parallax) || 0.1;
+                var invert = el.dataset.parallaxInvert === 'true' ? -1 : 1;
+                
+                wrapper.addEventListener('mousemove', function(e) {
+                    var rect = wrapper.getBoundingClientRect();
+                    var centerX = rect.left + rect.width / 2;
+                    var centerY = rect.top + rect.height / 2;
+                    var moveX = (e.clientX - centerX) * speed * invert;
+                    var moveY = (e.clientY - centerY) * speed * invert;
+                    el.style.transform = 'scale(1) translate(' + moveX + 'px, ' + moveY + 'px)';
+                });
+                
+                wrapper.addEventListener('mouseleave', function() {
+                    el.style.transform = 'scale(0.9) translate(0, 0)';
+                });
+            });
+            
+            // Local time
+            function updateLocalTime() {
+                var timeEl = shadow.getElementById('local-time');
+                if (timeEl) {
+                    var now = new Date();
+                    timeEl.textContent = now.toLocaleTimeString('es-AR', {
+                        timeZone: 'America/Argentina/Buenos_Aires',
+                        hour: 'numeric',
+                        minute: '2-digit',
+                        hour12: true
+                    });
+                }
+            }
+            updateLocalTime();
+            setInterval(updateLocalTime, 1000);
+            
+        }, 500); // Esperar 500ms para que el contenido se cargue
+        
+        // Ocultar el original
+        document.getElementById('v2-content').style.display = 'none';
+        
+        // TOGGLE - Actualizar botón según versión actual
+        var urlParams = new URLSearchParams(window.location.search);
+        var verV2 = urlParams.get('v') === 'v2';
+        
+        // Actualizar estilo del botón según la versión actual
+        if (verV2) {
+            var btn = document.getElementById('toggle-btn');
+            btn.innerText = '☀️';
+            btn.style.background = '#fff';
+            btn.style.borderColor = '#22c55e';
+            btn.style.color = '#22c55e';
+        }
+        
+        function togglePortfolio() {
+            // Navegar a V1
+            window.location.href = 'v1.html';
+        }
+    </script>
+</body></html>
