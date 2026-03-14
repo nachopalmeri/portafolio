@@ -4,15 +4,10 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <!-- Config - API Keys -->
 <script src="config.js"></script>
-<!-- CSS to hide/show V1 and V2 immediately -->
+<!-- CSS to ensure V1 is visible -->
 <script>
 (function() {
-    var params = new URLSearchParams(window.location.search);
-    if (params.get('v') === 'v2') {
-        document.write('<style>#v1{display:none!important}#v2-host{display:block!important}</style>');
-    } else {
-        document.write('<style>#v2-host{display:none!important}#v1{display:block!important}</style>');
-    }
+    document.write('<style>#v1{display:block!important}</style>');
 })();
 </script>
 <meta name="description" content="Portfolio de Ignacio Palmeri - Estudiante de Gestión IT (UADE) buscando primera oportunidad como Trainee/Junior. Especializado en Python, automatización, Web3 y análisis de datos. Proyectos: Polymarket Bot, Fútbol Tracker, DApp Blockchain."/>
@@ -24,9 +19,9 @@
 <meta property="og:description" content="Estudiante de Gestión de Tecnología de la Información (UADE). Buscando rol Trainee/Junior en Python, Web3 o datos. Proyectos con LLMs, automatización y blockchain."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://nachopalmeri.github.io/portafolio"/>
-<meta property="og:image" content="https://portafolioignaciopalmeri.vercel.app/imgs/og-image.png"/>
+<meta property="og:image" content="https://portafolioignaciopalmeri.vercel.app/og-image.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://portafolioignaciopalmeri.vercel.app/imgs/og-image.png"/>
+<meta name="twitter:image" content="https://portafolioignaciopalmeri.vercel.app/og-image.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -1136,7 +1131,7 @@
 <body class="min-h-screen p-4 md:p-8 lg:p-12 antialiased selection-bg-white selection-text-black">
 
 <!-- V2 Link -->
-<a href="v2.html" class="v1-toggle" style="position:fixed;top:20px;right:20px;z-index:99999;padding:12px 16px;background:#111;border:2px solid #22c55e;border-radius:50%;color:#22c55e;text-decoration:none;cursor:pointer;font-size:20px;box-shadow:0 0 15px rgba(34,197,94,0.3);transition:all 0.3s;">🌙</a>
+<!-- V2 toggle removed - v2.html does not exist -->
 
 <!-- V1 WRAPPER -->
 <div id="v1" style="background: #000000;">
@@ -1238,7 +1233,7 @@ DISPONIBLE PARA TRABAJAR
 </div>
 <div class="flex items-center gap-6">
 <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-[#222] hover:border-green-500 transition-colors flex-shrink-0">
-<img src="imgs/yo.jfif" alt="Ignacio Palmeri" class="w-full h-full object-cover" width="400" height="400">
+<img src="yo.jfif" alt="Ignacio Palmeri" class="w-full h-full object-cover" width="400" height="400" loading="eager">
 </div>
 <div>
 <h1 class="text-5xl md:text-7xl lg:text-8xl font-black display-font tracking-tighter bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent leading-none uppercase">
@@ -1285,7 +1280,7 @@ Programación y análisis de datos, con enfoque en el sector Fintech y Criptoact
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-min">
 <a href="https://polytools-omega.vercel.app/" target="_blank" class="md:col-span-7 bento-card featured rounded-2xl p-0 flex flex-col justify-between group relative overflow-hidden h-[320px] cursor-pointer">
 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80 z-10"></div>
-<img src="imgs/polymarktporyect.PNG" alt="Bot Polymarket" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" width="400" height="300">
+<img src="polymarktporyect.PNG" alt="Bot Polymarket" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" width="400" height="300">
 <div class="relative z-20 flex justify-between items-start">
 <div class="flex items-center gap-2">
 <span class="terminal-dot red"></span>
@@ -1316,7 +1311,7 @@ Programación y análisis de datos, con enfoque en el sector Fintech y Criptoact
 </a>
 <a href="https://fulbotracker.vercel.app/" target="_blank" class="md:col-span-5 bento-card featured rounded-2xl p-0 flex flex-col justify-between group relative overflow-hidden h-[320px] cursor-pointer">
 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80 z-10"></div>
-<img src="imgs/futtracker.PNG" alt="Fútbol Tracker" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" width="400" height="300">
+<img src="futtracker.PNG" alt="Fútbol Tracker" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" width="400" height="300">
 <div class="relative z-20 flex justify-between items-start">
                 <div class="w-10 h-10 rounded-full border border-[#333] flex items-center justify-center bg-black">
                     <span class="material-symbols-outlined text-white text-lg">sports_soccer</span>
@@ -1337,7 +1332,7 @@ Programación y análisis de datos, con enfoque en el sector Fintech y Criptoact
 <div class="md:col-span-6">
 <a href="https://prodesol.vercel.app/" target="_blank" class="bento-card featured rounded-2xl p-0 flex flex-col justify-between group relative overflow-hidden h-[240px] cursor-pointer">
 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80 z-10"></div>
-<img src="imgs/dom.PNG" alt="DApp Blockchain" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" width="400" height="300">
+<img src="dom.PNG" alt="DApp Blockchain" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" width="400" height="300">
 <div class="relative z-20 flex justify-between items-start p-6">
 <div class="flex items-center gap-2">
 <span class="terminal-dot red"></span>
@@ -1361,7 +1356,7 @@ Programación y análisis de datos, con enfoque en el sector Fintech y Criptoact
 <div class="md:col-span-6">
 <a href="https://portafolioignaciopalmeri.vercel.app/hub.html" target="_blank" class="bento-card featured rounded-2xl p-0 flex flex-col justify-between group relative overflow-hidden h-[240px] cursor-pointer">
 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80 z-10"></div>
-<img src="imgs/comidadebarrio.PNG" alt="Proyectos Web" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" width="400" height="300">
+<img src="comidadebarrio.PNG" alt="Proyectos Web" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" width="400" height="300">
 <div class="relative z-20 flex justify-between items-start p-6">
 <div class="flex items-center gap-2">
 <span class="terminal-dot red"></span>
@@ -1385,7 +1380,7 @@ Programación y análisis de datos, con enfoque en el sector Fintech y Criptoact
 <div class="md:col-span-12">
 <a href="https://franqui-ya-fpq4.vercel.app/" target="_blank" class="bento-card featured rounded-2xl p-0 flex flex-col justify-between group relative overflow-hidden h-[280px] cursor-pointer">
 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80 z-10"></div>
-<img src="imgs/dashboard-franquiciados.PNG" alt="Dashboard Franquiciados" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" width="400" height="300">
+<img src="dashboard-franquiciados.PNG" alt="Dashboard Franquiciados" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" width="400" height="300">
 <div class="relative z-20 flex justify-between items-start p-6">
 <div class="flex items-center gap-2">
 <span class="terminal-dot red"></span>
@@ -1412,7 +1407,7 @@ Programación y análisis de datos, con enfoque en el sector Fintech y Criptoact
 <div class="md:col-span-6">
 <a href="https://pisku-production.up.railway.app/" target="_blank" class="bento-card featured rounded-2xl p-0 flex flex-col justify-between group relative overflow-hidden h-[280px] cursor-pointer">
 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80 z-10"></div>
-<img src="imgs/pisku-cli.png" alt="PISKU CLI" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" width="400" height="300">
+<img src="pisku-cli.png" alt="PISKU CLI" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" width="400" height="300" onerror="this.style.display='none'">
 <div class="relative z-20 flex justify-between items-start p-6">
 <div class="flex items-center gap-2">
 <span class="terminal-dot red"></span>
@@ -1438,7 +1433,7 @@ Programación y análisis de datos, con enfoque en el sector Fintech y Criptoact
 <div class="md:col-span-6">
 <a href="https://job--bot.vercel.app/" target="_blank" class="bento-card featured rounded-2xl p-0 flex flex-col justify-between group relative overflow-hidden h-[280px] cursor-pointer">
 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80 z-10"></div>
-<img src="imgs/job-bot.png" alt="Job Bot" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" width="400" height="300">
+<img src="job-bot.png" alt="Job Bot" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" width="400" height="300" onerror="this.style.display='none'">
 <div class="relative z-20 flex justify-between items-start p-6">
 <div class="flex items-center gap-2">
 <span class="terminal-dot red"></span>
@@ -1726,29 +1721,6 @@ Programación y análisis de datos, con enfoque en el sector Fintech y Criptoact
 </div>
 </div>
 </div>
-<div class="space-y-2 font-mono text-sm">
-<div class="p-2 bg-[#111] rounded text-white hover:bg-[#151515] transition-colors">
-<span class="text-green-400">👥 Trabajo en equipo</span>
-<p class="text-[#666] text-xs mt-1">Colaboración diaria con compañeros</p>
-</div>
-<div class="p-2 bg-[#111] rounded text-white hover:bg-[#151515] transition-colors">
-<span class="text-blue-400">💬 Comunicación</span>
-<p class="text-[#666] text-xs mt-1">Atención al cliente y consultas</p>
-</div>
-<div class="p-2 bg-[#111] rounded text-white hover:bg-[#151515] transition-colors">
-<span class="text-yellow-400">🔧 Resolución de problemas</span>
-<p class="text-[#666] text-xs mt-1">Situaciones operativas diarias</p>
-</div>
-<div class="p-2 bg-[#111] rounded text-white hover:bg-[#151515] transition-colors">
-<span class="text-purple-400">⏰ Gestión del tiempo</span>
-<p class="text-[#666] text-xs mt-1">Cierre de turnos y caja</p>
-</div>
-<div class="p-2 bg-[#111] rounded text-white hover:bg-[#151515] transition-colors">
-<span class="text-orange-400">✅ Responsabilidad</span>
-<p class="text-[#666] text-xs mt-1">Control de stock y dinero</p>
-</div>
-</div>
-</div>
 </div>
 
 <style>
@@ -1801,7 +1773,7 @@ function toggleTheme() {
 const isLight = document.body.getAttribute('data-theme') === 'light';
 document.body.setAttribute('data-theme', isLight ? '' : 'light');
 const icon = document.getElementById('theme-icon');
-icon.textContent = isLight ? '🌙' : '☀️';
+if (icon) icon.textContent = isLight ? '🌙' : '☀️';
 localStorage.setItem('theme', isLight ? 'dark' : 'light');
 }
 
@@ -1809,7 +1781,8 @@ localStorage.setItem('theme', isLight ? 'dark' : 'light');
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'light') {
 document.body.setAttribute('data-theme', 'light');
-document.getElementById('theme-icon').textContent = '☀️';
+const themeIcon = document.getElementById('theme-icon');
+if (themeIcon) themeIcon.textContent = '☀️';
 }
 
 function toggleMobileMenu() {
@@ -1930,21 +1903,22 @@ response = '¡Hola! 👋 Bienvenido a mi portfolio.\nEscribe "help" para ver los
 break;
 case 'ai':
 case 'ask':
-case 'chat':
+case 'chat': {
 const question = command.replace(/^(ai|ask|chat)\s*/i, '').trim();
 if (!question) {
-response = '用法: ai <tu pregunta>\n\nEjemplo: ai ¿Qué proyectos tiene Ignacio?';
+response = 'Uso: ai <tu pregunta>\n\nEjemplo: ai ¿Qué proyectos tiene Ignacio?';
 } else {
 response = '🤖 Consultando a IA...';
-const respDiv = document.createElement('div');
-respDiv.className = 'terminal-output';
-respDiv.textContent = response;
-body.appendChild(respDiv);
+const aiRespDiv = document.createElement('div');
+aiRespDiv.className = 'terminal-output';
+aiRespDiv.textContent = response;
+body.appendChild(aiRespDiv);
 body.scrollTop = body.scrollHeight;
 callGroqAPI(question, body);
 return;
 }
 break;
+}
 default:
 response = 'Comando no encontrado: "' + command + '"\n\nTip: Usá "ai <pregunta>" para chatear con IA\nEscribe "help" para ver comandos disponibles.';
 }
@@ -2082,6 +2056,17 @@ function updateVisitorCount() {
 
 updateVisitorCount();
 
+// Scroll progress bar
+window.addEventListener('scroll', function() {
+    const scrollProgress = document.getElementById('scroll-progress');
+    if (scrollProgress) {
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = (scrollTop / scrollHeight) * 100;
+        scrollProgress.style.width = progress + '%';
+    }
+});
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -2097,7 +2082,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Form submission feedback
-document.querySelector('form').addEventListener('submit', function(e) {
+document.addEventListener('DOMContentLoaded', function() {
+const form = document.querySelector('form');
+if (form) {
+form.addEventListener('submit', function(e) {
 const btn = this.querySelector('button[type="submit"]');
 const originalText = btn.innerHTML;
 btn.innerHTML = '<span class="animate-pulse">Enviando...</span>';
@@ -2112,6 +2100,8 @@ btn.classList.remove('bg-green-500/20', 'border-green-500/50');
 this.reset();
 }, 3000);
 }, 1000);
+});
+}
 });
 </script>
 
