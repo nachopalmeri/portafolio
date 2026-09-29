@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const projects = [
   {
@@ -75,8 +75,29 @@ const certifications = [
 ];
 
 export default function Home() {
+  const [showIntro, setShowIntro] = useState(true);
   const [terminalOutput, setTerminalOutput] = useState<string[]>(['Bienvenido! Escribe "help" para ver comandos.']);
   const [terminalInput, setTerminalInput] = useState('');
+
+  useEffect(() => {
+    if (!showIntro) return;
+
+    document.body.classList.add('intro-active');
+    const handleIntroExit = (event: MessageEvent) => {
+      if (event.data?.type === 'portfolio:intro-exit') setShowIntro(false);
+    };
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setShowIntro(false);
+    };
+
+    window.addEventListener('message', handleIntroExit);
+    window.addEventListener('keydown', handleEscape);
+    return () => {
+      document.body.classList.remove('intro-active');
+      window.removeEventListener('message', handleIntroExit);
+      window.removeEventListener('keydown', handleEscape);
+    };
+  }, [showIntro]);
 
   const commands: Record<string, string> = {
     help: 'Comandos disponibles: help, about, skills, contact, clear',
@@ -103,7 +124,8 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#000000] text-[#EDEDED] font-sans">
+    <>
+      <div className={`portfolio-page min-h-screen bg-[#000000] text-[#EDEDED] font-sans ${showIntro ? 'portfolio-page--blurred' : ''}`}>
       <div className="max-w-5xl mx-auto px-6 md:px-8">
         
         {/* Navbar */}
@@ -273,6 +295,21 @@ export default function Home() {
         </footer>
 
       </div>
-    </div>
+      </div>
+
+      {showIntro && (
+        <div className="intro-overlay" aria-label="Intro de Ignacio Palmeri">
+          <iframe
+            title="Intro de Ignacio Palmeri"
+            src="/intro/index.html?v=3"
+            className="intro-frame"
+            allow="autoplay"
+          />
+          <button type="button" className="intro-overlay-skip" onClick={() => setShowIntro(false)}>
+            Saltar intro →
+          </button>
+        </div>
+      )}
+    </>
   );
 }
