@@ -14,3 +14,8 @@ Deploy en Vercel: importar el repositorio y listo.
 - Next.js
 - React
 - Tailwind CSS
+# Portfolio
+
+Personal portfolio project.
+
+Updated on 2026-09-30.
