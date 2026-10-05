@@ -18,4 +18,4 @@ Deploy en Vercel: importar el repositorio y listo.
 
 Personal portfolio project.
 
-Updated on 2026-09-30.
+Updated on 2026-10-05.
